@@ -1,7 +1,24 @@
-package gui;
 
 import java.awt.Color;
+import java.awt.Cursor;
 
+/*
+ * NewJFrame1.java
+ *
+ * Created on 1 יוני 2008, 21:16
+ */
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+
+
+/**
+ *
+ * @author  User
+ */
 public class Settings extends GeneralJFrame1 {
     
     private GeneralJFrame1 parent;

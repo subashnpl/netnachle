@@ -1,5 +1,3 @@
-package gui;
-
 
 import java.awt.Color;
 
@@ -9,9 +7,16 @@ import java.awt.Color;
  * Created on 5 יוני 2008, 03:17
  */
 import java.awt.Cursor;
+import java.awt.Label;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 
+
+
+/**
+ *
+ * @author  User
+ */
 public class GeneralJFrame1 extends javax.swing.JFrame {
     protected static Color backgroundColor = Color.DARK_GRAY;
     protected Color headerColor = new Color(255, 51, 51);
