@@ -1,14 +1,10 @@
+package gui;
+
 
 import java.awt.Color;
-
-/*
- * generalJFrame.java
- *
- * Created on 5 יוני 2008, 03:17
- */
 import java.awt.Cursor;
-import java.awt.Label;
 import java.awt.Toolkit;
+
 import javax.swing.JLabel;
 
 
