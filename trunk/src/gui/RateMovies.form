@@ -15,7 +15,7 @@
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="2"/>
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
@@ -176,7 +176,7 @@
                       <Component id="jButtonPreviousStep" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="138" max="32767" attributes="0"/>
+                      <EmptySpace pref="142" max="32767" attributes="0"/>
                       <Component id="jButtonNextStep" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -326,7 +326,7 @@
             <Component class="javax.swing.JButton" name="jButtonNextStep">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/AT_next.gif"/>
+                  <Image iconType="3" name="/Images/AT_next.gif"/>
                 </Property>
               </Properties>
               <Events>
@@ -393,7 +393,7 @@
             <Component class="javax.swing.JLabel" name="jLabelPicture1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                  <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                 </Property>
               </Properties>
             </Component>
@@ -433,7 +433,7 @@
             <Component class="javax.swing.JLabel" name="jLabelPicture2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                  <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                 </Property>
               </Properties>
             </Component>
@@ -473,7 +473,7 @@
             <Component class="javax.swing.JLabel" name="jLabelPicture3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                  <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                 </Property>
               </Properties>
             </Component>
@@ -513,7 +513,7 @@
             <Component class="javax.swing.JLabel" name="jLabelPicture4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                  <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                 </Property>
               </Properties>
             </Component>
@@ -553,7 +553,7 @@
             <Component class="javax.swing.JLabel" name="jLabelPicture5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                  <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                 </Property>
               </Properties>
             </Component>
@@ -593,7 +593,7 @@
             <Component class="javax.swing.JLabel" name="jLabelPicture6">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                  <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                 </Property>
               </Properties>
             </Component>
@@ -633,14 +633,14 @@
             <Component class="javax.swing.JLabel" name="jLabelPicture7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                  <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonPreviousStep">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/AT_back.gif"/>
+                  <Image iconType="3" name="/Images/AT_back.gif"/>
                 </Property>
               </Properties>
               <Events>

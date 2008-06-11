@@ -12,7 +12,7 @@
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="2"/>
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
@@ -85,12 +85,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator1" alignment="0" pref="613" max="32767" attributes="0"/>
+                                  <Component id="jSeparator1" alignment="0" pref="842" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabelHello" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabelUserName" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="345" max="32767" attributes="0"/>
+                                      <EmptySpace pref="573" max="32767" attributes="0"/>
                                       <Component id="jLabelPermission" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jSeparator3" min="-2" pref="9" max="-2" attributes="0"/>
@@ -104,10 +104,10 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jPanel3" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jPanel3" linkSize="3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jPanel4" linkSize="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -120,9 +120,9 @@
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="316" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="431" max="32767" attributes="0"/>
                           <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="317" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="431" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -145,22 +145,24 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel3" max="32767" attributes="1"/>
-                          <Component id="jPanel4" alignment="0" min="-2" max="-2" attributes="1"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel3" linkSize="2" max="32767" attributes="1"/>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jPanel4" linkSize="2" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="321" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="331" max="32767" attributes="0"/>
                           <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="321" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="332" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -182,7 +184,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="292" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="408" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -216,14 +218,14 @@
                                   <Component id="jLabelRate4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelRate6" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="103" max="32767" attributes="0"/>
+                              <EmptySpace pref="218" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="487" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="508" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -285,7 +287,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="37" max="32767" attributes="0"/>
+                              <EmptySpace pref="58" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -295,49 +297,49 @@
                 <Component class="javax.swing.JLabel" name="jLabelPicture8">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture9">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture10">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture11">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture12">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture13">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture14">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -570,7 +572,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="101" max="32767" attributes="0"/>
+                          <EmptySpace pref="214" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -636,7 +638,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <EmptySpace pref="58" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -680,7 +682,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelPicture21">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -695,7 +697,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelPicture20">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -742,7 +744,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelPicture17">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -757,14 +759,14 @@
                 <Component class="javax.swing.JLabel" name="jLabelPicture16">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture18">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -795,14 +797,14 @@
                 <Component class="javax.swing.JLabel" name="jLabelPicture15">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelPicture19">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/NetNachleVerySmall.JPG"/>
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>

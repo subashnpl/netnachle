@@ -1,18 +1,10 @@
 package gui;
 
-
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Toolkit;
+import javax.swing.*;
 
-import javax.swing.JLabel;
-
-
-
-/**
- *
- * @author  User
- */
 public class GeneralJFrame1 extends javax.swing.JFrame {
     protected static Color backgroundColor = Color.DARK_GRAY;
     protected Color headerColor = new Color(255, 51, 51);
@@ -56,15 +48,15 @@ public class GeneralJFrame1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
         );
 
         pack();
