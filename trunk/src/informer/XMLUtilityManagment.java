@@ -1,7 +1,7 @@
 /*
  * XMLManagment.java
  *
- * Created on 31 אוקטובר 2005, 01:57
+ * Created on 31 2005, 01:57
  *
  * To change this template, choose Tools | Options and locate the template under
  * the Source Creation and Management node. Right-click the template and choose
