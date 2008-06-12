@@ -1,13 +1,19 @@
 package gui;
 
-public class MainFrame extends GeneralJFrame1 {
+import domain.controller.Controller;
+import javax.swing.JOptionPane;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+public class MainFrame extends GeneralJFrame {
+    
+    private Controller _controller;
     
     /** Creates new form NewJFrame1 */
-    public MainFrame() {
-        setFrameAtCenter(getWidth(), getHeight());
+    public MainFrame(Controller controller) {
+        this._controller = controller;
+        setFrameAtCenter(this.getWidth(), this.getHeight());
 	initComponents();
     }
-    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -44,8 +50,8 @@ public class MainFrame extends GeneralJFrame1 {
         jLabelHello = new javax.swing.JLabel();
         jLabelUserName = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabelPermission = new javax.swing.JLabel();
-        jLabelPermission1 = new javax.swing.JLabel();
+        jLabelPermissionMode = new javax.swing.JLabel();
+        jLabelLogOut = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabelPermission3 = new javax.swing.JLabel();
@@ -71,9 +77,9 @@ public class MainFrame extends GeneralJFrame1 {
         jLabelPicture19 = new javax.swing.JLabel();
         jLabelMovie14 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonRateMovies = new javax.swing.JButton();
+        jButtonSystemManagement = new javax.swing.JButton();
+        jButtonSettings = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -183,7 +189,7 @@ public class MainFrame extends GeneralJFrame1 {
                         .add(jLabelRate1)
                         .add(jLabelRate4)
                         .add(jLabelRate6))
-                    .addContainerGap(218, Short.MAX_VALUE)))
+                    .addContainerGap(219, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -248,26 +254,26 @@ public class MainFrame extends GeneralJFrame1 {
         jLabelHello.setForeground(headersFontColor);
         jLabelHello.setText("Hello");
 
-        jLabelUserName.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelUserName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelUserName.setForeground(headersFontColor);
-        jLabelUserName.setText("Israel Israeli");
+        jLabelUserName.setText(_controller.getCurrentUser().getName());
 
-        jLabelPermission.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabelPermission.setForeground(headersFontColor);
-        jLabelPermission.setText("Permission Mode");
+        jLabelPermissionMode.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelPermissionMode.setForeground(headersFontColor);
+        jLabelPermissionMode.setText("Permission Mode");
 
-        jLabelPermission1.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabelPermission1.setForeground(headersFontColor);
-        jLabelPermission1.setText("Log Out");
-        jLabelPermission1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelLogOut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelLogOut.setForeground(headersFontColor);
+        jLabelLogOut.setText("Log Out");
+        jLabelLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPermission1MouseClicked(evt);
+                jLabelLogOutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelPermission1MouseEntered(evt);
+                jLabelLogOutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelPermission1MouseExited(evt);
+                jLabelLogOutMouseExited(evt);
             }
         });
 
@@ -430,24 +436,24 @@ public class MainFrame extends GeneralJFrame1 {
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton1.setText("Rate Movies");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRateMovies.setText("Rate Movies");
+        jButtonRateMovies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonRateMoviesActionPerformed(evt);
             }
         });
 
-        jButton2.setText("System Management");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSystemManagement.setText("System Management");
+        jButtonSystemManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonSystemManagementActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Settings");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSettings.setText("Settings");
+        jButtonSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonSettingsActionPerformed(evt);
             }
         });
 
@@ -464,23 +470,23 @@ public class MainFrame extends GeneralJFrame1 {
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
+                            .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jLabelHello)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jLabelUserName)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 573, Short.MAX_VALUE)
-                                .add(jLabelPermission)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 594, Short.MAX_VALUE)
+                                .add(jLabelPermissionMode)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabelPermission1))
+                                .add(jLabelLogOut))
                             .add(jPanel1Layout.createSequentialGroup()
-                                .add(jButton1)
+                                .add(jButtonRateMovies)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jButton3)
+                                .add(jButtonSettings)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jButton2))
+                                .add(jButtonSystemManagement))
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
@@ -491,9 +497,9 @@ public class MainFrame extends GeneralJFrame1 {
                         .add(164, 164, 164))))
             .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanel1Layout.createSequentialGroup()
-                    .add(0, 431, Short.MAX_VALUE)
+                    .add(0, 442, Short.MAX_VALUE)
                     .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(0, 431, Short.MAX_VALUE)))
+                    .add(0, 443, Short.MAX_VALUE)))
         );
 
         jPanel1Layout.linkSize(new java.awt.Component[] {jPanel3, jPanel4}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
@@ -505,8 +511,8 @@ public class MainFrame extends GeneralJFrame1 {
                     .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(jLabelHello)
                         .add(jLabelUserName)
-                        .add(jLabelPermission1)
-                        .add(jLabelPermission))
+                        .add(jLabelLogOut)
+                        .add(jLabelPermissionMode))
                     .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -518,16 +524,16 @@ public class MainFrame extends GeneralJFrame1 {
                         .add(jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(37, 37, 37)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(jButton1)
-                            .add(jButton3)
-                            .add(jButton2)))
+                            .add(jButtonRateMovies)
+                            .add(jButtonSettings)
+                            .add(jButtonSystemManagement)))
                     .add(jPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanel1Layout.createSequentialGroup()
-                    .add(0, 331, Short.MAX_VALUE)
+                    .add(0, 342, Short.MAX_VALUE)
                     .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(0, 332, Short.MAX_VALUE)))
+                    .add(0, 343, Short.MAX_VALUE)))
         );
 
         jPanel1Layout.linkSize(new java.awt.Component[] {jPanel3, jPanel4}, org.jdesktop.layout.GroupLayout.VERTICAL);
@@ -563,37 +569,40 @@ public class MainFrame extends GeneralJFrame1 {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    new RateMovies().setVisible(true);
-}//GEN-LAST:event_jButton1ActionPerformed
+private void jButtonRateMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRateMoviesActionPerformed
+    this.setEnabled(false);
+    new RateMovies(this, _controller).setVisible(true);
+}//GEN-LAST:event_jButtonRateMoviesActionPerformed
 
-private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+private void jButtonSystemManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSystemManagementActionPerformed
     new SystemManagement().setVisible(true);
-}//GEN-LAST:event_jButton2ActionPerformed
+}//GEN-LAST:event_jButtonSystemManagementActionPerformed
 
-private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    new Settings(this).setVisible(true);
-}//GEN-LAST:event_jButton3ActionPerformed
+private void jButtonSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSettingsActionPerformed
+    new Settings(this, _controller).setVisible(true);
+}//GEN-LAST:event_jButtonSettingsActionPerformed
 
-private void jLabelPermission1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPermission1MouseClicked
+private void jLabelLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseClicked
+    _controller.shutDown();
     System.exit(1);// TODO add your handling code here:
-}//GEN-LAST:event_jLabelPermission1MouseClicked
+}//GEN-LAST:event_jLabelLogOutMouseClicked
 
-private void jLabelPermission1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPermission1MouseEntered
-    setLinkEntered(jLabelPermission1, linkHeaderColor);// TODO add your handling code here:
-}//GEN-LAST:event_jLabelPermission1MouseEntered
+private void jLabelLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseEntered
+    setLinkEntered(jLabelLogOut, linkHeaderColor);// TODO add your handling code here:
+}//GEN-LAST:event_jLabelLogOutMouseEntered
 
-private void jLabelPermission1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelPermission1MouseExited
-    setLinkExited(jLabelPermission1, this.headersFontColor);// TODO add your handling code here:
-}//GEN-LAST:event_jLabelPermission1MouseExited
+private void jLabelLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseExited
+    setLinkExited(jLabelLogOut, this.headersFontColor);// TODO add your handling code here:
+}//GEN-LAST:event_jLabelLogOutMouseExited
     
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonRateMovies;
+    private javax.swing.JButton jButtonSettings;
+    private javax.swing.JButton jButtonSystemManagement;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelHello;
+    private javax.swing.JLabel jLabelLogOut;
     private javax.swing.JLabel jLabelMovie1;
     private javax.swing.JLabel jLabelMovie10;
     private javax.swing.JLabel jLabelMovie11;
@@ -608,10 +617,9 @@ private void jLabelPermission1MouseExited(java.awt.event.MouseEvent evt) {//GEN-
     private javax.swing.JLabel jLabelMovie7;
     private javax.swing.JLabel jLabelMovie8;
     private javax.swing.JLabel jLabelMovie9;
-    private javax.swing.JLabel jLabelPermission;
-    private javax.swing.JLabel jLabelPermission1;
     private javax.swing.JLabel jLabelPermission2;
     private javax.swing.JLabel jLabelPermission3;
+    private javax.swing.JLabel jLabelPermissionMode;
     private javax.swing.JLabel jLabelPicture10;
     private javax.swing.JLabel jLabelPicture11;
     private javax.swing.JLabel jLabelPicture12;

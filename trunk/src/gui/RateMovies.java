@@ -1,9 +1,17 @@
 package gui;
 
-public class RateMovies extends GeneralJFrame1 {
+import domain.controller.Controller;
+import javax.swing.JFrame;
+
+public class RateMovies extends GeneralJFrame {
+    
+    private JFrame _parent;
+    private Controller _controller;
     
     /** Creates new form NewJFrame1 */
-    public RateMovies() {
+    public RateMovies(JFrame parent, Controller controller) {
+        this._parent = parent;
+        this._controller = controller;
         setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
     }
@@ -56,7 +64,7 @@ public class RateMovies extends GeneralJFrame1 {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setBackground(GeneralJFrame1.backgroundColor);
+        setBackground(gui.GeneralJFrame.backgroundColor);
 
         jPanel2.setBackground(backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
@@ -179,10 +187,10 @@ public class RateMovies extends GeneralJFrame1 {
             .add(jPanel1Layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(jLabelRateMoviesTitle)
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -199,7 +207,7 @@ public class RateMovies extends GeneralJFrame1 {
                         .add(jLabelMovie7)
                         .add(101, 101, 101)
                         .add(jLabelDirector7)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 121, Short.MAX_VALUE)
                         .add(jComboBoxRate7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(65, 65, 65)
                         .add(jLabelPicture7))
@@ -207,7 +215,7 @@ public class RateMovies extends GeneralJFrame1 {
                         .add(jLabelMovie6)
                         .add(101, 101, 101)
                         .add(jLabelDirector6)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 121, Short.MAX_VALUE)
                         .add(jComboBoxRate6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(65, 65, 65)
                         .add(jLabelPicture6))
@@ -215,7 +223,7 @@ public class RateMovies extends GeneralJFrame1 {
                         .add(jLabelMovie5)
                         .add(101, 101, 101)
                         .add(jLabelDirector5)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 121, Short.MAX_VALUE)
                         .add(jComboBoxRate5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(65, 65, 65)
                         .add(jLabelPicture5))
@@ -223,7 +231,7 @@ public class RateMovies extends GeneralJFrame1 {
                         .add(jLabelMovie4)
                         .add(101, 101, 101)
                         .add(jLabelDirector4)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 121, Short.MAX_VALUE)
                         .add(jComboBoxRate4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(65, 65, 65)
                         .add(jLabelPicture4))
@@ -231,7 +239,7 @@ public class RateMovies extends GeneralJFrame1 {
                         .add(jLabelMovie3)
                         .add(101, 101, 101)
                         .add(jLabelDirector3)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 121, Short.MAX_VALUE)
                         .add(jComboBoxRate3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(65, 65, 65)
                         .add(jLabelPicture3))
@@ -239,7 +247,7 @@ public class RateMovies extends GeneralJFrame1 {
                         .add(jLabelMovie2)
                         .add(101, 101, 101)
                         .add(jLabelDirector2)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 121, Short.MAX_VALUE)
                         .add(jComboBoxRate2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(65, 65, 65)
                         .add(jLabelPicture2))
@@ -247,7 +255,7 @@ public class RateMovies extends GeneralJFrame1 {
                         .add(jLabelMovie1)
                         .add(101, 101, 101)
                         .add(jLabelDirector1)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 121, Short.MAX_VALUE)
                         .add(jComboBoxRate1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 42, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(65, 65, 65)
                         .add(jLabelPicture1)))
@@ -390,7 +398,9 @@ private void jButtonPreviousStepActionPerformed(java.awt.event.ActionEvent evt) 
 }//GEN-LAST:event_jButtonPreviousStepActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    new MainFrame().setVisible(true);
+    this.setVisible(false);
+    _parent.setEnabled(true);
+    _parent.setVisible(true);
 }//GEN-LAST:event_jButton1ActionPerformed
     
    

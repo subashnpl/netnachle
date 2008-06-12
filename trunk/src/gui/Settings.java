@@ -1,13 +1,16 @@
 package gui;
 
+import domain.controller.Controller;
 import java.awt.Color;
 
-public class Settings extends GeneralJFrame1 {
+public class Settings extends GeneralJFrame {
     
-    private GeneralJFrame1 parent;
+    private GeneralJFrame parent;
+    private Controller _controller;
     
     /** Creates new form NewJFrame1 */
-    public Settings(GeneralJFrame1 parent) {
+    public Settings(GeneralJFrame parent, Controller controller) {
+        this._controller = controller;
         this.parent = parent;
         setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
@@ -30,7 +33,7 @@ public class Settings extends GeneralJFrame1 {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Settings");
-        setBackground(GeneralJFrame1.backgroundColor);
+        setBackground(GeneralJFrame.backgroundColor);
 
         jPanel2.setBackground(backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));

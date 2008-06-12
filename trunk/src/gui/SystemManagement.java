@@ -1,6 +1,6 @@
 package gui;
 
-public class SystemManagement extends GeneralJFrame1 {
+public class SystemManagement extends GeneralJFrame {
     
     /** Creates new form NewJFrame1 */
     public SystemManagement() {
@@ -34,7 +34,7 @@ public class SystemManagement extends GeneralJFrame1 {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome to another Production of NetNachle");
-        setBackground(GeneralJFrame1.backgroundColor);
+        setBackground(GeneralJFrame.backgroundColor);
 
         jPanel2.setBackground(backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));

@@ -1,25 +1,26 @@
 package domain.controller;
 
+import Exceptions.NonUserException;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Vector;
-import java.util.Map.Entry;
-
 import domain.Movie;
 import domain.User;
 
 public class Controller {
 	private DataManipulate _moviesHandler;
 	private DataManipulate _usersHandler;
-	private MatrixHandler _matrixHandler;
+        private Strategy _strategy;
 	private Logger logger;
 	private HashMap<Integer, User> _users;
 	private HashMap<Integer, Movie> _movies;
-	private HashMap<Integer, User> _usersIn;  //this is a hash map that tell us who looged in
-
-	public Controller(){
+	private HashMap<Integer, User> _usersInSystem;  //this is a hash map that tell us who looged in
+        private User _currentUser;
+        
+	public Controller(Strategy strategy){
 		upLoad();
-		_matrixHandler = new MatrixHandler(_users, _movies);
+                strategy.set_users(_users);
+                strategy.set_movies(_movies);
+		_strategy = strategy;
 	}//constructor
 
 	public DataManipulate get_movieHandler() {
@@ -42,11 +43,11 @@ public class Controller {
 	}
 
 	public HashMap<Integer, User> get_usersIn() {
-		return _usersIn;
+		return _usersInSystem;
 	}
 
 	public void set_usersIn(HashMap<Integer, User> in) {
-		_usersIn = in;
+		_usersInSystem = in;
 	}
 	public HashMap<Integer, Movie> get_movies() {
 		return _movies;
@@ -58,12 +59,12 @@ public class Controller {
 		_users.put(usr.getId(), usr);
 		logger.log("User " + usr.getName() + " has been added to database.");
 	}
-	public MatrixHandler get_matrixHandler() {
-		return _matrixHandler;
+	public Strategy get_Strategy() {
+		return _strategy;
 	}
 
-	public void set_matrixHandler(MatrixHandler handler) {
-		_matrixHandler = handler;
+	public void set_Strategy(Strategy strategy) {
+		_strategy = strategy;
 	}
 	//public void removeUser(int i){
 	//	_users.remove(i);
@@ -87,7 +88,7 @@ public class Controller {
 		_moviesHandler = new DataManipulate("movies");
 		_usersHandler = new DataManipulate("users");
 		_users = _usersHandler.getUsers();
-		_usersIn = new HashMap<Integer, User>();
+		_usersInSystem = new HashMap<Integer, User>();
 		_movies = _moviesHandler.getMovies();
 		generateMoviesRaters();
 		logger = Logger.makeSingleton("log.txt");
@@ -127,23 +128,26 @@ public class Controller {
 		User newUser = new User(password,permission,id,name,sex);
 		this.addUser(newUser);
 	}
-	public User login(String password, String userName, int id){
+	public User login(String password, String userName, int id) throws Exception{
 		User tUser = _users.get(id);
 		String message;
 		if(tUser!=null && tUser.getId()==id &&
 				tUser.getName().equals(userName) &&
 				tUser.getPassword().equals(password)){
 			message = "User " + userName + " has logged on.";
-			_usersIn.put(tUser.getId(), tUser);					//add the user to the system
+                        logger.log(message);
+			_usersInSystem.put(tUser.getId(), tUser);	//add the user to the system                        
 		}
 		else{
-			message = "Non-User " + userName + " has tried to login but failed.";
+                    tUser = null;
+                    message = "Non-User " + userName + " has tried to login but failed.";
+                    logger.log(message);
+                    throw new NonUserException("No such user: " + userName);
 		}
-		logger.log(message);
 		return tUser;
 	}
 	public void logout(User user){
-		_usersIn.remove(user.getId());
+		_usersInSystem.remove(user.getId());
 	}
 	/**
 	 * recieveRecommendations(random for now) returns randomly movies
@@ -159,72 +163,77 @@ public class Controller {
 		}
 	}
 
-	public static void main(String[] args) {
+    public User getCurrentUser() {
+        return _currentUser;
+    }
 
-		Controller c = new Controller();
+    public void setCurrentUser(User currentUser) {
+        this._currentUser = currentUser;
+    }
 
-		/* Initialize some users: */
-		User u1 = new User("555","user" , 231 , "ido" , "male");
-		u1.rateMovie(121, 3);
-		u1.rateMovie(122, 4);
-		c.addUser(u1);
-
-		User u2 = new User("555","user" , 232 , "yotam" , "male");
-		u2.rateMovie(121, 5);
-		u2.rateMovie(122, 6);
-		u2.rateMovie(123, 7);
-		u2.rateMovie(124, 8);
-		c.addUser(u2);
-
-		/* Initialize some movies: */
-		Vector<String> movieActors = new Vector<String>();
-		movieActors.add("elpachino");
-		movieActors.add("ofir nissel");
-		Movie m1 = new Movie("DC1",121,"action",movieActors,1980,"is",1.5,"ivgi");
-		m1.add_rater(231, 3);
-		m1.add_rater(232, 5);
-		c.addMovie(m1);
-
-		Movie m2 = new Movie("DC2",122,"action",movieActors,1980,"is",1.5,"ivgi");
-		m2.add_rater(231, 4);
-		m2.add_rater(232, 6);
-		c.addMovie(m2);
-
-		Movie m3 = new Movie("DC3",123,"action",movieActors,1980,"is",1.5,"ivgi");
-		m3.add_rater(232, 7);
-		c.addMovie(m3);
-
-		Movie m4 = new Movie("DC4",124,"action",movieActors,1980,"is",1.5,"ivgi");
-		m4.add_rater(232, 8);
-		c.addMovie(m4);
-
-		//System.out.println(u1.getMeanRate());
-		//System.out.println(c.get_matrixHandler().getK(u1.getId()));
-
-		Iterator<Entry<Integer, User>> usersIter = c.get_users().entrySet().iterator();
-		User tUser;
-		while(usersIter.hasNext()) {
-			tUser = usersIter.next().getValue();
-			//System.out.println("weight("+u1.getId()+", "+tUser.getId()+") = "+
-			//		c.get_matrixHandler().weight(u1.getId(), tUser.getId()));
-			//System.out.println("normelizedRate: " + tUser.getNormelizedMovieRate(122));
-		}
-
-		//System.out.println(c.get_matrixHandler().getPredictedRate(231, 124));
-
-		/*
-		 * logger check
-		 */
-		c.login("555", "ido", 231);
-		//System.out.println(c.get_usersIn());
-		c.login("555", "yotam", 232);
-		//System.out.println(c.get_usersIn());
-		c.logout(u2);
-		c.logout(u1);
-		System.out.println(c.get_matrixHandler().get10Recomendations(231));
-		c.shutDown();
-	}
-
-
-
+//	public static void main(String[] args) {
+//
+//		Controller c = new Controller();
+//
+//		/* Initialize some users: */
+//		User u1 = new User("555","user" , 231 , "ido" , "male");
+//		u1.rateMovie(121, 3);
+//		u1.rateMovie(122, 4);
+//		c.addUser(u1);
+//
+//		User u2 = new User("555","user" , 232 , "yotam" , "male");
+//		u2.rateMovie(121, 5);
+//		u2.rateMovie(122, 6);
+//		u2.rateMovie(123, 7);
+//		u2.rateMovie(124, 8);
+//		c.addUser(u2);
+//
+//		/* Initialize some movies: */
+//		Vector<String> movieActors = new Vector<String>();
+//		movieActors.add("elpachino");
+//		movieActors.add("ofir nissel");
+//		Movie m1 = new Movie("DC1",121,"action",movieActors,1980,"is",1.5,"ivgi");
+//		m1.add_rater(231, 3);
+//		m1.add_rater(232, 5);
+//		c.addMovie(m1);
+//
+//		Movie m2 = new Movie("DC2",122,"action",movieActors,1980,"is",1.5,"ivgi");
+//		m2.add_rater(231, 4);
+//		m2.add_rater(232, 6);
+//		c.addMovie(m2);
+//
+//		Movie m3 = new Movie("DC3",123,"action",movieActors,1980,"is",1.5,"ivgi");
+//		m3.add_rater(232, 7);
+//		c.addMovie(m3);
+//
+//		Movie m4 = new Movie("DC4",124,"action",movieActors,1980,"is",1.5,"ivgi");
+//		m4.add_rater(232, 8);
+//		c.addMovie(m4);
+//
+//		//System.out.println(u1.getMeanRate());
+//		//System.out.println(c.get_matrixHandler().getK(u1.getId()));
+//
+//		Iterator<Entry<Integer, User>> usersIter = c.get_users().entrySet().iterator();
+//		User tUser;
+//		while(usersIter.hasNext()) {
+//			tUser = usersIter.next().getValue();
+//			//System.out.println("weight("+u1.getId()+", "+tUser.getId()+") = "+
+//			//		c.get_matrixHandler().weight(u1.getId(), tUser.getId()));
+//			//System.out.println("normelizedRate: " + tUser.getNormelizedMovieRate(122));
+//		}
+//
+//		//System.out.println(c.get_matrixHandler().getPredictedRate(231, 124));
+//
+//		/*
+//		 * logger check
+//		 */
+////		c.login("555", "ido", 231);
+//		//System.out.println(c.get_usersIn());
+////		c.login("555", "yotam", 232);
+//		//System.out.println(c.get_usersIn());
+//		c.logout(u2);
+//		c.logout(u1);
+//		System.out.println(c.get_matrixHandler().get10Recomendations(231));
+//		c.shutDown();
+//	}
 }

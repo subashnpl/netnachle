@@ -1,6 +1,7 @@
 package gui;
 
 import domain.controller.Controller;
+import domain.controller.MatrixHandler;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Toolkit;
@@ -21,7 +22,7 @@ public class GeneralJFrame extends javax.swing.JFrame {
     
     /** Creates new form generalJFrame */
     public GeneralJFrame() {
-        _controller = new Controller();
+        System.out.println("Remove Heritage");
         initComponents();
     }
     
@@ -53,6 +54,7 @@ public class GeneralJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Movie Recommendation System by NetNachle");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +89,9 @@ public class GeneralJFrame extends javax.swing.JFrame {
     protected void setHeadersFontColor(Color headersFontColor) {
         this.headersFontColor = headersFontColor;
     }
-    
+    public void setController(Controller controller) {
+        _controller = controller;
+    }
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -103,7 +107,9 @@ public class GeneralJFrame extends javax.swing.JFrame {
         
 	java.awt.EventQueue.invokeLater(new Runnable() {
 	    public void run() {
-		new Entrance().setVisible(true);
+                Controller controller = new Controller(new MatrixHandler());
+		Entrance entrance = new Entrance(controller);
+                entrance.setVisible(true);
 	    }
 	});
     }
