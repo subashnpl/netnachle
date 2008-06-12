@@ -43,7 +43,15 @@ public class GeneralJFrame extends javax.swing.JFrame {
     protected void setLinkExited(JLabel label, Color color){
         label.setForeground(color);
     }
-    
+    public static byte[] encrypt(String x)   throws Exception
+    {
+        java.security.MessageDigest d =null;
+         d = java.security.MessageDigest.getInstance("SHA-1");
+         d.reset();
+         d.update(x.getBytes());
+         //return  d.digest();
+         return x.getBytes();
+    }    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is

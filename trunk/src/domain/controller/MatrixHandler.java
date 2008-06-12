@@ -73,57 +73,58 @@ public class MatrixHandler implements Strategy{
 	}
 
 	public int getPredictedRate(int userId, int movieId){
-
-		int ret = _users.get(userId).getMeanRate();
-
-		double tSum = 0;
-
-		if (_users.get(userId).get_rates().containsKey(movieId)) {
-			return _users.get(userId).get_rates().get(movieId);
-		}
-		else {
-			Iterator<Entry<Integer, User>> usersIter = _users.entrySet().iterator();
-			User tUser;
-			while (usersIter.hasNext()) {
-				tUser = usersIter.next().getValue();
-				if (userId != tUser.getId()) {
-					tSum += weight(userId, tUser.getId())
-							* tUser.getNormelizedMovieRate(movieId);
-				}
-			}
-			return (int) Math.round(ret + getK(userId) * tSum);
-		}
+            int ret = _users.get(userId).getMeanRate();
+            double tSum = 0;
+            if (_users.get(userId).get_rates().containsKey(movieId)) {
+                    return _users.get(userId).get_rates().get(movieId);
+            }
+            else {
+                Iterator<Entry<Integer, User>> usersIter = _users.entrySet().iterator();
+                User tUser;
+                while (usersIter.hasNext()) {
+                    tUser = usersIter.next().getValue();
+                    if (userId != tUser.getId()) {
+                        tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
+                    }
+                }
+                return (int) Math.round(ret + getK(userId) * tSum);
+            }
 	}
 
-	public Vector<Movie> get10Recomendations(int userId){
-		Vector<Movie> ret = new Vector<Movie>(); // Vector (10 movies) of movies sorted by predicted rate
+	public Vector[] get10Recomendations(int userId){
+            Vector[] ans = new Vector[2];
+            Vector<Movie> movies = new Vector<Movie>(); // Vector (10 movies) of movies sorted by predicted rate
+            Vector<Integer> rates = new Vector<Integer>();
+            HashMap<Integer, Integer> tMoviesPredictions =
+                    new HashMap<Integer, Integer>(); // movies that user didn't see - movieId / predicted rate
 
-		HashMap<Integer, Integer> tMoviesPredictions =
-			new HashMap<Integer, Integer>(); // movies that user didn't see - movieId / predicted rate
-
-		HashMap<Integer, Integer> userRatesIter =
-			_users.get(userId).get_rates(); // movies that user did see - movieId / predicted rate
-
-		Iterator<Entry<Integer, Movie>> moviesIter = _movies.entrySet().iterator();
-		Movie tMovie;
-		while(moviesIter.hasNext()) {
-			tMovie = moviesIter.next().getValue();
-			if (!userRatesIter.containsKey(tMovie.get_id())){
-				tMoviesPredictions.put(tMovie.get_id(), getPredictedRate(userId,tMovie.get_id()));
-			}
-		}
-
-		TreeSet<Entry<Integer,Integer>> tRates = new TreeSet<Entry<Integer,Integer>>(comparator());
-		tRates.addAll(tMoviesPredictions.entrySet());
-		Iterator<Entry<Integer, Integer>> it = tRates.iterator();
-		Entry<Integer, Integer> tEntry = null;
-		int i;
-		for (i = 0;it.hasNext() && i<10;i++){
-			tEntry = it.next();
-			System.out.println("rate of "+tEntry.getKey()+": "+tEntry.getValue()+"\n");
-			ret.add(_movies.get(tEntry.getKey()));
-		}
-		return ret;
+            HashMap<Integer, Integer> userRatesIter =
+                    _users.get(userId).get_rates(); // movies that user did see - movieId / predicted rate
+            System.out.println("userRatesIter: " + userRatesIter);
+            Iterator<Entry<Integer, Movie>> moviesIter = _movies.entrySet().iterator();
+            while(moviesIter.hasNext()) {
+                    Movie tMovie = moviesIter.next().getValue();
+                    if (!userRatesIter.containsKey(tMovie.get_id())){
+                        tMoviesPredictions.put(tMovie.get_id(), getPredictedRate(userId, tMovie.get_id()));
+                        System.out.println("tMovie.get_id(): " + tMovie.get_id());
+                    }
+            }
+            System.out.println("movies pred !!: " + tMoviesPredictions);
+            TreeSet<Entry<Integer,Integer>> tRates = new TreeSet<Entry<Integer,Integer>>(comparator());
+            tRates.addAll(tMoviesPredictions.entrySet());
+            System.out.println("movies tRates size!!!: " + tRates);
+            Iterator<Entry<Integer, Integer>> it = tRates.iterator();
+            Entry<Integer, Integer> tEntry = null;
+            for (int i = 0; it.hasNext() && i < 10; i++){
+                    tEntry = it.next();
+                    //System.out.println("rate of "+tEntry.getKey()+": "+tEntry.getValue()+"\n");
+                    movies.add(_movies.get(tEntry.getKey()));
+                    rates.add(getPredictedRate(userId,_movies.get(tEntry.getKey()).get_id()));
+            }
+            
+            ans[0] = movies;
+            ans[1] = rates;
+            return ans;
 	}
 
 	public Comparator<Entry<Integer,Integer>> comparator(){

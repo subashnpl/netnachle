@@ -90,7 +90,7 @@
                                       <Component id="jLabelHello" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabelUserName" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="594" max="32767" attributes="0"/>
+                                      <EmptySpace pref="615" max="32767" attributes="0"/>
                                       <Component id="jLabelPermissionMode" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jSeparator3" min="-2" pref="9" max="-2" attributes="0"/>
@@ -502,7 +502,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="headersFontColor" type="code"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Permission Mode"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="_controller.getCurrentUser().getPermission().toLowerCase()" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelLogOut">
@@ -567,8 +569,8 @@
                                       <Component id="jLabelRate8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRate9" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRate10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRate11" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRate12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate11" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRate13" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRate14" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -619,9 +621,9 @@
                                           <Component id="jLabelMovie14" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabelRate12" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                           <Component id="jLabelRate11" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                          <Component id="jLabelRate12" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabelRate8" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -657,7 +659,7 @@
                     <Property name="text" type="java.lang.String" value="Most Recommended Movies"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate12">
+                <Component class="javax.swing.JLabel" name="jLabelRate11">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
@@ -750,7 +752,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate11">
+                <Component class="javax.swing.JLabel" name="jLabelRate12">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
@@ -836,6 +838,9 @@
             <Component class="javax.swing.JButton" name="jButtonSystemManagement">
               <Properties>
                 <Property name="text" type="java.lang.String" value="System Management"/>
+                <Property name="enabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="_controller.getCurrentUser().getPermission().equalsIgnoreCase(&quot;Administrator&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSystemManagementActionPerformed"/>

@@ -95,22 +95,22 @@ public class DataManipulate {
 			Node userAttr = nlUsers.item(i);
 			NamedNodeMap userAttrs =  userAttr.getAttributes();
 			User tUser = null;
-			if  (userAttrs.getNamedItem("permission").getNodeValue().equals("administrator")){
+			if  (userAttrs.getNamedItem("permission").getNodeValue().equalsIgnoreCase("administrator")){
 				tUser = new Administrator(userAttrs.getNamedItem("password").getNodeValue(),
 						userAttrs.getNamedItem("permission").getNodeValue(),
 						(new Integer(userAttrs.getNamedItem("id").getNodeValue())).intValue(),
 						userAttrs.getNamedItem("userName").getNodeValue(),
 						userAttrs.getNamedItem("sex").getNodeValue());
 			}
-			else if  (userAttrs.getNamedItem("permission").getNodeValue().equals("manager")){
+			else if  (userAttrs.getNamedItem("permission").getNodeValue().equalsIgnoreCase("manager")){
 				tUser = new Manager(userAttrs.getNamedItem("password").getNodeValue(),
 						userAttrs.getNamedItem("permission").getNodeValue(),
 						(new Integer(userAttrs.getNamedItem("id").getNodeValue())).intValue(),
 						userAttrs.getNamedItem("userName").getNodeValue(),
 						userAttrs.getNamedItem("sex").getNodeValue());
 			}
-			else if (userAttrs.getNamedItem("permission").getNodeValue().equals("user")){
-				tUser = new Manager(userAttrs.getNamedItem("password").getNodeValue(),
+			else if (userAttrs.getNamedItem("permission").getNodeValue().equalsIgnoreCase("user")){
+				tUser = new User(userAttrs.getNamedItem("password").getNodeValue(),
 						userAttrs.getNamedItem("permission").getNodeValue(),
 						(new Integer(userAttrs.getNamedItem("id").getNodeValue())).intValue(),
 						userAttrs.getNamedItem("userName").getNodeValue(),
@@ -127,7 +127,7 @@ public class DataManipulate {
 				}
 			}
 			if (tUser!=null){
-				users.put(tUser.getId(), tUser);
+                            users.put(tUser.getId(), tUser);
 			}
 		}//for
 		return users;
