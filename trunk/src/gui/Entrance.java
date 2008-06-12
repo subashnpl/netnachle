@@ -1,19 +1,23 @@
 package gui;
 
+import Exceptions.NonUserException;
+import domain.User;
+import domain.controller.Controller;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JOptionPane;
 
-public class Entrance extends GeneralJFrame1 {
+public class Entrance extends GeneralJFrame {
+    
+    private Controller _controller;
     
     /** Creates new form NewJFrame1 */
-    public Entrance() {
-        super();
+    public Entrance(Controller controller) {
+        this._controller = controller;
         setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -27,15 +31,15 @@ public class Entrance extends GeneralJFrame1 {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jTextFieldUsername = new javax.swing.JTextField();
+        jPasswordFieldPassword = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelSignUp = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome to another Production of NetNachle");
-        setBackground(GeneralJFrame1.backgroundColor);
+        setBackground(GeneralJFrame.backgroundColor);
 
         jPanel2.setBackground(backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
@@ -53,20 +57,20 @@ public class Entrance extends GeneralJFrame1 {
         jLabel4.setForeground(regularFontColor);
         jLabel4.setText("Password");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldUsernameActionPerformed(evt);
             }
         });
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        jPasswordFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                jPasswordFieldPasswordActionPerformed(evt);
             }
         });
 
         jButton2.setText("Enter");
-        jButton2.setNextFocusableComponent(jLabel5);
+        jButton2.setNextFocusableComponent(jLabelSignUp);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -87,13 +91,13 @@ public class Entrance extends GeneralJFrame1 {
                             .add(jLabel4))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 94, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPasswordField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 96, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jTextFieldUsername, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 94, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPasswordFieldPassword, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 96, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton2))))
                 .add(28, 28, 28))
         );
 
-        jPanel1Layout.linkSize(new java.awt.Component[] {jPasswordField1, jTextField1}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+        jPanel1Layout.linkSize(new java.awt.Component[] {jPasswordFieldPassword, jTextFieldUsername}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -103,31 +107,31 @@ public class Entrance extends GeneralJFrame1 {
                 .add(18, 18, 18)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
-                    .add(jTextField1))
+                    .add(jTextFieldUsername))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
-                    .add(jPasswordField1))
+                    .add(jPasswordFieldPassword))
                 .add(18, 18, 18)
                 .add(jButton2)
                 .addContainerGap())
         );
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12));
-        jLabel5.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel5.setText("New User? Sign Up here!");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelSignUp.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabelSignUp.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelSignUp.setText("New User? Sign Up here!");
+        jLabelSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                jLabelSignUpMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel5MouseEntered(evt);
+                jLabelSignUpMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel5MouseExited(evt);
+                jLabelSignUpMouseExited(evt);
             }
         });
-        jLabel5.addKeyListener(new java.awt.event.KeyAdapter() {
+        jLabelSignUp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 signUpHandler(evt);
             }
@@ -148,7 +152,7 @@ public class Entrance extends GeneralJFrame1 {
                             .add(jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(100, 100, 100)
-                        .add(jLabel5)))
+                        .add(jLabelSignUp)))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -159,7 +163,7 @@ public class Entrance extends GeneralJFrame1 {
                 .add(18, 18, 18)
                 .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
-                .add(jLabel5)
+                .add(jLabelSignUp)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -177,26 +181,26 @@ public class Entrance extends GeneralJFrame1 {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
 	// TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+}//GEN-LAST:event_jTextFieldUsernameActionPerformed
 
-private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+private void jPasswordFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jPasswordField1ActionPerformed
+}//GEN-LAST:event_jPasswordFieldPasswordActionPerformed
 
-private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-    setLinkEntered(jLabel5, linkHeaderColor);
-}//GEN-LAST:event_jLabel5MouseEntered
+private void jLabelSignUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMouseEntered
+    setLinkEntered(jLabelSignUp, linkHeaderColor);
+}//GEN-LAST:event_jLabelSignUpMouseEntered
 
-private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-    setLinkExited(jLabel5, headerColor);
+private void jLabelSignUpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMouseExited
+    setLinkExited(jLabelSignUp, headerColor);
     
-}//GEN-LAST:event_jLabel5MouseExited
+}//GEN-LAST:event_jLabelSignUpMouseExited
 
-private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+private void jLabelSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMouseClicked
     new SignUp().setVisible(true);
-}//GEN-LAST:event_jLabel5MouseClicked
+}//GEN-LAST:event_jLabelSignUpMouseClicked
 
 private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signUpHandler
     if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
@@ -205,43 +209,34 @@ private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signU
 }//GEN-LAST:event_signUpHandler
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    this.setVisible(false);
-    new MainFrame().setVisible(true);
-}//GEN-LAST:event_jButton2ActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-        }
-	java.awt.EventQueue.invokeLater(new Runnable() {
-	    public void run() {
-		new Entrance().setVisible(true);
-	    }
-	});
+    String userName = this.jTextFieldUsername.getText();
+    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
+    String password = new String(passwordChars);
+    int id = 100;
+    try {
+        User tUser = _controller.login(password, userName, id);
+        _controller.setCurrentUser(tUser);
+        this.setVisible(false);
+        new MainFrame(_controller).setVisible(true);
+    } catch (NonUserException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "No Such User Error", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
     }
-    
+}//GEN-LAST:event_jButton2ActionPerformed
+       
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelSignUp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordFieldPassword;
+    private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
     
     

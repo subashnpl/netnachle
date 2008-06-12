@@ -10,16 +10,16 @@ import java.util.Map.Entry;
 import domain.Movie;
 import domain.User;
 
-public class MatrixHandler {
+public class MatrixHandler implements Strategy{
 
 	private HashMap<Integer,User> _users;
 	private HashMap<Integer,Movie> _movies;
 
-	public MatrixHandler(HashMap<Integer, User> _users,
-			HashMap<Integer, Movie> _movies) {
-		this._users = _users;
-		this._movies = _movies;
-	}
+//	public MatrixHandler(HashMap<Integer, User> _users,
+//			HashMap<Integer, Movie> _movies) {
+//		this._users = _users;
+//		this._movies = _movies;
+//	}
 
 	public HashMap<Integer, User> get_users() {
 		return _users;

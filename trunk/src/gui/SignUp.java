@@ -1,6 +1,6 @@
 package gui;
 
-public class SignUp extends GeneralJFrame1 {
+public class SignUp extends GeneralJFrame {
     
     /** Creates new form NewJFrame1 */
     public SignUp() {
@@ -36,8 +36,8 @@ public class SignUp extends GeneralJFrame1 {
         jTextFieldFirstName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(GeneralJFrame1.backgroundColor);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setBackground(gui.GeneralJFrame.backgroundColor);
 
         jPanel2.setBackground(backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
@@ -126,7 +126,7 @@ public class SignUp extends GeneralJFrame1 {
             .add(jPanel1Layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(jLabel1)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(231, Short.MAX_VALUE)
                 .add(jButtonNextStep)
@@ -144,7 +144,7 @@ public class SignUp extends GeneralJFrame1 {
                             .add(jLabel8)
                             .add(jLabel7)
                             .add(jLabel6))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 22, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 23, Short.MAX_VALUE)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jTextFieldUserName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 91, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPasswordChoose, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
@@ -153,7 +153,7 @@ public class SignUp extends GeneralJFrame1 {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jTextFieldLastName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jComboBoxLocation, 0, 139, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jComboBoxGender, 0, 139, Short.MAX_VALUE))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(new java.awt.Component[] {jComboBoxGender, jComboBoxLocation, jPasswordChoose, jPasswordRetype, jTextFieldFirstName, jTextFieldLastName, jTextFieldUserName}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
@@ -246,7 +246,9 @@ private void jComboBoxGenderActionPerformed(java.awt.event.ActionEvent evt) {//G
 }//GEN-LAST:event_jComboBoxGenderActionPerformed
 
 private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStepActionPerformed
-    new RateMovies().setVisible(true);
+    this.setEnabled(false);
+    this.setVisible(false);
+    new RateMovies(this, _controller).setVisible(true);
 }//GEN-LAST:event_jButtonNextStepActionPerformed
 
 private void jTextFieldLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLastNameActionPerformed
