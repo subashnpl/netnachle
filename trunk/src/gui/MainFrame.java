@@ -1,18 +1,35 @@
 package gui;
 
+import domain.Movie;
 import domain.controller.Controller;
-import javax.swing.JOptionPane;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
+import java.util.Iterator;
+import java.util.Vector;
 public class MainFrame extends GeneralJFrame {
     
     private Controller _controller;
+    private Vector[] _rated;
     
     /** Creates new form NewJFrame1 */
     public MainFrame(Controller controller) {
         this._controller = controller;
         setFrameAtCenter(this.getWidth(), this.getHeight());
 	initComponents();
+        setMostRecommendedMovies();
+    }
+    
+    private void setMostRecommendedMovies(){
+         _rated = _controller.get_Strategy().get10Recomendations(_controller.getCurrentUser().getId());
+         Vector<Movie> movies = _rated[0];
+         Vector<Integer> rates = _rated[1];
+
+         if (movies.size() > 0){
+             this.jLabelMovie11.setText(movies.elementAt(0).get_name());
+             this.jLabelRate11.setText(rates.elementAt(0).toString());
+         }
+         if (movies.size() > 1){
+             this.jLabelMovie12.setText(movies.elementAt(1).get_name());
+             this.jLabelRate12.setText(rates.elementAt(1).toString());
+         }
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -55,7 +72,7 @@ public class MainFrame extends GeneralJFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabelPermission3 = new javax.swing.JLabel();
-        jLabelRate12 = new javax.swing.JLabel();
+        jLabelRate11 = new javax.swing.JLabel();
         jLabelRate8 = new javax.swing.JLabel();
         jLabelRate9 = new javax.swing.JLabel();
         jLabelPicture21 = new javax.swing.JLabel();
@@ -67,7 +84,7 @@ public class MainFrame extends GeneralJFrame {
         jLabelMovie11 = new javax.swing.JLabel();
         jLabelRate13 = new javax.swing.JLabel();
         jLabelPicture17 = new javax.swing.JLabel();
-        jLabelRate11 = new javax.swing.JLabel();
+        jLabelRate12 = new javax.swing.JLabel();
         jLabelPicture16 = new javax.swing.JLabel();
         jLabelPicture18 = new javax.swing.JLabel();
         jLabelMovie9 = new javax.swing.JLabel();
@@ -254,15 +271,15 @@ public class MainFrame extends GeneralJFrame {
         jLabelHello.setForeground(headersFontColor);
         jLabelHello.setText("Hello");
 
-        jLabelUserName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelUserName.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelUserName.setForeground(headersFontColor);
         jLabelUserName.setText(_controller.getCurrentUser().getName());
 
-        jLabelPermissionMode.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelPermissionMode.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelPermissionMode.setForeground(headersFontColor);
-        jLabelPermissionMode.setText("Permission Mode");
+        jLabelPermissionMode.setText(_controller.getCurrentUser().getPermission().toLowerCase());
 
-        jLabelLogOut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelLogOut.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelLogOut.setForeground(headersFontColor);
         jLabelLogOut.setText("Log Out");
         jLabelLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -284,8 +301,8 @@ public class MainFrame extends GeneralJFrame {
         jLabelPermission3.setForeground(headersFontColor);
         jLabelPermission3.setText("Most Recommended Movies");
 
-        jLabelRate12.setForeground(regularFontColor);
-        jLabelRate12.setText("1");
+        jLabelRate11.setForeground(regularFontColor);
+        jLabelRate11.setText("1");
 
         jLabelRate8.setForeground(regularFontColor);
         jLabelRate8.setText("1");
@@ -317,8 +334,8 @@ public class MainFrame extends GeneralJFrame {
 
         jLabelPicture17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelRate11.setForeground(regularFontColor);
-        jLabelRate11.setText("1");
+        jLabelRate12.setForeground(regularFontColor);
+        jLabelRate12.setText("1");
 
         jLabelPicture16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -371,8 +388,8 @@ public class MainFrame extends GeneralJFrame {
                             .add(jLabelRate8)
                             .add(jLabelRate9)
                             .add(jLabelRate10)
-                            .add(jLabelRate11)
                             .add(jLabelRate12)
+                            .add(jLabelRate11)
                             .add(jLabelRate13)
                             .add(jLabelRate14))))
                 .addContainerGap(214, Short.MAX_VALUE))
@@ -416,9 +433,9 @@ public class MainFrame extends GeneralJFrame {
                                 .add(46, 46, 46)
                                 .add(jLabelMovie14))
                             .add(jPanel4Layout.createSequentialGroup()
-                                .add(jLabelRate12)
-                                .add(47, 47, 47)
                                 .add(jLabelRate11)
+                                .add(47, 47, 47)
+                                .add(jLabelRate12)
                                 .add(43, 43, 43)
                                 .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabelRate8)
@@ -444,6 +461,7 @@ public class MainFrame extends GeneralJFrame {
         });
 
         jButtonSystemManagement.setText("System Management");
+        jButtonSystemManagement.setEnabled(_controller.getCurrentUser().getPermission().equalsIgnoreCase("Administrator"));
         jButtonSystemManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSystemManagementActionPerformed(evt);
@@ -475,7 +493,7 @@ public class MainFrame extends GeneralJFrame {
                                 .add(jLabelHello)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jLabelUserName)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 594, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 615, Short.MAX_VALUE)
                                 .add(jLabelPermissionMode)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
