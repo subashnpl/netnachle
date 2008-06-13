@@ -1,12 +1,17 @@
 package gui;
 
+import domain.Movie;
 import domain.controller.Controller;
+import java.util.Vector;
+import javax.swing.JFrame;
 
 public class AddMovie extends GeneralJFrame {
     private Controller _controller;
+    private JFrame _parent;
 
-    public AddMovie(Controller controller) {
+    public AddMovie(Controller controller, JFrame parent) {
         this._controller = controller;
+        this._parent = parent;
         setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
     }
@@ -31,10 +36,10 @@ public class AddMovie extends GeneralJFrame {
         jComboBoxCountry = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextFieldActors = new javax.swing.JTextField();
+        jTextFieldActor1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextId = new javax.swing.JTextField();
+        jTextFieldCategory = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextFieldID = new javax.swing.JTextField();
         jTextFieldDuration = new javax.swing.JTextField();
@@ -42,6 +47,9 @@ public class AddMovie extends GeneralJFrame {
         jButtonSaveAndAddAnotherMovie = new javax.swing.JButton();
         jButtonExitNoSaving = new javax.swing.JButton();
         jTextFieldDirector = new javax.swing.JTextField();
+        jTextFieldActor2 = new javax.swing.JTextField();
+        jTextFieldActor3 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(gui.GeneralJFrame.backgroundColor);
@@ -89,9 +97,9 @@ public class AddMovie extends GeneralJFrame {
         jLabel9.setForeground(regularFontColor);
         jLabel9.setText("Category: *");
 
-        jTextFieldActors.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldActor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldActorsActionPerformed(evt);
+                jTextFieldActor1ActionPerformed(evt);
             }
         });
 
@@ -101,25 +109,49 @@ public class AddMovie extends GeneralJFrame {
         jLabel5.setForeground(regularFontColor);
         jLabel5.setText("Director: *");
 
-        jTextId.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextIdActionPerformed(evt);
+                jTextFieldCategoryActionPerformed(evt);
             }
         });
 
         jLabel10.setText("Duration: *");
 
-        jComboBoxYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "50's", "60's", "70's", "80's", "90's", "00's" }));
+        jComboBoxYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020" }));
 
         jButtonSaveAndAddAnotherMovie.setText("Save & Add Another Movie");
+        jButtonSaveAndAddAnotherMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveAndAddAnotherMovieActionPerformed(evt);
+            }
+        });
 
         jButtonExitNoSaving.setText("Exit (No Saving)");
+        jButtonExitNoSaving.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExitNoSavingActionPerformed(evt);
+            }
+        });
 
         jTextFieldDirector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDirectorActionPerformed(evt);
             }
         });
+
+        jTextFieldActor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldActor2ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldActor3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldActor3ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("(in hours. Example: 1.5)");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,7 +165,7 @@ public class AddMovie extends GeneralJFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jButtonExitNoSaving)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 9, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 17, Short.MAX_VALUE)
                         .add(jButtonSaveAndAddAnotherMovie)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jButtonSaveAndExit))
@@ -149,15 +181,23 @@ public class AddMovie extends GeneralJFrame {
                             .add(jLabel5))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldMovieName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldActors, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextId, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldID, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldDuration, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 57, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldMovieName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldCategory, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldID, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
+                                .add(jTextFieldDuration, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 57, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(jLabel1))
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                                 .add(org.jdesktop.layout.GroupLayout.LEADING, jComboBoxYear, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(org.jdesktop.layout.GroupLayout.LEADING, jComboBoxCountry, 0, 114, Short.MAX_VALUE))
-                            .add(jTextFieldDirector, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)))
+                            .add(jTextFieldDirector, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
+                                .add(jTextFieldActor1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jTextFieldActor2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jTextFieldActor3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                     .add(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jLabel10))
@@ -186,11 +226,13 @@ public class AddMovie extends GeneralJFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel9)
-                    .add(jTextId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTextFieldCategory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel8)
-                    .add(jTextFieldActors))
+                    .add(jTextFieldActor1)
+                    .add(jTextFieldActor2)
+                    .add(jTextFieldActor3))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
@@ -202,7 +244,8 @@ public class AddMovie extends GeneralJFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel10)
-                    .add(jTextFieldDuration, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTextFieldDuration, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel1))
                 .add(35, 35, 35)
                 .add(jLabel2)
                 .add(73, 73, 73)
@@ -250,46 +293,58 @@ public class AddMovie extends GeneralJFrame {
 
 
 private void jButtonSaveAndExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveAndExitActionPerformed
-    /*_name = this.jTextFieldMovieName.getText();
-    idString = this.jTextId.getText();
-     char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
-      _password = new String(passwordChars1);
-      if (_name.equals("")||idString.equals("")||_password.equals("")){
-         JOptionPane.showMessageDialog(this, "please enter all details Lesbo",
-                "", JOptionPane.ERROR_MESSAGE);
-            }
-      else{
-           _id =  Integer.parseInt(idString);
-      String _secret=null;
-        try {
-            _secret = new String(encrypt(_password));
-        } catch (Exception ex) {
-            Logger.getLogger(AddMovie.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      _sex = this.jComboBoxGender.getSelectedItem().toString();
-        sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-        String encoded=encoder.encode(_secret.getBytes());
-
-    User tuser = new  User( encoded, "user", _id, _name, _sex);
-    _controller.addUser(tuser);
-    _controller.setCurrentUser(tuser);
-    this.setEnabled(false);
-    this.setVisible(false);
-    new RateMovies(this, _controller).setVisible(true);
-    */
+    addMovie();
+    exit();
 }//GEN-LAST:event_jButtonSaveAndExitActionPerformed
-
-private void jTextFieldActorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActorsActionPerformed
+private void addMovie(){
+    String _name = this.jTextFieldMovieName.getText();
+    int _id = Integer.parseInt(this.jTextFieldID.getText());
+    String _category = this.jTextFieldCategory.getText();
+    Vector<String> _actors = new Vector<String>();
+    int _year = Integer.parseInt((String)this.jComboBoxYear.getSelectedItem());
+    String _country = (String)this.jComboBoxCountry.getSelectedItem();
+    double _duration = Double.parseDouble(this.jTextFieldDuration.getText());
+    String _director = this.jTextFieldDirector.getText();
+    String actor1 = this.jTextFieldActor1.getText();
+    String actor2 = this.jTextFieldActor2.getText();
+    String actor3 = this.jTextFieldActor3.getText();
+    if(!actor1.equals("")) _actors.addElement(actor1);
+    if(!actor2.equals("")) _actors.addElement(actor2);
+    if(!actor3.equals("")) _actors.addElement(actor3);
+    Movie newMovie = new Movie(_name, _id, _category, _actors, _year, _country, _duration, _director);
+    _controller.addMovie(newMovie);
+}
+private void exit(){
+    this.setVisible(false);
+    this._parent.setEnabled(true);
+}
+private void jTextFieldActor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActor1ActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jTextFieldActorsActionPerformed
+}//GEN-LAST:event_jTextFieldActor1ActionPerformed
 
-private void jTextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIdActionPerformed
+private void jTextFieldCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryActionPerformed
     
-}//GEN-LAST:event_jTextIdActionPerformed
+}//GEN-LAST:event_jTextFieldCategoryActionPerformed
 
 private void jTextFieldDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDirectorActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_jTextFieldDirectorActionPerformed
+
+private void jTextFieldActor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActor2ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldActor2ActionPerformed
+
+private void jTextFieldActor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActor3ActionPerformed
+// TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldActor3ActionPerformed
+
+private void jButtonSaveAndAddAnotherMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveAndAddAnotherMovieActionPerformed
+    addMovie();
+}//GEN-LAST:event_jButtonSaveAndAddAnotherMovieActionPerformed
+
+private void jButtonExitNoSavingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitNoSavingActionPerformed
+    exit();
+}//GEN-LAST:event_jButtonExitNoSavingActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExitNoSaving;
@@ -297,6 +352,7 @@ private void jTextFieldDirectorActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton jButtonSaveAndExit;
     private javax.swing.JComboBox jComboBoxCountry;
     private javax.swing.JComboBox jComboBoxYear;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -309,12 +365,14 @@ private void jTextFieldDirectorActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel jLabelAddMovie;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextFieldActors;
+    private javax.swing.JTextField jTextFieldActor1;
+    private javax.swing.JTextField jTextFieldActor2;
+    private javax.swing.JTextField jTextFieldActor3;
+    private javax.swing.JTextField jTextFieldCategory;
     private javax.swing.JTextField jTextFieldDirector;
     private javax.swing.JTextField jTextFieldDuration;
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldMovieName;
-    private javax.swing.JTextField jTextId;
     // End of variables declaration//GEN-END:variables
     
 }
