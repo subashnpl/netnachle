@@ -8,6 +8,7 @@ import domain.User;
 import java.util.Vector;
 
 public class Controller {
+
 	private DataManipulate _moviesHandler;
 	private DataManipulate _usersHandler;
         public Strategy _strategy;
@@ -243,7 +244,7 @@ public class Controller {
 public static void main(String[] args) {
     Controller c = new Controller(new MatrixHandler());
     
-    User u1 = new User("123"/*"QL0AFWMIX8NRZTI/oT9cXss/vu8"*/,"user" , 100 , "ido" , "male");
+    User u1 = new User("123"/*"QL0AFWMIX8NRZTI/oT9cXss/vu8"*/,"Administrator" , 100 , "ido" , "male");
     u1.rateMovie(100, 4);
     u1.rateMovie(101, 5);
     u1.rateMovie(102, 6);
