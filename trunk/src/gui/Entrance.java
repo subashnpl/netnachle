@@ -238,29 +238,49 @@ private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signU
 }//GEN-LAST:event_signUpHandler
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    String userName = this.jTextFieldUsername.getText();
-    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
-    String _password = new String(passwordChars);
-          String _secret=null;
+    boolean encoded1 = false;
+    if (encoded1){
+        String userName = this.jTextFieldUsername.getText();
+        char[] passwordChars = this.jPasswordFieldPassword.getPassword();
+        String _password = new String(passwordChars);
+        String _secret=null;
         try {
             _secret = new String(encrypt(_password));
-            _secret = _password;
+            //_secret = _password;
         } catch (Exception ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
-    int id = Integer.parseInt(this.jTextIdField.getText());
-    sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-    String encoded=encoder.encode(_secret.getBytes());
-    try {
-        User tUser = _controller.login(encoded, userName, id);
-        _controller.setCurrentUser(tUser);
-        this.setVisible(false);
-        new MainFrame(_controller).setVisible(true);
-    } catch (NonUserException ex) {
-        JOptionPane.showMessageDialog(this, ex.getMessage(),
-                "No Such User Error", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception ex) {
-        Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
+        int id = Integer.parseInt(this.jTextIdField.getText());
+        sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+        String encoded=encoder.encode(_secret.getBytes());
+        try {
+            User tUser = _controller.login(encoded, userName, id);
+            _controller.setCurrentUser(tUser);
+            this.setVisible(false);
+            new MainFrame(_controller).setVisible(true);
+        } catch (NonUserException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),
+                    "No Such User Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    else{
+        String userName = this.jTextFieldUsername.getText();
+        char[] passwordChars = this.jPasswordFieldPassword.getPassword();
+        String _password = new String(passwordChars);
+        int id = Integer.parseInt(this.jTextIdField.getText());
+        try {
+            User tUser = _controller.login(_password, userName, id);
+            _controller.setCurrentUser(tUser);
+            this.setVisible(false);
+            new MainFrame(_controller).setVisible(true);
+        } catch (NonUserException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),
+                    "No Such User Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }
 }//GEN-LAST:event_jButton2ActionPerformed
 
