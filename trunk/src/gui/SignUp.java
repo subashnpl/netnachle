@@ -264,7 +264,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
     idString = this.jTextId.getText();
      char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
       _password = new String(passwordChars1);
-      if (_name.equals("")&&idString.equals("")&&_password.equals("")){
+      if (_name.equals("")||idString.equals("")||_password.equals("")){
          JOptionPane.showMessageDialog(this, "please enter all details Lesbo",
                 "", JOptionPane.ERROR_MESSAGE);
             }
@@ -282,6 +282,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
 
     User tuser = new  User( encoded, "user", _id, _name, _sex);
     _controller.addUser(tuser);
+    _controller.setCurrentUser(tuser);
     this.setEnabled(false);
     this.setVisible(false);
     new RateMovies(this, _controller).setVisible(true);

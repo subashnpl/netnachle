@@ -240,16 +240,16 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     String _password = new String(passwordChars);
           String _secret=null;
         try {
-            //_secret = new String(encrypt(_password));
+            _secret = new String(encrypt(_password));
             _secret = _password;
         } catch (Exception ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
     int id = Integer.parseInt(this.jTextIdField.getText());
-    //sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-    //String encoded=encoder.encode(_secret.getBytes());
+    sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+    String encoded=encoder.encode(_secret.getBytes());
     try {
-        User tUser = _controller.login(_password/*encoded*/, userName, id);
+        User tUser = _controller.login(encoded, userName, id);
         _controller.setCurrentUser(tUser);
         this.setVisible(false);
         new MainFrame(_controller).setVisible(true);
