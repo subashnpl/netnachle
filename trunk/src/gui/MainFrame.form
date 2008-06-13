@@ -26,7 +26,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -55,7 +55,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="1"/>
+                  <Component id="jPanel1" min="-2" pref="496" max="-2" attributes="1"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -83,40 +83,32 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator1" alignment="0" pref="865" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelHello" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelUserName" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="615" max="32767" attributes="0"/>
-                                      <Component id="jLabelPermissionMode" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jSeparator3" min="-2" pref="9" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelLogOut" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButtonRateMovies" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonSettings" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonSystemManagement" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jPanel3" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jPanel4" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Component id="jSeparator1" alignment="0" pref="865" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelHello" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabelUserName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="615" max="32767" attributes="0"/>
+                              <Component id="jLabelPermissionMode" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jSeparator3" min="-2" pref="9" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabelLogOut" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jButtonRateMovies" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonSettings" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonSystemManagement" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -143,331 +135,27 @@
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jPanel3" linkSize="2" max="32767" attributes="1"/>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButtonRateMovies" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonSettings" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonSystemManagement" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jPanel4" linkSize="2" min="-2" max="-2" attributes="1"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" pref="360" max="-2" attributes="1"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButtonRateMovies" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonSettings" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonSystemManagement" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="342" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="241" max="32767" attributes="0"/>
                           <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="343" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="241" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel3">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="backgroundColor" type="code"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                    <EtchetBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="408" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelPicture8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPermission2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelMovie3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelMovie2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelMovie5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelMovie1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelMovie4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelMovie6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelMovie7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelRate7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelRate3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelRate5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelRate2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelRate1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelRate4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelRate6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="219" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="508" max="32767" attributes="0"/>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelPermission2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture8" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabelMovie1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                              <Component id="jLabelMovie2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                              <Component id="jLabelMovie3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                              <Component id="jLabelMovie4" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                              <Component id="jLabelMovie5" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                              <Component id="jLabelMovie6" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                              <Component id="jLabelMovie7" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabelRate1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                              <Component id="jLabelRate2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabelRate7" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabelRate3" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                                      <Component id="jLabelRate4" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                                      <Component id="jLabelRate5" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                      <Component id="jLabelRate6" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="60" pref="60" max="60" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="58" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelPicture8">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture9">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture10">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture11">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture12">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture13">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture14">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPermission2">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="headersFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="New Movies"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie3">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie2">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie5">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie1">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie4">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie6">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie7">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate7">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate3">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate5">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate2">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate1">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate4">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate6">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
             <Component class="javax.swing.JLabel" name="jLabelHello">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -543,40 +231,61 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelPermission3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelPicture15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelPicture21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelMovie8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelMovie9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelMovie10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelMovie11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelMovie12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelRate3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="287" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelPicture24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelPicture22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabelMovie13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelMovie15" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelMovie14" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelRate8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRate9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRate10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRate12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRate11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRate13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRate14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelRate16" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelPermission3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="692" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="214" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -586,63 +295,93 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelPermission3" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture21" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture20" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture19" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture18" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture17" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture16" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelPicture15" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabelMovie11" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelMovie1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Component id="jLabelMovie9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelMovie2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="jLabelMovie8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelMovie3" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                          <Component id="jLabelMovie12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelMovie4" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Component id="jLabelMovie10" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                          <Component id="jLabelMovie13" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Component id="jLabelMovie14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelMovie5" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabelRate11" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelRate1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Component id="jLabelRate12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelRate2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabelRate8" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelRate3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="jLabelRate4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Component id="jLabelRate5" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelPicture22" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture23" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture26" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture25" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture24" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabelRate9" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelMovie15" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                                  <Component id="jLabelMovie16" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                  <Component id="jLabelMovie13" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                                  <Component id="jLabelRate13" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelMovie14" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                                  <Component id="jLabelRate10" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                                  <Component id="jLabelMovie17" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabelRate14" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="60" pref="60" max="60" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                                  <Component id="jLabelRate17" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                  <Component id="jLabelRate15" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                                  <Component id="jLabelRate16" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                                  <Component id="jLabelRate18" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelPicture1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabelPicture5" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="58" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -659,7 +398,7 @@
                     <Property name="text" type="java.lang.String" value="Most Recommended Movies"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate11">
+                <Component class="javax.swing.JLabel" name="jLabelRate1">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
@@ -667,7 +406,7 @@
                     <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate8">
+                <Component class="javax.swing.JLabel" name="jLabelRate3">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
@@ -675,42 +414,138 @@
                     <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate9">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture21">
+                <Component class="javax.swing.JLabel" name="jLabelPicture1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate14">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture20">
+                <Component class="javax.swing.JLabel" name="jLabelPicture2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie8">
+                <Component class="javax.swing.JLabel" name="jLabelMovie3">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Shrek1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelMovie4">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Shrek1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelMovie1">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Shrek1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate4">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture5">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate2">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture4">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelMovie2">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Shrek1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelMovie5">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Shrek1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate5">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture3">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture24">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture25">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture26">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture23">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelPicture22">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelMovie13">
@@ -721,7 +556,7 @@
                     <Property name="text" type="java.lang.String" value="Shrek1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie12">
+                <Component class="javax.swing.JLabel" name="jLabelMovie16">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
@@ -729,7 +564,7 @@
                     <Property name="text" type="java.lang.String" value="Shrek1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie11">
+                <Component class="javax.swing.JLabel" name="jLabelMovie17">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
@@ -737,79 +572,12 @@
                     <Property name="text" type="java.lang.String" value="Shrek1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate13">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture17">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate12">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture16">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture18">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie9">
+                <Component class="javax.swing.JLabel" name="jLabelMovie15">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelMovie10">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Shrek1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelRate10">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture15">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPicture19">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/NetNachleVerySmall.JPG"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelMovie14">
@@ -818,6 +586,46 @@
                       <Connection code="regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Shrek1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate15">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate18">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate17">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate14">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelRate16">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="regularFontColor" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
                 </Component>
               </SubComponents>
