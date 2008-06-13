@@ -7,6 +7,7 @@ public class RateMovies extends GeneralJFrame {
     
     private JFrame _parent;
     private Controller _controller;
+    private String[][] _movies2rate;
     
     /** Creates new form NewJFrame1 */
     public RateMovies(JFrame parent, Controller controller) {
@@ -14,8 +15,26 @@ public class RateMovies extends GeneralJFrame {
         this._controller = controller;
         setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
+        this.setMoviesNdirectors2Select();
+        
     }
-    
+    private void setMoviesNdirectors2Select(){
+        _movies2rate = this._controller.getMoviesToRate();
+        jLabelMovie1.setText(_movies2rate[0][0]);
+        jLabelDirector1.setText(_movies2rate[0][1]);
+         jLabelMovie2.setText(_movies2rate[1][0]);
+        jLabelDirector2.setText(_movies2rate[1][1]);
+        jLabelMovie3.setText(_movies2rate[2][0]);
+        jLabelDirector3.setText(_movies2rate[2][1]);
+        jLabelMovie4.setText(_movies2rate[3][0]);
+         jLabelDirector4.setText(_movies2rate[3][1]);
+        jLabelMovie5.setText(_movies2rate[4][0]);
+        jLabelDirector5.setText(_movies2rate[4][1]);
+         jLabelMovie6.setText(_movies2rate[5][0]);
+        jLabelDirector6.setText(_movies2rate[5][1]);
+         jLabelMovie7.setText(_movies2rate[6][0]);
+        jLabelDirector7.setText(_movies2rate[6][1]);
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -89,6 +108,7 @@ public class RateMovies extends GeneralJFrame {
         });
 
         jComboBoxRate1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate1.setSelectedIndex(4);
 
         jLabelMovieName1.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelMovieName1.setForeground(headersFontColor);
@@ -113,6 +133,7 @@ public class RateMovies extends GeneralJFrame {
         jLabelDirector2.setText("Mel Gibson");
 
         jComboBoxRate2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate2.setSelectedIndex(4);
 
         jLabelPicture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -123,6 +144,7 @@ public class RateMovies extends GeneralJFrame {
         jLabelDirector3.setText("Mel Gibson");
 
         jComboBoxRate3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate3.setSelectedIndex(4);
 
         jLabelPicture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -133,6 +155,7 @@ public class RateMovies extends GeneralJFrame {
         jLabelDirector4.setText("Mel Gibson");
 
         jComboBoxRate4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate4.setSelectedIndex(4);
 
         jLabelPicture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -143,6 +166,7 @@ public class RateMovies extends GeneralJFrame {
         jLabelDirector5.setText("Mel Gibson");
 
         jComboBoxRate5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate5.setSelectedIndex(4);
 
         jLabelPicture5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -153,6 +177,7 @@ public class RateMovies extends GeneralJFrame {
         jLabelDirector6.setText("Mel Gibson");
 
         jComboBoxRate6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate6.setSelectedIndex(4);
 
         jLabelPicture6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -163,6 +188,7 @@ public class RateMovies extends GeneralJFrame {
         jLabelDirector7.setText("Mel Gibson");
 
         jComboBoxRate7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate7.setSelectedIndex(4);
 
         jLabelPicture7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -265,7 +291,7 @@ public class RateMovies extends GeneralJFrame {
                 .add(jButtonPreviousStep)
                 .add(122, 122, 122)
                 .add(jButton1)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 146, Short.MAX_VALUE)
                 .add(jButtonNextStep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 95, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -398,7 +424,30 @@ private void jButtonPreviousStepActionPerformed(java.awt.event.ActionEvent evt) 
 }//GEN-LAST:event_jButtonPreviousStepActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    int[]  moviesId=new int[7];
+    int[] rates = new int[7]; 
+    moviesId[0] = new Integer(_movies2rate[0][2]).intValue();
+    rates[0] = jComboBoxRate1.getSelectedIndex()+1;
+    moviesId[1] = new Integer(_movies2rate[1][2]).intValue();
+    rates[1] = jComboBoxRate2.getSelectedIndex()+1;
+    moviesId[2] = new Integer(_movies2rate[2][2]).intValue();
+    rates[2] = jComboBoxRate3.getSelectedIndex()+1;
+    moviesId[3] = new Integer(_movies2rate[3][2]).intValue();
+    rates[3] = jComboBoxRate4.getSelectedIndex()+1;
+    moviesId[4] = new Integer(_movies2rate[4][2]).intValue();
+    rates[4] = jComboBoxRate5.getSelectedIndex()+1;
+    moviesId[5] = new Integer(_movies2rate[5][2]).intValue();
+    rates[5] = jComboBoxRate6.getSelectedIndex()+1;
+    moviesId[6] = new Integer(_movies2rate[6][2]).intValue();
+    rates[6] = jComboBoxRate7.getSelectedIndex()+1;
+    
+   /* for(int k=0;k<7;k++){
+        System.out.println(moviseWithRates[k][0]+"   "+moviseWithRates[k][1]);
+    }*/
+    _controller.setRatesByUser(moviesId, rates, _controller.getCurrentUser().getId());
     this.setVisible(false);
+    _parent.setEnabled(true);
+    _parent.setVisible(true);
 }//GEN-LAST:event_jButton1ActionPerformed
     
    

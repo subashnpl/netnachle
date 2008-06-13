@@ -593,7 +593,7 @@ private void jButtonRateMoviesActionPerformed(java.awt.event.ActionEvent evt) {/
 }//GEN-LAST:event_jButtonRateMoviesActionPerformed
 
 private void jButtonSystemManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSystemManagementActionPerformed
-    new SystemManagement().setVisible(true);
+    new SystemManagement(_controller).setVisible(true);
 }//GEN-LAST:event_jButtonSystemManagementActionPerformed
 
 private void jButtonSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSettingsActionPerformed
