@@ -86,11 +86,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                       <Component id="jLabelRateMoviesTitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="416" max="32767" attributes="0"/>
+                      <EmptySpace pref="420" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" pref="515" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" pref="519" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -109,7 +109,7 @@
                               <Component id="jLabelMovie7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabelDirector7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <EmptySpace pref="125" max="32767" attributes="0"/>
                               <Component id="jComboBoxRate7" min="-2" pref="42" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="jLabelPicture7" min="-2" max="-2" attributes="0"/>
@@ -118,7 +118,7 @@
                               <Component id="jLabelMovie6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabelDirector6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <EmptySpace pref="125" max="32767" attributes="0"/>
                               <Component id="jComboBoxRate6" min="-2" pref="42" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="jLabelPicture6" min="-2" max="-2" attributes="0"/>
@@ -127,7 +127,7 @@
                               <Component id="jLabelMovie5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabelDirector5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <EmptySpace pref="125" max="32767" attributes="0"/>
                               <Component id="jComboBoxRate5" min="-2" pref="42" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="jLabelPicture5" min="-2" max="-2" attributes="0"/>
@@ -136,7 +136,7 @@
                               <Component id="jLabelMovie4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabelDirector4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <EmptySpace pref="125" max="32767" attributes="0"/>
                               <Component id="jComboBoxRate4" min="-2" pref="42" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="jLabelPicture4" min="-2" max="-2" attributes="0"/>
@@ -145,7 +145,7 @@
                               <Component id="jLabelMovie3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabelDirector3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <EmptySpace pref="125" max="32767" attributes="0"/>
                               <Component id="jComboBoxRate3" min="-2" pref="42" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="jLabelPicture3" min="-2" max="-2" attributes="0"/>
@@ -154,7 +154,7 @@
                               <Component id="jLabelMovie2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabelDirector2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <EmptySpace pref="125" max="32767" attributes="0"/>
                               <Component id="jComboBoxRate2" min="-2" pref="42" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="jLabelPicture2" min="-2" max="-2" attributes="0"/>
@@ -163,7 +163,7 @@
                               <Component id="jLabelMovie1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Component id="jLabelDirector1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="121" max="32767" attributes="0"/>
+                              <EmptySpace pref="125" max="32767" attributes="0"/>
                               <Component id="jComboBoxRate1" min="-2" pref="42" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                               <Component id="jLabelPicture1" min="-2" max="-2" attributes="0"/>

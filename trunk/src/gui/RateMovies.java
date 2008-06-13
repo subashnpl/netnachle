@@ -440,14 +440,12 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     rates[5] = jComboBoxRate6.getSelectedIndex()+1;
     moviesId[6] = new Integer(_movies2rate[6][2]).intValue();
     rates[6] = jComboBoxRate7.getSelectedIndex()+1;
-    
    /* for(int k=0;k<7;k++){
         System.out.println(moviseWithRates[k][0]+"   "+moviseWithRates[k][1]);
     }*/
     _controller.setRatesByUser(moviesId, rates, _controller.getCurrentUser().getId());
+    System.out.println("here");
     this.setVisible(false);
-    _parent.setEnabled(true);
-    _parent.setVisible(true);
 }//GEN-LAST:event_jButton1ActionPerformed
     
    
