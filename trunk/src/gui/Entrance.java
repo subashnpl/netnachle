@@ -168,11 +168,11 @@ public class Entrance extends GeneralJFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel2Layout.createSequentialGroup()
-                .add(100, 100, 100)
+                .add(109, 109, 109)
                 .add(jLabelSignUp)
                 .addContainerGap(113, Short.MAX_VALUE))
             .add(jPanel2Layout.createSequentialGroup()
-                .add(84, 84, 84)
+                .add(93, 93, 93)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)

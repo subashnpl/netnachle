@@ -176,7 +176,7 @@
                       <Component id="jButtonPreviousStep" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="142" max="32767" attributes="0"/>
+                      <EmptySpace pref="146" max="32767" attributes="0"/>
                       <Component id="jButtonNextStep" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -348,6 +348,7 @@
                     <StringItem index="8" value="9"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelMovieName1">
@@ -428,6 +429,7 @@
                     <StringItem index="8" value="9"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPicture2">
@@ -468,6 +470,7 @@
                     <StringItem index="8" value="9"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPicture3">
@@ -508,6 +511,7 @@
                     <StringItem index="8" value="9"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPicture4">
@@ -548,6 +552,7 @@
                     <StringItem index="8" value="9"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPicture5">
@@ -588,6 +593,7 @@
                     <StringItem index="8" value="9"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPicture6">
@@ -628,6 +634,7 @@
                     <StringItem index="8" value="9"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPicture7">
