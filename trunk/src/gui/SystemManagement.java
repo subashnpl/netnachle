@@ -246,7 +246,7 @@ private void jButtonDeleteMovieActionPerformed(java.awt.event.ActionEvent evt) {
 
 private void jButtonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddMovieActionPerformed
     this.setEnabled(false);
-    (new AddMovie(_controller, this)).setVisible(true);
+    new AddMovie(_controller, this).setVisible(true);
 }//GEN-LAST:event_jButtonAddMovieActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -87,6 +87,7 @@ public class Entrance extends GeneralJFrame {
             }
         });
 
+        jLabelId.setForeground(regularFontColor);
         jLabelId.setText("ID");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
@@ -225,12 +226,14 @@ private void jLabelSignUpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST
 }//GEN-LAST:event_jLabelSignUpMouseExited
 
 private void jLabelSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMouseClicked
-    new SignUp(_controller).setVisible(true);
+    new SignUp(_controller, this).setVisible(true);
+    this.setEnabled(false);
 }//GEN-LAST:event_jLabelSignUpMouseClicked
 
 private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signUpHandler
     if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
-        new SignUp(_controller).setVisible(true);
+        new SignUp(_controller, this).setVisible(true);
+        this.setEnabled(false);
     }
 }//GEN-LAST:event_signUpHandler
 

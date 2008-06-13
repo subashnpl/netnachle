@@ -4,6 +4,7 @@ import domain.Movie;
 import domain.controller.Controller;
 import java.util.Vector;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class AddMovie extends GeneralJFrame {
     private Controller _controller;
@@ -115,6 +116,7 @@ public class AddMovie extends GeneralJFrame {
             }
         });
 
+        jLabel10.setForeground(regularFontColor);
         jLabel10.setText("Duration: *");
 
         jComboBoxYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020" }));
@@ -293,26 +295,41 @@ public class AddMovie extends GeneralJFrame {
 
 
 private void jButtonSaveAndExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveAndExitActionPerformed
-    addMovie();
-    exit();
+    if (addMovie())
+        exit();
 }//GEN-LAST:event_jButtonSaveAndExitActionPerformed
-private void addMovie(){
-    String _name = this.jTextFieldMovieName.getText();
-    int _id = Integer.parseInt(this.jTextFieldID.getText());
-    String _category = this.jTextFieldCategory.getText();
-    Vector<String> _actors = new Vector<String>();
-    int _year = Integer.parseInt((String)this.jComboBoxYear.getSelectedItem());
-    String _country = (String)this.jComboBoxCountry.getSelectedItem();
-    double _duration = Double.parseDouble(this.jTextFieldDuration.getText());
-    String _director = this.jTextFieldDirector.getText();
-    String actor1 = this.jTextFieldActor1.getText();
-    String actor2 = this.jTextFieldActor2.getText();
-    String actor3 = this.jTextFieldActor3.getText();
-    if(!actor1.equals("")) _actors.addElement(actor1);
-    if(!actor2.equals("")) _actors.addElement(actor2);
-    if(!actor3.equals("")) _actors.addElement(actor3);
-    Movie newMovie = new Movie(_name, _id, _category, _actors, _year, _country, _duration, _director);
-    _controller.addMovie(newMovie);
+private boolean addMovie(){
+    if (fieldsValid()){
+        String _name = this.jTextFieldMovieName.getText();
+        int _id = Integer.parseInt(this.jTextFieldID.getText());
+        String _category = this.jTextFieldCategory.getText();
+        Vector<String> _actors = new Vector<String>();
+        int _year = Integer.parseInt((String)this.jComboBoxYear.getSelectedItem());
+        String _country = (String)this.jComboBoxCountry.getSelectedItem();
+        double _duration = Double.parseDouble(this.jTextFieldDuration.getText());
+        String _director = this.jTextFieldDirector.getText();
+        String actor1 = this.jTextFieldActor1.getText();
+        String actor2 = this.jTextFieldActor2.getText();
+        String actor3 = this.jTextFieldActor3.getText();
+        if(!actor1.equals("")) _actors.addElement(actor1);
+        if(!actor2.equals("")) _actors.addElement(actor2);
+        if(!actor3.equals("")) _actors.addElement(actor3);
+        Movie newMovie = new Movie(_name, _id, _category, _actors, _year, _country, _duration, _director);
+        _controller.addMovie(newMovie);
+        return true;
+    }
+    else{
+        JOptionPane.showMessageDialog(this, "Please enter all obligatory fields' details",
+                "Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+}
+private boolean fieldsValid(){
+    return !(this.jTextFieldMovieName.getText().equals("") ||
+            this.jTextFieldID.getText().equals("") ||
+            this.jTextFieldCategory.getText().equals("") ||
+            this.jTextFieldDuration.getText().equals("") ||
+            this.jTextFieldDirector.getText().equals(""));
 }
 private void exit(){
     this.setVisible(false);
@@ -339,7 +356,10 @@ private void jTextFieldActor3ActionPerformed(java.awt.event.ActionEvent evt) {//
 }//GEN-LAST:event_jTextFieldActor3ActionPerformed
 
 private void jButtonSaveAndAddAnotherMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveAndAddAnotherMovieActionPerformed
-    addMovie();
+    if (addMovie()){
+        this.setVisible(false);
+        new AddMovie(_controller, _parent).setVisible(true);
+    }
 }//GEN-LAST:event_jButtonSaveAndAddAnotherMovieActionPerformed
 
 private void jButtonExitNoSavingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitNoSavingActionPerformed
