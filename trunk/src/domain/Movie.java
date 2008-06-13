@@ -28,7 +28,9 @@ public class Movie {
 		this._director = _director;
 		this._rates=new HashMap<Integer, Integer>();
 	}
-
+        public void removeRater(int uId){
+            _rates.remove(uId);
+        }
 	public String toString(){
 		String ret="Name: "+_name+", Id: "+_id+", Category: "+_category+", Year: "+_year+
 		", Country: "+_country+", Duration: "+_duration+", Director: "+_director+"\n";

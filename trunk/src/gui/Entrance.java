@@ -238,19 +238,21 @@ private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signU
 }//GEN-LAST:event_signUpHandler
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    boolean encoded1 = false;
+    boolean encoded1 = true;
     if (encoded1){
         String userName = this.jTextFieldUsername.getText();
         char[] passwordChars = this.jPasswordFieldPassword.getPassword();
         String _password = new String(passwordChars);
+
         String _secret=null;
         try {
             _secret = new String(encrypt(_password));
-            //_secret = _password;
         } catch (Exception ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("before");
         int id = Integer.parseInt(this.jTextIdField.getText());
+        System.out.println("after");
         sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
         String encoded=encoder.encode(_secret.getBytes());
         try {
