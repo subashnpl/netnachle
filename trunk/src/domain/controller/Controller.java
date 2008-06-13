@@ -51,13 +51,29 @@ public class Controller {
         }
         return usersName;
     }
+    public int[] getMoviesIds() {
+        int[] moviesIds=new int[_movies.size()];
+        Iterator<Movie> iter=_movies.values().iterator();
+        for(int i=0;i<moviesIds.length;i++){
+            moviesIds[i]=iter.next().get_id();
+        }
+        return moviesIds;
+    }
+    public String[] getMoviesNamesById(int[] moviesId) {
+        String[] moviesName=new String[moviesId.length];
+        for(int i=0; i<moviesId.length;i++){
+            moviesName[i]=_movies.get(moviesId[i]).get_name();  //  .getName();
+        }
+        return moviesName;
+    }
     public DataManipulate get_movieHandler() {
         return _moviesHandler;
     }
     public void removeUser(int i) {
         logger.log("remove user  : " + _users.get(i));
         this.removeUser(_users.get(i));
-    }        
+    }
+    
     /*
      /  return 7 movies randomly to be rate by the user   
     *///oz
@@ -78,10 +94,9 @@ public class Controller {
     }//getMoviesToRate
     
     public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
-        User tUser=_users.get(userID);
-        for (int i=0;i<7;i++){
+       User tUser=_users.get(userID);
+        for (int i=0;i<rates.length;i++){
             tUser.rateMovie(moviesId[i], rates[i]);
-           // System.out.println(moviesId[i] + "ffffffffffff  "+ _movies.get(moviesId[i]));
             _movies.get(moviesId[i]).add_rater(userID, rates[i]);
         }//for
     }//void setRatesByUser  
@@ -138,6 +153,10 @@ public class Controller {
     //public void removeUser(int i){
     //	_users.remove(i);
     public void removeUser(User u){
+            Iterator<Integer> ratesIter = u.get_rates().keySet().iterator();
+            while(ratesIter.hasNext()){
+                _movies.get(ratesIter.next()).removeRater(u.getId());
+            }
             _users.remove(u.getId());
             logger.log("User " + u.getName() + " has been removed from database.");
     }

@@ -20,7 +20,14 @@ public class User {
 		this._sex = sex;
 		this._rates = new HashMap<Integer, Integer>();
 	}//constructor
-
+        public void rateMovie(int movieId, int rate){
+                if (_rates.containsKey(movieId)) _rates.remove(movieId);
+		_rates.put(movieId, rate);
+	}
+        public void removeRater(int mId){
+            _rates.remove(mId);
+        }
+        
 	public String toString(){
 		String ret="Name: "+_name+", Id: "+_id+", Password: "+_password+", Sex: "+_sex+
 		", Permission: "+_permission+"\n";
@@ -38,9 +45,7 @@ public class User {
 		return ret;
 	}
 
-	public void rateMovie(int movieId, int rate){
-		_rates.put(movieId, rate);
-	}
+	
 
 	public String getName() {
 		return _name;

@@ -275,33 +275,56 @@ private void jComboBoxGenderActionPerformed(java.awt.event.ActionEvent evt) {//G
 
 
 private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStepActionPerformed
-     _name = this.jTextFieldUserName.getText();
-    idString = this.jTextId.getText();
-     char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
-      _password = new String(passwordChars1);
-      if (_name.equals("")||idString.equals("")||_password.equals("")){
-         JOptionPane.showMessageDialog(this, "Please enter all details Lesbo",
-                "", JOptionPane.ERROR_MESSAGE);
+        boolean encoded1 = true;
+    if (encoded1){     
+    _name = this.jTextFieldUserName.getText();
+        idString = this.jTextId.getText();
+         char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
+          _password = new String(passwordChars1);
+          if (_name.equals("")||idString.equals("")||_password.equals("")){
+             JOptionPane.showMessageDialog(this, "Please enter all details Lesbo",
+                    "", JOptionPane.ERROR_MESSAGE);
+                }
+          else{
+               _id =  Integer.parseInt(idString);
+          String _secret=null;
+            try {
+                _secret = new String(encrypt(_password));
+            } catch (Exception ex) {
+                Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
             }
-      else{
-           _id =  Integer.parseInt(idString);
-      String _secret=null;
-        try {
-            _secret = new String(encrypt(_password));
-        } catch (Exception ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      _sex = this.jComboBoxGender.getSelectedItem().toString();
-        sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-        String encoded=encoder.encode(_secret.getBytes());
+          _sex = this.jComboBoxGender.getSelectedItem().toString();
+            sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+            String encoded=encoder.encode(_secret.getBytes());
 
-    User tuser = new  User( encoded, "user", _id, _name, _sex);
-    _controller.addUser(tuser);
-    _controller.setCurrentUser(tuser);
-    exit();
-    new RateMovies(this, _controller).setVisible(true);
+        User tuser = new  User( encoded, "user", _id, _name, _sex);
+        _controller.addUser(tuser);
+        _controller.setCurrentUser(tuser);
+        exit();
+        new RateMovies(this, _controller).setVisible(true);
+        }
+    }
+    else{
+    _name = this.jTextFieldUserName.getText();
+        idString = this.jTextId.getText();
+         char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
+          _password = new String(passwordChars1);
+          if (_name.equals("")||idString.equals("")||_password.equals("")){
+             JOptionPane.showMessageDialog(this, "Please enter all details Lesbo",
+                    "", JOptionPane.ERROR_MESSAGE);
+                }
+          else{
+               _id =  Integer.parseInt(idString);
+          _sex = this.jComboBoxGender.getSelectedItem().toString();
+        User tuser = new  User( _password, "user", _id, _name, _sex);
+        _controller.addUser(tuser);
+        _controller.setCurrentUser(tuser);
+        exit();
+        new RateMovies(this, _controller).setVisible(true);
+        }            
+    }
 }//GEN-LAST:event_jButtonNextStepActionPerformed
-}
+        
 private void exit(){
     this.setEnabled(false);
     this.setVisible(false);
