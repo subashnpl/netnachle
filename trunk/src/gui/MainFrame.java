@@ -63,21 +63,21 @@ public class MainFrame extends GeneralJFrame {
         jLabelMovie5 = new javax.swing.JLabel();
         jLabelRate5 = new javax.swing.JLabel();
         jLabelPicture3 = new javax.swing.JLabel();
-        jLabelPicture24 = new javax.swing.JLabel();
-        jLabelPicture25 = new javax.swing.JLabel();
-        jLabelPicture26 = new javax.swing.JLabel();
-        jLabelPicture23 = new javax.swing.JLabel();
-        jLabelPicture22 = new javax.swing.JLabel();
-        jLabelMovie13 = new javax.swing.JLabel();
-        jLabelMovie16 = new javax.swing.JLabel();
-        jLabelMovie17 = new javax.swing.JLabel();
-        jLabelMovie15 = new javax.swing.JLabel();
-        jLabelMovie14 = new javax.swing.JLabel();
-        jLabelRate15 = new javax.swing.JLabel();
-        jLabelRate18 = new javax.swing.JLabel();
-        jLabelRate17 = new javax.swing.JLabel();
-        jLabelRate14 = new javax.swing.JLabel();
-        jLabelRate16 = new javax.swing.JLabel();
+        jLabelPicture10 = new javax.swing.JLabel();
+        jLabelPicture9 = new javax.swing.JLabel();
+        jLabelPicture8 = new javax.swing.JLabel();
+        jLabelPicture7 = new javax.swing.JLabel();
+        jLabelPicture6 = new javax.swing.JLabel();
+        jLabelMovie8 = new javax.swing.JLabel();
+        jLabelMovie7 = new javax.swing.JLabel();
+        jLabelMovie10 = new javax.swing.JLabel();
+        jLabelMovie6 = new javax.swing.JLabel();
+        jLabelMovie9 = new javax.swing.JLabel();
+        jLabelRate8 = new javax.swing.JLabel();
+        jLabelRate10 = new javax.swing.JLabel();
+        jLabelRate7 = new javax.swing.JLabel();
+        jLabelRate6 = new javax.swing.JLabel();
+        jLabelRate9 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jButtonRateMovies = new javax.swing.JButton();
         jButtonSystemManagement = new javax.swing.JButton();
@@ -128,84 +128,84 @@ public class MainFrame extends GeneralJFrame {
         jLabelPermission3.setText("Most Recommended Movies");
 
         jLabelRate1.setForeground(regularFontColor);
-        jLabelRate1.setText("1");
+        jLabelRate1.setText("--");
 
         jLabelRate3.setForeground(regularFontColor);
-        jLabelRate3.setText("1");
+        jLabelRate3.setText("--");
 
         jLabelPicture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
         jLabelPicture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
         jLabelMovie3.setForeground(regularFontColor);
-        jLabelMovie3.setText("Shrek1");
+        jLabelMovie3.setText("-------");
 
         jLabelMovie4.setForeground(regularFontColor);
-        jLabelMovie4.setText("Shrek1");
+        jLabelMovie4.setText("-------");
 
         jLabelMovie1.setForeground(regularFontColor);
-        jLabelMovie1.setText("Shrek1");
+        jLabelMovie1.setText("-------");
 
         jLabelRate4.setForeground(regularFontColor);
-        jLabelRate4.setText("1");
+        jLabelRate4.setText("--");
 
         jLabelPicture5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
         jLabelRate2.setForeground(regularFontColor);
-        jLabelRate2.setText("1");
+        jLabelRate2.setText("--");
 
         jLabelPicture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
         jLabelMovie2.setForeground(regularFontColor);
-        jLabelMovie2.setText("Shrek1");
+        jLabelMovie2.setText("-------");
 
         jLabelMovie5.setForeground(regularFontColor);
-        jLabelMovie5.setText("Shrek1");
+        jLabelMovie5.setText("-------");
 
         jLabelRate5.setForeground(regularFontColor);
-        jLabelRate5.setText("1");
+        jLabelRate5.setText("--");
 
         jLabelPicture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelPicture24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
+        jLabelPicture10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelPicture25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
+        jLabelPicture9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelPicture26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
+        jLabelPicture8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelPicture23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
+        jLabelPicture7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelPicture22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
+        jLabelPicture6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelMovie13.setForeground(regularFontColor);
-        jLabelMovie13.setText("Shrek1");
+        jLabelMovie8.setForeground(regularFontColor);
+        jLabelMovie8.setText("-------");
 
-        jLabelMovie16.setForeground(regularFontColor);
-        jLabelMovie16.setText("Shrek1");
+        jLabelMovie7.setForeground(regularFontColor);
+        jLabelMovie7.setText("-------");
 
-        jLabelMovie17.setForeground(regularFontColor);
-        jLabelMovie17.setText("Shrek1");
+        jLabelMovie10.setForeground(regularFontColor);
+        jLabelMovie10.setText("-------");
 
-        jLabelMovie15.setForeground(regularFontColor);
-        jLabelMovie15.setText("Shrek1");
+        jLabelMovie6.setForeground(regularFontColor);
+        jLabelMovie6.setText("-------");
 
-        jLabelMovie14.setForeground(regularFontColor);
-        jLabelMovie14.setText("Shrek1");
+        jLabelMovie9.setForeground(regularFontColor);
+        jLabelMovie9.setText("-------");
 
-        jLabelRate15.setForeground(regularFontColor);
-        jLabelRate15.setText("1");
+        jLabelRate8.setForeground(regularFontColor);
+        jLabelRate8.setText("--");
 
-        jLabelRate18.setForeground(regularFontColor);
-        jLabelRate18.setText("1");
+        jLabelRate10.setForeground(regularFontColor);
+        jLabelRate10.setText("--");
 
-        jLabelRate17.setForeground(regularFontColor);
-        jLabelRate17.setText("1");
+        jLabelRate7.setForeground(regularFontColor);
+        jLabelRate7.setText("--");
 
-        jLabelRate14.setForeground(regularFontColor);
-        jLabelRate14.setText("1");
+        jLabelRate6.setForeground(regularFontColor);
+        jLabelRate6.setText("--");
 
-        jLabelRate16.setForeground(regularFontColor);
-        jLabelRate16.setText("1");
+        jLabelRate9.setForeground(regularFontColor);
+        jLabelRate9.setText("--");
 
         org.jdesktop.layout.GroupLayout jPanel4Layout = new org.jdesktop.layout.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -237,29 +237,29 @@ public class MainFrame extends GeneralJFrame {
                             .add(jLabelRate4))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 287, Short.MAX_VALUE)
                         .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabelPicture24)
-                            .add(jLabelPicture25)
-                            .add(jLabelPicture26)
-                            .add(jLabelPicture23)
-                            .add(jLabelPicture22))
+                            .add(jLabelPicture10)
+                            .add(jLabelPicture9)
+                            .add(jLabelPicture8)
+                            .add(jLabelPicture7)
+                            .add(jLabelPicture6))
                         .add(43, 43, 43)
                         .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabelMovie13)
-                            .add(jLabelMovie16)
-                            .add(jLabelMovie17)
-                            .add(jLabelMovie15)
-                            .add(jLabelMovie14))
+                            .add(jLabelMovie8)
+                            .add(jLabelMovie7)
+                            .add(jLabelMovie10)
+                            .add(jLabelMovie6)
+                            .add(jLabelMovie9))
                         .add(46, 46, 46)
                         .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabelRate15)
-                            .add(jLabelRate18)
-                            .add(jLabelRate17)
-                            .add(jLabelRate14)
-                            .add(jLabelRate16))
-                        .add(196, 196, 196))
+                            .add(jLabelRate8)
+                            .add(jLabelRate10)
+                            .add(jLabelRate7)
+                            .add(jLabelRate6)
+                            .add(jLabelRate9))
+                        .add(206, 206, 206))
                     .add(jPanel4Layout.createSequentialGroup()
                         .add(jLabelPermission3)
-                        .addContainerGap(692, Short.MAX_VALUE))))
+                        .addContainerGap(696, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -279,8 +279,7 @@ public class MainFrame extends GeneralJFrame {
                                 .add(44, 44, 44)
                                 .add(jLabelMovie4)
                                 .add(46, 46, 46)
-                                .add(jLabelMovie5)
-                                .add(116, 116, 116))
+                                .add(jLabelMovie5))
                             .add(jPanel4Layout.createSequentialGroup()
                                 .add(jLabelRate1)
                                 .add(47, 47, 47)
@@ -290,46 +289,43 @@ public class MainFrame extends GeneralJFrame {
                                 .add(44, 44, 44)
                                 .add(jLabelRate4)
                                 .add(46, 46, 46)
-                                .add(jLabelRate5)
-                                .add(116, 116, 116))))
+                                .add(jLabelRate5))))
                     .add(jPanel4Layout.createSequentialGroup()
                         .add(18, 18, 18)
                         .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel4Layout.createSequentialGroup()
-                                .add(jLabelPicture22)
+                                .add(jLabelPicture6)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabelPicture23)
+                                .add(jLabelPicture7)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabelPicture26)
+                                .add(jLabelPicture8)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabelPicture25)
+                                .add(jLabelPicture9)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabelPicture24))
+                                .add(jLabelPicture10))
                             .add(jPanel4Layout.createSequentialGroup()
                                 .add(20, 20, 20)
                                 .add(jPanel4Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                                     .add(jPanel4Layout.createSequentialGroup()
-                                        .add(jLabelMovie15)
+                                        .add(jLabelMovie6)
                                         .add(47, 47, 47)
-                                        .add(jLabelMovie16)
+                                        .add(jLabelMovie7)
                                         .add(43, 43, 43)
-                                        .add(jLabelMovie13)
+                                        .add(jLabelMovie8)
                                         .add(44, 44, 44)
-                                        .add(jLabelMovie14)
+                                        .add(jLabelMovie9)
                                         .add(46, 46, 46)
-                                        .add(jLabelMovie17)
-                                        .add(19, 19, 19))
+                                        .add(jLabelMovie10))
                                     .add(jPanel4Layout.createSequentialGroup()
-                                        .add(jLabelRate14)
+                                        .add(jLabelRate6)
                                         .add(47, 47, 47)
-                                        .add(jLabelRate17)
+                                        .add(jLabelRate7)
                                         .add(43, 43, 43)
-                                        .add(jLabelRate15)
+                                        .add(jLabelRate8)
                                         .add(44, 44, 44)
-                                        .add(jLabelRate16)
+                                        .add(jLabelRate9)
                                         .add(46, 46, 46)
-                                        .add(jLabelRate18)
-                                        .add(19, 19, 19))))
+                                        .add(jLabelRate10))))
                             .add(jPanel4Layout.createSequentialGroup()
                                 .add(jLabelPicture1)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -340,7 +336,7 @@ public class MainFrame extends GeneralJFrame {
                                 .add(jLabelPicture4)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jLabelPicture5)))))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -378,12 +374,12 @@ public class MainFrame extends GeneralJFrame {
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+                    .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelHello)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jLabelUserName)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 615, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 619, Short.MAX_VALUE)
                         .add(jLabelPermissionMode)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -402,9 +398,9 @@ public class MainFrame extends GeneralJFrame {
                 .addContainerGap())
             .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanel1Layout.createSequentialGroup()
-                    .add(0, 442, Short.MAX_VALUE)
+                    .add(0, 444, Short.MAX_VALUE)
                     .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(0, 443, Short.MAX_VALUE)))
+                    .add(0, 445, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -421,7 +417,7 @@ public class MainFrame extends GeneralJFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jLabel1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 360, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButtonRateMovies)
@@ -501,37 +497,37 @@ private void jLabelLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST
     private javax.swing.JLabel jLabelHello;
     private javax.swing.JLabel jLabelLogOut;
     private javax.swing.JLabel jLabelMovie1;
-    private javax.swing.JLabel jLabelMovie13;
-    private javax.swing.JLabel jLabelMovie14;
-    private javax.swing.JLabel jLabelMovie15;
-    private javax.swing.JLabel jLabelMovie16;
-    private javax.swing.JLabel jLabelMovie17;
+    private javax.swing.JLabel jLabelMovie10;
     private javax.swing.JLabel jLabelMovie2;
     private javax.swing.JLabel jLabelMovie3;
     private javax.swing.JLabel jLabelMovie4;
     private javax.swing.JLabel jLabelMovie5;
+    private javax.swing.JLabel jLabelMovie6;
+    private javax.swing.JLabel jLabelMovie7;
+    private javax.swing.JLabel jLabelMovie8;
+    private javax.swing.JLabel jLabelMovie9;
     private javax.swing.JLabel jLabelPermission3;
     private javax.swing.JLabel jLabelPermissionMode;
     private javax.swing.JLabel jLabelPicture1;
+    private javax.swing.JLabel jLabelPicture10;
     private javax.swing.JLabel jLabelPicture2;
-    private javax.swing.JLabel jLabelPicture22;
-    private javax.swing.JLabel jLabelPicture23;
-    private javax.swing.JLabel jLabelPicture24;
-    private javax.swing.JLabel jLabelPicture25;
-    private javax.swing.JLabel jLabelPicture26;
     private javax.swing.JLabel jLabelPicture3;
     private javax.swing.JLabel jLabelPicture4;
     private javax.swing.JLabel jLabelPicture5;
+    private javax.swing.JLabel jLabelPicture6;
+    private javax.swing.JLabel jLabelPicture7;
+    private javax.swing.JLabel jLabelPicture8;
+    private javax.swing.JLabel jLabelPicture9;
     private javax.swing.JLabel jLabelRate1;
-    private javax.swing.JLabel jLabelRate14;
-    private javax.swing.JLabel jLabelRate15;
-    private javax.swing.JLabel jLabelRate16;
-    private javax.swing.JLabel jLabelRate17;
-    private javax.swing.JLabel jLabelRate18;
+    private javax.swing.JLabel jLabelRate10;
     private javax.swing.JLabel jLabelRate2;
     private javax.swing.JLabel jLabelRate3;
     private javax.swing.JLabel jLabelRate4;
     private javax.swing.JLabel jLabelRate5;
+    private javax.swing.JLabel jLabelRate6;
+    private javax.swing.JLabel jLabelRate7;
+    private javax.swing.JLabel jLabelRate8;
+    private javax.swing.JLabel jLabelRate9;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

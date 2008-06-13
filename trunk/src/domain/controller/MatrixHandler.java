@@ -53,9 +53,16 @@ public class MatrixHandler implements Strategy{
 				tDenom1 += Math.pow(_users.get(currUser).getNormelizedMovieRate(tMovie.get_id()),2);
 				tDenom2 += Math.pow(_users.get(otherUser).getNormelizedMovieRate(tMovie.get_id()),2);
 			}
-			tDenom = Math.sqrt(tDenom1*tDenom2);
 		}
-		return tNumer/tDenom;
+		tDenom = Math.sqrt(tDenom1*tDenom2);
+		if (tDenom==0){
+			return 0;
+		}
+		else{
+			//System.out.println("weight("+currUser+", "+otherUser+") = sqrt("+
+			//		tNumer+"/"+tDenom1+"*"+tDenom2+") = "+ tNumer/tDenom);
+			return tNumer/tDenom;
+		}
 	}
 
 	public double getK(int userId){
@@ -84,10 +91,15 @@ public class MatrixHandler implements Strategy{
                 while (usersIter.hasNext()) {
                     tUser = usersIter.next().getValue();
                     if (userId != tUser.getId()) {
-                        tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
+                        System.out.println("weight("+userId+", "+tUser.getId()+") = "+weight(userId, tUser.getId()));
+                    	tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
                     }
                 }
-                return (int) Math.round(ret + getK(userId) * tSum);
+                ret = (int) Math.round(ret + getK(userId) * tSum);
+                if (ret > 9) {
+                	return 9;
+                }
+                else return ret;
             }
 	}
 
@@ -98,32 +110,29 @@ public class MatrixHandler implements Strategy{
             HashMap<Integer, Integer> tMoviesPredictions =
                     new HashMap<Integer, Integer>(); // movies that user didn't see - movieId / predicted rate
 
-            HashMap<Integer, Integer> userRatesIter =
+            HashMap<Integer, Integer> userRates =
                     _users.get(userId).get_rates(); // movies that user did see - movieId / predicted rate
-            System.out.println("userRatesIter: " + userRatesIter);
             Iterator<Entry<Integer, Movie>> moviesIter = _movies.entrySet().iterator();
             while(moviesIter.hasNext()) {
-                    Movie tMovie = moviesIter.next().getValue();
-                    if (!userRatesIter.containsKey(tMovie.get_id())){
-                        tMoviesPredictions.put(tMovie.get_id(), getPredictedRate(userId, tMovie.get_id()));
-                        System.out.println("tMovie.get_id(): " + tMovie.get_id());
-                    }
+                Movie tMovie = moviesIter.next().getValue();
+                if (!userRates.containsKey(tMovie.get_id())){
+                    tMoviesPredictions.put(tMovie.get_id(), getPredictedRate(userId, tMovie.get_id()));
+                }
             }
-            System.out.println("movies pred !!: " + tMoviesPredictions);
             TreeSet<Entry<Integer,Integer>> tRates = new TreeSet<Entry<Integer,Integer>>(comparator());
             tRates.addAll(tMoviesPredictions.entrySet());
-            System.out.println("movies tRates size!!!: " + tRates);
             Iterator<Entry<Integer, Integer>> it = tRates.iterator();
             Entry<Integer, Integer> tEntry = null;
             for (int i = 0; it.hasNext() && i < 10; i++){
-                    tEntry = it.next();
-                    //System.out.println("rate of "+tEntry.getKey()+": "+tEntry.getValue()+"\n");
-                    movies.add(_movies.get(tEntry.getKey()));
-                    rates.add(getPredictedRate(userId,_movies.get(tEntry.getKey()).get_id()));
+	            tEntry = it.next();
+	            movies.add(_movies.get(tEntry.getKey()));
+	            rates.add(getPredictedRate(userId,_movies.get(tEntry.getKey()).get_id()));
             }
-            
             ans[0] = movies;
             ans[1] = rates;
+            for (int i=0;i<ans[0].size();i++){
+            	System.out.println("movie: "+((Movie)ans[0].get(i)).get_id()+" rate: "+ (Integer)ans[1].get(i));
+            }
             return ans;
 	}
 
@@ -131,7 +140,12 @@ public class MatrixHandler implements Strategy{
 		return new Comparator<Entry<Integer,Integer>>(){
 			public int compare(Entry<Integer, Integer> o1,
 					Entry<Integer, Integer> o2) {
-				return o2.getValue().compareTo(o1.getValue());
+				if (o2.getValue().compareTo(o1.getValue()) == 0){
+					return o2.getKey().compareTo(o1.getKey());
+				}
+				else {
+					return o2.getValue().compareTo(o1.getValue());
+				}
 			}
 		};
 	}
