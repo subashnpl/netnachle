@@ -6,9 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
-public class SignUp extends GeneralJFrame {
+public class SignUp extends JFrame {
     private Controller _controller;
     private JFrame _parent;
     private String _name;
@@ -21,10 +20,12 @@ public class SignUp extends GeneralJFrame {
     public SignUp(Controller controller, JFrame parent) {
         this._controller = controller;
         this._parent = parent;
-        setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
     }
-    
+    public void setVisible(boolean b){
+        GeneralJFrame.setFrameAtCenter(this);
+        super.setVisible(b);
+    }    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -57,20 +58,20 @@ public class SignUp extends GeneralJFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(gui.GeneralJFrame.backgroundColor);
 
-        jPanel2.setBackground(backgroundColor);
+        jPanel2.setBackground(GeneralJFrame.backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
 
-        jPanel1.setBackground(backgroundColor);
+        jPanel1.setBackground(GeneralJFrame.backgroundColor);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
-        jLabel1.setForeground(headerColor);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(GeneralJFrame.headerColor);
         jLabel1.setText("SignUp");
 
-        jLabel3.setForeground(regularFontColor);
+        jLabel3.setForeground(GeneralJFrame.regularFontColor);
         jLabel3.setText("Choose Username: *");
 
-        jLabel4.setForeground(regularFontColor);
+        jLabel4.setForeground(GeneralJFrame.regularFontColor);
         jLabel4.setText("Choose Password: *");
 
         jTextFieldUserName.addActionListener(new java.awt.event.ActionListener() {
@@ -92,10 +93,10 @@ public class SignUp extends GeneralJFrame {
             }
         });
 
-        jLabel6.setForeground(regularFontColor);
+        jLabel6.setForeground(GeneralJFrame.regularFontColor);
         jLabel6.setText("Gender:");
 
-        jLabel7.setForeground(regularFontColor);
+        jLabel7.setForeground(GeneralJFrame.regularFontColor);
         jLabel7.setText("Location:");
 
         jComboBoxLocation.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Israel", "Turkey", "Irak", "USA", "Russia" }));
@@ -107,7 +108,7 @@ public class SignUp extends GeneralJFrame {
             }
         });
 
-        jLabel8.setForeground(regularFontColor);
+        jLabel8.setForeground(GeneralJFrame.regularFontColor);
         jLabel8.setText("Last Name:");
 
         jTextFieldLastName.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +117,7 @@ public class SignUp extends GeneralJFrame {
             }
         });
 
-        jLabel9.setForeground(regularFontColor);
+        jLabel9.setForeground(GeneralJFrame.regularFontColor);
         jLabel9.setText("First Name:");
 
         jTextFieldFirstName.addActionListener(new java.awt.event.ActionListener() {
@@ -125,10 +126,10 @@ public class SignUp extends GeneralJFrame {
             }
         });
 
-        jLabel2.setForeground(regularFontColor);
+        jLabel2.setForeground(GeneralJFrame.regularFontColor);
         jLabel2.setText("Let's rate some movies...");
 
-        jLabel5.setForeground(regularFontColor);
+        jLabel5.setForeground(GeneralJFrame.regularFontColor);
         jLabel5.setText("Choose Id: *");
 
         jTextId.addActionListener(new java.awt.event.ActionListener() {
@@ -173,8 +174,8 @@ public class SignUp extends GeneralJFrame {
                                     .add(jLabel5))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jComboBoxLocation, 0, 139, Short.MAX_VALUE)
-                                    .add(jComboBoxGender, 0, 139, Short.MAX_VALUE)
+                                    .add(jComboBoxLocation, 0, 143, Short.MAX_VALUE)
+                                    .add(jComboBoxGender, 0, 143, Short.MAX_VALUE)
                                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
                                         .add(135, 135, 135)
                                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -186,7 +187,7 @@ public class SignUp extends GeneralJFrame {
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(new java.awt.Component[] {jComboBoxGender, jComboBoxLocation}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+        jPanel1Layout.linkSize(new java.awt.Component[] {jComboBoxGender, jComboBoxLocation, jTextFieldLastName}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -289,7 +290,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
                _id =  Integer.parseInt(idString);
           String _secret=null;
             try {
-                _secret = new String(encrypt(_password));
+                _secret = new String(GeneralJFrame.encrypt(_password));
             } catch (Exception ex) {
                 Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -37,7 +37,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="backgroundColor" type="code"/>
+          <Connection code="GeneralJFrame.backgroundColor" type="code"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c8" green="d0" red="d4" type="rgb"/>
@@ -68,7 +68,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="backgroundColor" type="code"/>
+              <Connection code="GeneralJFrame.backgroundColor" type="code"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -210,7 +210,7 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headerColor" type="code"/>
+                  <Connection code="GeneralJFrame.headerColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Add Movie"/>
               </Properties>
@@ -218,7 +218,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ID: *"/>
               </Properties>
@@ -226,7 +226,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Name: *"/>
               </Properties>
@@ -247,7 +247,7 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Country: *"/>
               </Properties>
@@ -255,7 +255,7 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Year: *"/>
               </Properties>
@@ -276,7 +276,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Actors: *"/>
               </Properties>
@@ -284,7 +284,7 @@
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Category: *"/>
               </Properties>
@@ -297,7 +297,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="* Obligatory Field"/>
               </Properties>
@@ -305,7 +305,7 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Director: *"/>
               </Properties>
@@ -318,7 +318,7 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Duration: *"/>
               </Properties>

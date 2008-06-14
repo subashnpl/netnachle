@@ -34,7 +34,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="backgroundColor" type="code"/>
+          <Connection code="GeneralJFrame.backgroundColor" type="code"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c8" green="d0" red="d4" type="rgb"/>
@@ -55,7 +55,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" pref="496" max="-2" attributes="1"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="1"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -65,7 +65,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="backgroundColor" type="code"/>
+              <Connection code="GeneralJFrame.backgroundColor" type="code"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -73,7 +73,7 @@
               </Border>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="headersFontColor" type="code"/>
+              <Connection code="GeneralJFrame.headersFontColor" type="code"/>
             </Property>
           </Properties>
 
@@ -90,7 +90,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonSystemManagement" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPanel4" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jPanel3" alignment="0" max="32767" attributes="1"/>
                           <Component id="jSeparator1" alignment="0" max="32767" attributes="1"/>
                           <Group type="102" alignment="0" attributes="1">
                               <Component id="jLabelHello" min="-2" max="-2" attributes="0"/>
@@ -108,7 +108,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelBigHeader" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="260" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -137,9 +137,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelBigHeader" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" max="-2" attributes="1"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="1"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonRateMovies" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -165,7 +165,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headersFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Hello"/>
               </Properties>
@@ -176,7 +176,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headersFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="_controller.getCurrentUser().getName()" type="code"/>
@@ -191,7 +191,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headersFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="_controller.getCurrentUser().getPermission().toLowerCase()" type="code"/>
@@ -204,7 +204,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headersFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Log Out"/>
               </Properties>
@@ -216,10 +216,10 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel4">
+            <Container class="javax.swing.JPanel" name="jPanel3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="backgroundColor" type="code"/>
+                  <Connection code="GeneralJFrame.backgroundColor" type="code"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -285,7 +285,7 @@
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabelPermission3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMostRecommendedMovies" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="620" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -296,7 +296,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelPermission3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelMostRecommendedMovies" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -387,13 +387,13 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelPermission3">
+                <Component class="javax.swing.JLabel" name="jLabelMostRecommendedMovies">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="headersFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Most Recommended Movies"/>
                   </Properties>
@@ -401,7 +401,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate1">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -409,7 +409,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate3">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -431,7 +431,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie3">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -439,7 +439,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie4">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -447,7 +447,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie1">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -455,7 +455,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate4">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -470,7 +470,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate2">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -485,7 +485,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie2">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -493,7 +493,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie5">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -501,7 +501,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate5">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -551,7 +551,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie8">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -559,7 +559,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie7">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -567,7 +567,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie10">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -575,7 +575,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie6">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -583,7 +583,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelMovie9">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="-------"/>
                   </Properties>
@@ -591,7 +591,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate8">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -599,7 +599,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate10">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -607,7 +607,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate7">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -615,7 +615,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate6">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -623,7 +623,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelRate9">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="regularFontColor" type="code"/>
+                      <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
@@ -662,13 +662,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSettingsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="jLabelBigHeader">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headerColor" type="code"/>
+                  <Connection code="GeneralJFrame.headerColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Recommendation Movies System"/>
               </Properties>

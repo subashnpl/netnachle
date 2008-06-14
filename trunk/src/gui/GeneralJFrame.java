@@ -12,12 +12,12 @@ import javax.swing.*;
 public class GeneralJFrame extends javax.swing.JFrame {
     
     protected Controller _controller;
-    
-    protected static Color backgroundColor = Color.DARK_GRAY;
-    protected Color headerColor = new Color(255, 51, 51);
-    protected Color linkHeaderColor = new Color(155, 51, 51);
-    protected Color regularFontColor = Color.LIGHT_GRAY;
-    protected Color headersFontColor = Color.WHITE;
+    // Color Scheme:
+    public static Color backgroundColor = Color.DARK_GRAY;
+    public static Color headerColor = new Color(255, 51, 51);
+    public static Color linkHeaderColor = new Color(155, 51, 51);
+    public static Color regularFontColor = Color.LIGHT_GRAY;
+    public static Color headersFontColor = Color.WHITE;
     
     
     /** Creates new form generalJFrame */
@@ -26,21 +26,24 @@ public class GeneralJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    protected void setFrameAtCenter(int width, int height){
-        setResizable(false);
+    public static void setFrameAtCenter(JFrame frame){
+        int width = frame.getWidth();
+        int height = frame.getHeight();
+        frame.setResizable(false);
         Toolkit t = Toolkit.getDefaultToolkit();
-        this.setSize(1320, 240);
+        //frame.setSize(1320, 240);
         int x = (int)((t.getScreenSize().getWidth() - width) / 2);
         int y = (int)((t.getScreenSize().getHeight() - height) / 2);
-        this.setLocation(x-20, 10);
+        frame.setLocation(x-20, 10);
+        frame.setLocation(x, y);
         //setLocationRelativeTo(null);
         //setBounds(x-30, 10, width, height);
     }
-    protected void setLinkEntered(JLabel label, Color color){
+    public static void setLinkEntered(JLabel label, Color color){
         label.setCursor(new Cursor(Cursor.HAND_CURSOR));
         label.setForeground(color);
     }
-    protected void setLinkExited(JLabel label, Color color){
+    public static void setLinkExited(JLabel label, Color color){
         label.setForeground(color);
     }
     public static byte[] encrypt(String x)   throws Exception
@@ -78,24 +81,24 @@ public class GeneralJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    protected void setBackgroundColor(Color backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public static void setBackgroundColor(Color backgroundColor) {
+        GeneralJFrame.backgroundColor = backgroundColor;
     }
 
-    protected void setHeaderColor(Color headerColor) {
-        this.headerColor = headerColor;
+    public static void setHeaderColor(Color headerColor) {
+        GeneralJFrame.headerColor = headerColor;
     }
 
-    protected void setLinkHeaderColor(Color linkHeaderColor) {
-        this.linkHeaderColor = linkHeaderColor;
+    public static void setLinkHeaderColor(Color linkHeaderColor) {
+        GeneralJFrame.linkHeaderColor = linkHeaderColor;
     }
 
-    protected void setRegularFontColor(Color regularFontColor) {
-        this.regularFontColor = regularFontColor;
+    public static void setRegularFontColor(Color regularFontColor) {
+        GeneralJFrame.regularFontColor = regularFontColor;
     }
 
-    protected void setHeadersFontColor(Color headersFontColor) {
-        this.headersFontColor = headersFontColor;
+    public static void setHeadersFontColor(Color headersFontColor) {
+        GeneralJFrame.headersFontColor = headersFontColor;
     }
     public void setController(Controller controller) {
         _controller = controller;
@@ -116,8 +119,15 @@ public class GeneralJFrame extends javax.swing.JFrame {
 	java.awt.EventQueue.invokeLater(new Runnable() {
 	    public void run() {
                 Controller controller = new Controller(new MatrixHandler());
-		Entrance entrance = new Entrance(controller);
-                entrance.setVisible(true);
+                Entrance entrance = null;
+		try{
+                    entrance = new Entrance(controller);
+                } catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "Please enter all details Lesbo",
+                    "", JOptionPane.ERROR_MESSAGE);
+                };
+                if (entrance != null)
+                    entrance.setVisible(true);
 	    }
 	});
     }

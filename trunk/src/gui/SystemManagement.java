@@ -1,24 +1,29 @@
 package gui;
 
 import domain.controller.Controller;
+import javax.swing.JFrame;
 
-public class SystemManagement extends GeneralJFrame {
+public class SystemManagement extends JFrame {
     private Controller _controller;
+    private JFrame _parent;
     private int[] _usersId;
     private String[] _usersNames;
     /** Creates new form NewJFrame1 */
-    public SystemManagement(Controller controller) {
-     _controller = controller;
+    public SystemManagement(Controller controller, JFrame parent) {
+        _controller = controller;
+        _parent = parent;
         _usersId=_controller.getUsersIds();
-         _usersNames=_controller.getUsersNamesById(_usersId);
-         String[] moviesNames=_controller.getMovieNames();
-
-        setFrameAtCenter(getWidth(), getHeight());
+        _usersNames=_controller.getUsersNamesById(_usersId);
+        String[] moviesNames=_controller.getMovieNames();
 	initComponents();
         jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
         jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(moviesNames));
     }
-    
+    @Override
+    public void setVisible(boolean b){
+        GeneralJFrame.setFrameAtCenter(this);
+        super.setVisible(b);
+    }    
     
     /** This method is called from within the constructor to
      * initialize the form.
@@ -51,17 +56,16 @@ public class SystemManagement extends GeneralJFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Welcome to another Production of NetNachle");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(gui.GeneralJFrame.backgroundColor);
 
-        jPanel2.setBackground(backgroundColor);
+        jPanel2.setBackground(GeneralJFrame.backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
 
-        jPanel1.setBackground(backgroundColor);
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Users Management", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), headersFontColor)); // NOI18N
+        jPanel1.setBackground(GeneralJFrame.backgroundColor);
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Users Management", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), GeneralJFrame.headersFontColor)); // NOI18N
 
-        jLabel3.setForeground(regularFontColor);
+        jLabel3.setForeground(GeneralJFrame.regularFontColor);
         jLabel3.setText("Delete User");
 
         jButtonDeleteUser.setText("Delete");
@@ -103,13 +107,13 @@ public class SystemManagement extends GeneralJFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
-        jLabel1.setForeground(headerColor);
+        jLabel1.setForeground(GeneralJFrame.headerColor);
         jLabel1.setText("System Management");
 
-        jPanel3.setBackground(backgroundColor);
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Movies Management", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), headersFontColor)); // NOI18N
+        jPanel3.setBackground(GeneralJFrame.backgroundColor);
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Movies Management", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), GeneralJFrame.headersFontColor)); // NOI18N
 
-        jLabel4.setForeground(regularFontColor);
+        jLabel4.setForeground(GeneralJFrame.regularFontColor);
         jLabel4.setText("Delete Movie");
 
         jButtonDeleteMovie.setText("Delete");
@@ -128,7 +132,7 @@ public class SystemManagement extends GeneralJFrame {
             }
         });
 
-        jLabel6.setForeground(regularFontColor);
+        jLabel6.setForeground(GeneralJFrame.regularFontColor);
         jLabel6.setText("Add Movie");
 
         org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
@@ -220,6 +224,8 @@ public class SystemManagement extends GeneralJFrame {
 
 private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
     this.setVisible(false);
+    _parent.setVisible(true);
+    _parent.setEnabled(true);
 }//GEN-LAST:event_jButton5ActionPerformed
 
 private void jComboBoxUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxUserActionPerformed

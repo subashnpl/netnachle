@@ -5,17 +5,22 @@ import domain.User;
 import domain.controller.Controller;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Entrance extends GeneralJFrame {
+public class Entrance extends JFrame {
     
     private Controller _controller;
     
     /** Creates new form NewJFrame1 */
     public Entrance(Controller controller) {
         this._controller = controller;
-        setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
+    }
+    @Override
+    public void setVisible(boolean b){
+        GeneralJFrame.setFrameAtCenter(this);
+        super.setVisible(b);
     }
 
     /** This method is called from within the constructor to
@@ -44,20 +49,20 @@ public class Entrance extends GeneralJFrame {
         setTitle("Welcome to another Production of NetNachle");
         setBackground(gui.GeneralJFrame.backgroundColor);
 
-        jPanel2.setBackground(backgroundColor);
+        jPanel2.setBackground(GeneralJFrame.backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
 
-        jPanel1.setBackground(backgroundColor);
+        jPanel1.setBackground(GeneralJFrame.backgroundColor);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
-        jLabel1.setForeground(headerColor);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(GeneralJFrame.regularFontColor);
         jLabel1.setText("Login");
 
-        jLabel3.setForeground(regularFontColor);
+        jLabel3.setForeground(GeneralJFrame.regularFontColor);
         jLabel3.setText("Username");
 
-        jLabel4.setForeground(regularFontColor);
+        jLabel4.setForeground(GeneralJFrame.regularFontColor);
         jLabel4.setText("Password");
 
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +92,7 @@ public class Entrance extends GeneralJFrame {
             }
         });
 
-        jLabelId.setForeground(regularFontColor);
+        jLabelId.setForeground(GeneralJFrame.regularFontColor);
         jLabelId.setText("ID");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
@@ -217,11 +222,11 @@ private void jPasswordFieldPasswordActionPerformed(java.awt.event.ActionEvent ev
 }//GEN-LAST:event_jPasswordFieldPasswordActionPerformed
 
 private void jLabelSignUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMouseEntered
-    setLinkEntered(jLabelSignUp, linkHeaderColor);
+    GeneralJFrame.setLinkEntered(jLabelSignUp, GeneralJFrame.linkHeaderColor);
 }//GEN-LAST:event_jLabelSignUpMouseEntered
 
 private void jLabelSignUpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMouseExited
-    setLinkExited(jLabelSignUp, headerColor);
+    GeneralJFrame.setLinkExited(jLabelSignUp, GeneralJFrame.headerColor);
     
 }//GEN-LAST:event_jLabelSignUpMouseExited
 
@@ -246,13 +251,11 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
         String _secret=null;
         try {
-            _secret = new String(encrypt(_password));
+            _secret = new String(GeneralJFrame.encrypt(_password));
         } catch (Exception ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("before");
         int id = Integer.parseInt(this.jTextIdField.getText());
-        System.out.println("after");
         sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
         String encoded=encoder.encode(_secret.getBytes());
         try {
@@ -262,7 +265,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             new MainFrame(_controller).setVisible(true);
         } catch (NonUserException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(),
-                    "No Such User Error", JOptionPane.ERROR_MESSAGE);
+                    "Login Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -279,7 +282,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             new MainFrame(_controller).setVisible(true);
         } catch (NonUserException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(),
-                    "No Such User Error", JOptionPane.ERROR_MESSAGE);
+                    "Login Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
         }        
