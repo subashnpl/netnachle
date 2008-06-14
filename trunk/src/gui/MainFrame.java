@@ -48,7 +48,7 @@ public class MainFrame extends JFrame {
         return new ImageIcon(tIconUrl);
     }    
     
-    private void setMostRecommendedMovies(){
+    public void setMostRecommendedMovies(){
          _rated = _controller.get_Strategy().get10Recomendations(_controller.getCurrentUser().getId());
          Vector<Movie> movies = _rated[0];
          Vector<Integer> rates = _rated[1];

@@ -22,21 +22,21 @@ public class DataManipulate {
 	private Document _document;
 	private String  _filename;
 
-	public DataManipulate(String filename) {
-		this._filename = filename;
-		try{
-			_document = XMLUtilityManagment.readXMLFile(filename+".xml");
-		}catch(Exception e){
-			try {
-				FileWriter fw=new FileWriter(filename+".xml");
-				fw.write("<?xml version='1.0' encoding='ISO-8859-1' standalone='no'?>\n<"+filename+">\n</"+filename+">");
-				fw.close();
-				_document = XMLUtilityManagment.readXMLFile(filename+".xml");
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}
+	public DataManipulate(String filename) throws Exception{
+            this._filename = filename;
+            try{
+                _document = XMLUtilityManagment.readXMLFile(filename+".xml");
+            }catch(Exception e){
+                try {
+                    FileWriter fw=new FileWriter(filename+".xml");
+                    fw.write("<?xml version='1.0' encoding='ISO-8859-1' standalone='no'?>\n<"+filename+">\n</"+filename+">");
+                    fw.close();
+                    _document = XMLUtilityManagment.readXMLFile(filename+".xml");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                    throw new Exception("Error with XML File " + filename + ".xml");
+                }
+            }
 	}
 
 	public void addUser(User user){
