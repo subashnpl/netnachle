@@ -2,19 +2,24 @@ package gui;
 
 import domain.controller.Controller;
 import java.awt.Color;
+import javax.swing.JFrame;
 
-public class Settings extends GeneralJFrame {
+public class Settings extends JFrame {
     
-    private GeneralJFrame parent;
+    private JFrame _parent;
     private Controller _controller;
     
     /** Creates new form NewJFrame1 */
-    public Settings(GeneralJFrame parent, Controller controller) {
+    public Settings(JFrame parent, Controller controller) {
         this._controller = controller;
-        this.parent = parent;
-        setFrameAtCenter(getWidth(), getHeight());
+        this._parent = parent;
 	initComponents();
     }
+    @Override
+    public void setVisible(boolean b){
+        GeneralJFrame.setFrameAtCenter(this);
+        super.setVisible(b);
+    }    
     
     /** This method is called from within the constructor to
      * initialize the form.
@@ -31,18 +36,18 @@ public class Settings extends GeneralJFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboBoxBackGround = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Settings");
-        setBackground(GeneralJFrame.backgroundColor);
+        setBackground(gui.GeneralJFrame.backgroundColor);
 
-        jPanel2.setBackground(backgroundColor);
+        jPanel2.setBackground(GeneralJFrame.backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
 
-        jPanel1.setBackground(backgroundColor);
+        jPanel1.setBackground(GeneralJFrame.backgroundColor);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
-        jLabel1.setForeground(headerColor);
+        jLabel1.setForeground(GeneralJFrame.headerColor);
         jLabel1.setText("Settings");
 
         jButtonSaveNClose.setText("Save & Close");
@@ -52,10 +57,10 @@ public class Settings extends GeneralJFrame {
             }
         });
 
-        jLabel7.setForeground(regularFontColor);
+        jLabel7.setForeground(GeneralJFrame.regularFontColor);
         jLabel7.setText("Background Color:");
 
-        jComboBoxBackGround.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Default", "White", "LightGray", "Black" }));
+        jComboBoxBackGround.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Default", "Orange", "LightGray", "Black" }));
         jComboBoxBackGround.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxBackGroundActionPerformed(evt);
@@ -69,12 +74,12 @@ public class Settings extends GeneralJFrame {
             .add(jPanel1Layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(jLabel1)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel7)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 34, Short.MAX_VALUE)
-                .add(jComboBoxBackGround, 0, 139, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 35, Short.MAX_VALUE)
+                .add(jComboBoxBackGround, 0, 140, Short.MAX_VALUE)
                 .add(51, 51, 51))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(217, Short.MAX_VALUE)
@@ -130,21 +135,24 @@ private void jButtonSaveNCloseActionPerformed(java.awt.event.ActionEvent evt) {/
     //setBackgroundColor(new Color(jComboBoxBackGround.getSelectedIndex()));
     
     switch (jComboBoxBackGround.getSelectedIndex()){
-        case 0: setBackgroundColor(Color.DARK_GRAY);
-                this.jPanel1.setBackground(Color.DARK_GRAY); break;
-        case 1: setBackgroundColor(Color.WHITE);
-                this.jPanel1.setBackground(Color.WHITE); break;
-        case 2: setBackgroundColor(Color.LIGHT_GRAY);
-                this.jPanel1.setBackground(Color.LIGHT_GRAY); break;
-        case 3: setBackgroundColor(Color.BLACK);
-                this.jPanel1.setBackground(Color.BLACK); break;
+        case 0: GeneralJFrame.setBackgroundColor(Color.DARK_GRAY);
+                ((MainFrame)_parent).rePaintPanels();
+                break;
+        case 1: GeneralJFrame.setBackgroundColor(Color.ORANGE);
+                ((MainFrame)_parent).rePaintPanels();
+                break;
+        case 2: GeneralJFrame.setBackgroundColor(Color.LIGHT_GRAY);
+                ((MainFrame)_parent).rePaintPanels();
+                break;
+        case 3: GeneralJFrame.setBackgroundColor(Color.BLACK);
+                ((MainFrame)_parent).rePaintPanels();
+                break;
     }
     setVisible(false);
+    _parent.setEnabled(true);
+    _parent.setVisible(true);
 }//GEN-LAST:event_jButtonSaveNCloseActionPerformed
 
-private void rePaintPanels(Color color){
-    
-}
 private void jComboBoxBackGroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBackGroundActionPerformed
 
 

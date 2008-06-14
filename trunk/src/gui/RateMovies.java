@@ -4,23 +4,28 @@ import domain.controller.Controller;
 import java.util.Stack;
 import javax.swing.JFrame;
 
-public class RateMovies extends GeneralJFrame {
+public class RateMovies extends JFrame {
     
     private JFrame _parent;
     private Controller _controller;
     private String[][] _movies2rate;
     private Stack<Integer[][]>  _rateForward;
     private Stack<Integer[][]>  _rateBackword;
-    /** Creates new form NewJFrame1 */
+
     public RateMovies(JFrame parent, Controller controller) {
         _rateBackword=new Stack<Integer[][]>();
         _rateForward=new Stack<Integer[][]>();
         this._parent = parent;
         this._controller = controller;
-        setFrameAtCenter(getWidth(), getHeight());
 	initComponents();
         this.setMoviesNdirectors2Select();
     }
+    
+    public void setVisible(boolean b){
+        GeneralJFrame.setFrameAtCenter(this);
+        super.setVisible(b);
+    }    
+    
     private void setMoviesNdirectors2Select(){
         _movies2rate = this._controller.getMoviesToRate();
         jLabelMovie1.setText(_movies2rate[0][0]);
@@ -88,19 +93,19 @@ public class RateMovies extends GeneralJFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(gui.GeneralJFrame.backgroundColor);
 
-        jPanel2.setBackground(backgroundColor);
+        jPanel2.setBackground(GeneralJFrame.backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
 
-        jPanel1.setBackground(backgroundColor);
+        jPanel1.setBackground(GeneralJFrame.backgroundColor);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel1.setForeground(headersFontColor);
+        jPanel1.setForeground(GeneralJFrame.headersFontColor);
 
-        jLabelRateMoviesTitle.setFont(new java.awt.Font("Tahoma", 1, 18));
-        jLabelRateMoviesTitle.setForeground(headerColor);
+        jLabelRateMoviesTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelRateMoviesTitle.setForeground(GeneralJFrame.headerColor);
         jLabelRateMoviesTitle.setText("Rate Movies");
 
-        jLabelMovieName.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabelMovieName.setForeground(headersFontColor);
+        jLabelMovieName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelMovieName.setForeground(GeneralJFrame.headersFontColor);
         jLabelMovieName.setText("Movie's Name");
 
         jButtonNextStep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AT_next.gif"))); // NOI18N
@@ -112,76 +117,76 @@ public class RateMovies extends GeneralJFrame {
 
         jComboBoxRate1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
-        jLabelMovieName1.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabelMovieName1.setForeground(headersFontColor);
+        jLabelMovieName1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelMovieName1.setForeground(GeneralJFrame.headersFontColor);
         jLabelMovieName1.setText("Director's Name");
 
         jLabelMovieName2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelMovieName2.setForeground(headersFontColor);
+        jLabelMovieName2.setForeground(GeneralJFrame.headersFontColor);
         jLabelMovieName2.setText("Rate");
 
-        jLabelMovie1.setForeground(regularFontColor);
+        jLabelMovie1.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie1.setText("Shrek1");
 
-        jLabelDirector1.setForeground(regularFontColor);
+        jLabelDirector1.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector1.setText("Mel Gibson");
 
         jLabelPicture1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelMovie2.setForeground(regularFontColor);
+        jLabelMovie2.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie2.setText("Shrek1");
 
-        jLabelDirector2.setForeground(regularFontColor);
+        jLabelDirector2.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector2.setText("Mel Gibson");
 
         jComboBoxRate2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelMovie3.setForeground(regularFontColor);
+        jLabelMovie3.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie3.setText("Shrek1");
 
-        jLabelDirector3.setForeground(regularFontColor);
+        jLabelDirector3.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector3.setText("Mel Gibson");
 
         jComboBoxRate3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelMovie4.setForeground(regularFontColor);
+        jLabelMovie4.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie4.setText("Shrek1");
 
-        jLabelDirector4.setForeground(regularFontColor);
+        jLabelDirector4.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector4.setText("Mel Gibson");
 
         jComboBoxRate4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelMovie5.setForeground(regularFontColor);
+        jLabelMovie5.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie5.setText("Shrek1");
 
-        jLabelDirector5.setForeground(regularFontColor);
+        jLabelDirector5.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector5.setText("Mel Gibson");
 
         jComboBoxRate5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelMovie6.setForeground(regularFontColor);
+        jLabelMovie6.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie6.setText("Shrek1");
 
-        jLabelDirector6.setForeground(regularFontColor);
+        jLabelDirector6.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector6.setText("Mel Gibson");
 
         jComboBoxRate6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
-        jLabelMovie7.setForeground(regularFontColor);
+        jLabelMovie7.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie7.setText("Shrek1");
 
-        jLabelDirector7.setForeground(regularFontColor);
+        jLabelDirector7.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector7.setText("Mel Gibson");
 
         jComboBoxRate7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
@@ -214,10 +219,10 @@ public class RateMovies extends GeneralJFrame {
             .add(jPanel1Layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(jLabelRateMoviesTitle)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(424, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -237,27 +242,27 @@ public class RateMovies extends GeneralJFrame {
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 116, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(jLabelDirector2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                        .add(jLabelDirector2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 116, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(jLabelDirector3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                        .add(jLabelDirector3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 116, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(jLabelDirector4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                        .add(jLabelDirector4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jLabelDirector5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                        .add(jLabelDirector5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 128, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jLabelDirector6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                        .add(jLabelDirector6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jLabelDirector7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
+                        .add(jLabelDirector7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(jPanel1Layout.createSequentialGroup()
@@ -298,6 +303,9 @@ public class RateMovies extends GeneralJFrame {
                 .add(jButtonNextStep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 95, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jPanel1Layout.linkSize(new java.awt.Component[] {jLabelDirector1, jLabelDirector2}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()

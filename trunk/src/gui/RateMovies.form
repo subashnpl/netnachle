@@ -37,7 +37,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="backgroundColor" type="code"/>
+          <Connection code="GeneralJFrame.backgroundColor" type="code"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c8" green="d0" red="d4" type="rgb"/>
@@ -68,7 +68,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="backgroundColor" type="code"/>
+              <Connection code="GeneralJFrame.backgroundColor" type="code"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -76,7 +76,7 @@
               </Border>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="headersFontColor" type="code"/>
+              <Connection code="GeneralJFrame.headersFontColor" type="code"/>
             </Property>
           </Properties>
 
@@ -86,11 +86,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                       <Component id="jLabelRateMoviesTitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="420" max="32767" attributes="0"/>
+                      <EmptySpace pref="424" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" pref="519" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" pref="523" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -108,37 +108,37 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie1" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector1" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="jLabelDirector1" linkSize="1" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie2" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector2" pref="119" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector2" linkSize="1" min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie3" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector3" pref="119" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector3" pref="122" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie4" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector4" pref="119" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector4" pref="122" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie5" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector5" pref="119" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector5" pref="122" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie6" min="-2" pref="128" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelDirector6" pref="119" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector6" pref="122" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie7" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector7" pref="119" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector7" pref="122" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="18" max="-2" attributes="0"/>
@@ -317,7 +317,7 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headerColor" type="code"/>
+                  <Connection code="GeneralJFrame.headerColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Rate Movies"/>
               </Properties>
@@ -328,7 +328,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headersFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Movie&apos;s Name"/>
               </Properties>
@@ -367,7 +367,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headersFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Director&apos;s Name"/>
               </Properties>
@@ -378,7 +378,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="headersFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.headersFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Rate"/>
               </Properties>
@@ -386,7 +386,7 @@
             <Component class="javax.swing.JLabel" name="jLabelMovie1">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
               </Properties>
@@ -396,7 +396,7 @@
             <Component class="javax.swing.JLabel" name="jLabelDirector1">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mel Gibson"/>
               </Properties>
@@ -411,7 +411,7 @@
             <Component class="javax.swing.JLabel" name="jLabelMovie2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
               </Properties>
@@ -419,7 +419,7 @@
             <Component class="javax.swing.JLabel" name="jLabelDirector2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mel Gibson"/>
               </Properties>
@@ -452,7 +452,7 @@
             <Component class="javax.swing.JLabel" name="jLabelMovie3">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
               </Properties>
@@ -460,7 +460,7 @@
             <Component class="javax.swing.JLabel" name="jLabelDirector3">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mel Gibson"/>
               </Properties>
@@ -493,7 +493,7 @@
             <Component class="javax.swing.JLabel" name="jLabelMovie4">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
               </Properties>
@@ -501,7 +501,7 @@
             <Component class="javax.swing.JLabel" name="jLabelDirector4">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mel Gibson"/>
               </Properties>
@@ -534,7 +534,7 @@
             <Component class="javax.swing.JLabel" name="jLabelMovie5">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
               </Properties>
@@ -542,7 +542,7 @@
             <Component class="javax.swing.JLabel" name="jLabelDirector5">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mel Gibson"/>
               </Properties>
@@ -575,7 +575,7 @@
             <Component class="javax.swing.JLabel" name="jLabelMovie6">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
               </Properties>
@@ -583,7 +583,7 @@
             <Component class="javax.swing.JLabel" name="jLabelDirector6">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mel Gibson"/>
               </Properties>
@@ -616,7 +616,7 @@
             <Component class="javax.swing.JLabel" name="jLabelMovie7">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
               </Properties>
@@ -624,7 +624,7 @@
             <Component class="javax.swing.JLabel" name="jLabelDirector7">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="regularFontColor" type="code"/>
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mel Gibson"/>
               </Properties>

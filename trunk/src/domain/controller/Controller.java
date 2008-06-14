@@ -230,7 +230,7 @@ public class Controller {
                 tUser = null;
                 message = "Non-User " + userName + " has tried to login but failed.";
                 logger.log(message);
-                throw new NonUserException("No such user: " + userName);
+                throw new NonUserException("No such user: " + userName +"\n- OR -\nPassword doesn't match");
             }
             return tUser;
     }
