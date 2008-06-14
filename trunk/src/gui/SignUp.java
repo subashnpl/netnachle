@@ -302,6 +302,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
         _controller.addUser(tuser);
         _controller.setCurrentUser(tuser);
         exit();
+        this.setVisible(false);
         new RateMovies(this, _controller).setVisible(true);
         }
     }
@@ -321,6 +322,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
         _controller.addUser(tuser);
         _controller.setCurrentUser(tuser);
         exit();
+        this.setVisible(false);
         new RateMovies(this, _controller).setVisible(true);
         }            
     }
