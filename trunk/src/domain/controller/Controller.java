@@ -6,10 +6,11 @@ import java.util.Iterator;
 import domain.Movie;
 import domain.User;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 
 public class Controller {
-	private DataManipulate _moviesHandler;
-	private DataManipulate _usersHandler;
+	private DataManipulate _moviesHandler = null;
+	private DataManipulate _usersHandler = null;
         public Strategy _strategy;
 	private Logger logger;
 	private HashMap<Integer, User> _users;
@@ -74,6 +75,10 @@ public class Controller {
         this.removeUser(_users.get(i));
     }
     
+    public void removeMovie(int i) {
+        logger.log("remove movie  : " + _movies.get(i));
+        this.removeMovie(_movies.get(i));
+    }
     /*
      /  return 7 movies randomly to be rate by the user   
     *///oz
@@ -168,19 +173,35 @@ public class Controller {
     //	_users.remove(i);
     //}
     public void removeMovie(Movie m){
-            _users.remove(m);
+        
+        Iterator<Integer> ratesIter = m.get_rates().keySet().iterator();
+        while(ratesIter.hasNext()){
+            _users.get(ratesIter.next()).removeRater(m.get_id());
+        }
+            _movies.remove(m.get_id());
             logger.log("Movie " + m.get_name() + " has been removed from database.");
     }
 
     private void upLoad(){
+        try {
             _moviesHandler = new DataManipulate("movies");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "Movies File Error", JOptionPane.ERROR_MESSAGE);
+        }
+        try{
             _usersHandler = new DataManipulate("users");
-            _users = _usersHandler.getUsers();
-            _usersInSystem = new HashMap<Integer, User>();
-            _movies = _moviesHandler.getMovies();
-            generateMoviesRaters();
-            logger = Logger.makeSingleton("log.txt");
-            logger.log("System is up.");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "Users File Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        _users = _usersHandler.getUsers();
+        _usersInSystem = new HashMap<Integer, User>();
+        _movies = _moviesHandler.getMovies();
+        generateMoviesRaters();
+        logger = Logger.makeSingleton("log.txt");
+        logger.log("System is up.");
     }
 
     // Updating movies' rates according to rates that users rated that were read from the users.xml file

@@ -7,24 +7,34 @@ public class SystemManagement extends JFrame {
     private Controller _controller;
     private JFrame _parent;
     private int[] _usersId;
+    private int[] _moviesId;
     private String[] _usersNames;
-    /** Creates new form NewJFrame1 */
+    private String[] _moviesNames;
+    
     public SystemManagement(Controller controller, JFrame parent) {
         _controller = controller;
         _parent = parent;
-        _usersId=_controller.getUsersIds();
-        _usersNames=_controller.getUsersNamesById(_usersId);
-        String[] moviesNames=_controller.getMovieNames();
-	initComponents();
-        jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
-        jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(moviesNames));
+        initComponents();
+        updateUsersModel();
+        updateMoviesModel();
     }
     @Override
     public void setVisible(boolean b){
         GeneralJFrame.setFrameAtCenter(this);
         super.setVisible(b);
     }    
-    
+    public void updateMoviesModel(){
+        _moviesId = _controller.getMoviesIds();
+        _moviesNames = _controller.getMoviesNamesById(_moviesId);
+        jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
+        validate();
+    }
+    public void updateUsersModel(){
+        _usersId = _controller.getUsersIds();
+        _usersNames = _controller.getUsersNamesById(_usersId);
+        jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
+        validate();
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -238,9 +248,9 @@ private void jButtonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {/
     
       _usersId=_controller.getUsersIds();
          _usersNames=_controller.getUsersNamesById(_usersId);
-         String[] moviesNames=_controller.getMovieNames();
+         _moviesNames=_controller.getMoviesNamesById(_moviesId);
         jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
-        jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(moviesNames));
+        jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
         if (jComboBoxUser.getModel().getSize() == 0){
             jButtonDeleteUser.setEnabled(false);
         }
@@ -248,7 +258,21 @@ private void jButtonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {/
 }//GEN-LAST:event_jButtonDeleteUserActionPerformed
 
 private void jButtonDeleteMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteMovieActionPerformed
-}//GEN-LAST:event_jButtonDeleteMovieActionPerformed
+    int selectItemToDel =   jComboBoxMovie.getSelectedIndex();//GEN-LAST:event_jButtonDeleteMovieActionPerformed
+    _controller.removeMovie(_moviesId[selectItemToDel]);
+    
+    _moviesId=_controller.getMoviesIds();
+    _moviesNames=_controller.getMoviesNamesById(_moviesId);
+    _usersNames=_controller.getUsersNamesById(_usersId);
+    jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
+    jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
+    
+     if (jComboBoxMovie.getModel().getSize() == 0){
+            jButtonDeleteMovie.setEnabled(false);
+     }
+     this.validate();
+     ((MainFrame)this._parent).setMostRecommendedMovies();
+}                                                  
 
 private void jButtonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddMovieActionPerformed
     this.setEnabled(false);
