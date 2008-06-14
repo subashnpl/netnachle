@@ -485,7 +485,6 @@ private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     System.out.println("here");
     this.setVisible(false);
     _parent.setEnabled(true);
-    _parent.setVisible(true);
 }//GEN-LAST:event_jButtonFinishActionPerformed
 
 private void jComboBoxRate7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRate7ActionPerformed
