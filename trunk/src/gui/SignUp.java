@@ -10,12 +10,7 @@ import javax.swing.JOptionPane;
 public class SignUp extends JFrame {
     private Controller _controller;
     private JFrame _parent;
-    private String _name;
-    private String _password;
-    private int _id;
     private String _sex;
-    private String idString;
-	
 
     public SignUp(Controller controller, JFrame parent) {
         this._controller = controller;
@@ -288,32 +283,38 @@ private void jComboBoxGenderActionPerformed(java.awt.event.ActionEvent evt) {//G
 
 
 private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStepActionPerformed
-    _name = this.jTextFieldUserName.getText();
-    idString = this.jFormattedTextFieldId.getText();
+    String _name = this.jTextFieldUserName.getText();
+    boolean idValid = this.jFormattedTextFieldId.isEditValid();
     char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
-    _password = new String(passwordChars1);
+    String _password = new String(passwordChars1);
     if (_name.equals("") ||
-            idString.equals("")||
+            !idValid ||
             _password.equals("")){
         JOptionPane.showMessageDialog(this, "Please enter all details Lesbo",
                     "", JOptionPane.ERROR_MESSAGE);
     } else{
-        _id = Integer.parseInt(idString);
-        String _secret=null;
-        try {
-            _secret = new String(GeneralJFrame.encrypt(_password));
-        } catch (Exception ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        int _id = Integer.parseInt(this.jFormattedTextFieldId.getText());
+        if (_controller.isUserExist(_id)){
+            JOptionPane.showMessageDialog(this, "This ID already exists.\nPlease contact administrator at net-nachle@googlegroups.com",
+                    "ID Already Exits", JOptionPane.ERROR_MESSAGE);
         }
-        _sex = this.jComboBoxGender.getSelectedItem().toString();
-        sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-        String encoded=encoder.encode(_secret.getBytes());
-        User tuser = new  User( encoded, "user", _id, _name, _sex);
-        _controller.addUser(tuser);
-        _controller.setCurrentUser(tuser);
-        exit();
-        this.setVisible(false);
-        new RateMovies(this, _controller).setVisible(true);
+        else{
+            String _secret=null;
+            try {
+                _secret = new String(GeneralJFrame.encrypt(_password));
+            } catch (Exception ex) {
+                Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            _sex = this.jComboBoxGender.getSelectedItem().toString();
+            sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+            String encoded=encoder.encode(_secret.getBytes());
+            User tuser = new  User( encoded, "user", _id, _name, _sex);
+            _controller.addUser(tuser);
+            _controller.setCurrentUser(tuser);
+            exit();
+            this.setVisible(false);
+            new RateMovies(this, _controller).setVisible(true);
+        }
     }
 }//GEN-LAST:event_jButtonNextStepActionPerformed
 private void validateFields(){

@@ -275,6 +275,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
         int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
+        System.out.println("id:::: "+id);
         sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
         String encoded=encoder.encode(_secret.getBytes());
         try {
@@ -331,10 +332,13 @@ private void validateFields(){
     if (this.jPasswordFieldPassword.getPassword().length != 0)
         System.out.println("pass: "+this.jPasswordFieldPassword.getPassword()[0]);
     System.out.println("id: "+this.jFormattedTextFieldId.isEditValid());
+    System.out.println("id: "+this.jFormattedTextFieldId.getText());
     */
+    
     if ((!this.jTextFieldUsername.getText().equals("")) &&
             (this.jPasswordFieldPassword.getPassword().length != 0) &&
-            (this.jFormattedTextFieldId.isEditValid())){
+            (this.jFormattedTextFieldId.isEditValid())
+            /*(this.jFormattedTextFieldId.getText().length() == 9)*/){
         enableEnter(true);
     } else{
         enableEnter(false);
