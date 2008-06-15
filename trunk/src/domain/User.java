@@ -46,9 +46,7 @@ public class User {
 		return ret;
 	}
 
-	
-
-	public String getName() {
+        public String getName() {
 		return _name;
 	}
 
