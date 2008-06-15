@@ -471,7 +471,6 @@ private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN
          if (!(rates[i].equals(new Integer(0)))) {
                 movIdStk.push(moviesId[i]);
                 rateStk.push(rates[i]);
-                System.out.println(moviesId[i]+ "-sasasasasa-" + rates[i]);
             } //if
         }//for
     }//while
@@ -482,9 +481,9 @@ private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         rate[i]=rateStk.pop().intValue();
     }
     _controller.setRatesByUser(movId, rate, _controller.getCurrentUser().getId());
-    System.out.println("here");
     this.setVisible(false);
     _parent.setEnabled(true);
+    _parent.setVisible(true);
 }//GEN-LAST:event_jButtonFinishActionPerformed
 
 private void jComboBoxRate7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRate7ActionPerformed
