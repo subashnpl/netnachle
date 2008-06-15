@@ -1,5 +1,6 @@
 package domain;
 
+import Exceptions.NoRateException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -104,13 +105,13 @@ public class User {
 		return (int) Math.round(tSum/_rates.size());
 	}
 
-	public int getMovieRate(int movieId){
+	public int getMovieRate(int movieId)  throws NoRateException{
 		if (!_rates.containsKey(movieId))
-			return -1;
+			throw new  NoRateException("You didn't see that movie, you KUNT!!!");
 		return _rates.get(movieId);
 	}
 
-	public int getNormelizedMovieRate(int movieId){
+	public int getNormelizedMovieRate(int movieId) throws NoRateException{
 		return getMovieRate(movieId) - getMeanRate();
 	}
 }
