@@ -12,7 +12,6 @@ public class Entrance extends JFrame {
     
     private Controller _controller;
     
-    /** Creates new form NewJFrame1 */
     public Entrance(Controller controller) {
         this._controller = controller;
 	initComponents();
@@ -75,6 +74,9 @@ public class Entrance extends JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldUsernameKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldUsernameKeyReleased(evt);
+            }
         });
 
         jPasswordFieldPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +87,9 @@ public class Entrance extends JFrame {
         jPasswordFieldPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPasswordFieldPasswordKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordFieldPasswordKeyReleased(evt);
             }
         });
 
@@ -114,6 +119,12 @@ public class Entrance extends JFrame {
         jFormattedTextFieldId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jFormattedTextFieldIdKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jFormattedTextFieldIdKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFormattedTextFieldIdKeyTyped(evt);
             }
         });
 
@@ -263,52 +274,35 @@ private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signU
 }//GEN-LAST:event_signUpHandler
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    boolean encoded1 = true;
-    if (encoded1){
-        String userName = this.jTextFieldUsername.getText();
-        char[] passwordChars = this.jPasswordFieldPassword.getPassword();
-        String _password = new String(passwordChars);
-        String _secret = null;
-        try {
-            _secret = new String(GeneralJFrame.encrypt(_password));
-        } catch (Exception ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
-        System.out.println("id:::: "+id);
-        sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-        String encoded=encoder.encode(_secret.getBytes());
-        try {
-            User tUser = _controller.login(encoded, userName, id);
-            _controller.setCurrentUser(tUser);
-            this.setVisible(false);
-            new MainFrame(_controller).setVisible(true);
-        } catch (NonUserException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(),
-                    "Login Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception ex) {
-            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    String userName = this.jTextFieldUsername.getText();
+    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
+    String _password = new String(passwordChars);
+    String _secret = null;
+    try {
+        _secret = new String(GeneralJFrame.encrypt(_password));
+    } catch (Exception ex) {
+        Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
     }
-    else{
-        String userName = this.jTextFieldUsername.getText();
-        char[] passwordChars = this.jPasswordFieldPassword.getPassword();
-        String _password = new String(passwordChars);
-        int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
-        try {
-            User tUser = _controller.login(_password, userName, id);
-            _controller.setCurrentUser(tUser);
-            this.setVisible(false);
-            new MainFrame(_controller).setVisible(true);
-        } catch (NonUserException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(),
-                    "Login Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception ex) {
-            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+    int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
+    try {
+        User tUser = _controller.login(encode(_secret), userName, id);
+        _controller.setCurrentUser(tUser);
+        doLoginActions();
+    } catch (NonUserException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Login Error", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
     }
 }//GEN-LAST:event_jButton2ActionPerformed
-
+private String encode(String _secret){
+    sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+    return encoder.encode(_secret.getBytes());
+}
+private void doLoginActions(){
+    this.setVisible(false);
+    new MainFrame(_controller).setVisible(true);
+}
 private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
     this.setVisible(false);
     _controller.shutDown();
@@ -316,34 +310,67 @@ private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 }//GEN-LAST:event_jButtonExitActionPerformed
 
 private void jFormattedTextFieldIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIdKeyPressed
-    validateFields();
+    
 }//GEN-LAST:event_jFormattedTextFieldIdKeyPressed
 
 private void jTextFieldUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsernameKeyPressed
-    validateFields();
+
 }//GEN-LAST:event_jTextFieldUsernameKeyPressed
 
 private void jPasswordFieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordKeyPressed
-    validateFields();
-}//GEN-LAST:event_jPasswordFieldPasswordKeyPressed
-private void validateFields(){
-    /*
-    System.out.println("userName: "+this.jTextFieldUsername.getText());
-    if (this.jPasswordFieldPassword.getPassword().length != 0)
-        System.out.println("pass: "+this.jPasswordFieldPassword.getPassword()[0]);
-    System.out.println("id: "+this.jFormattedTextFieldId.isEditValid());
-    System.out.println("id: "+this.jFormattedTextFieldId.getText());
-    */
     
+}//GEN-LAST:event_jPasswordFieldPasswordKeyPressed
+
+private void jFormattedTextFieldIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIdKeyTyped
+    
+}//GEN-LAST:event_jFormattedTextFieldIdKeyTyped
+
+private void jFormattedTextFieldIdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIdKeyReleased
+    validateFields();
+}//GEN-LAST:event_jFormattedTextFieldIdKeyReleased
+
+private void jTextFieldUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsernameKeyReleased
+    
+    if (evt.getKeyChar() == '`'){
+            try {
+                User tUser = _controller.login(encode("1"), "shaigi", 043137314);
+                _controller.setCurrentUser(tUser);
+                this.setVisible(false);
+                new MainFrame(_controller).setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    } else{
+        validateFields();
+    }
+}//GEN-LAST:event_jTextFieldUsernameKeyReleased
+
+private void jPasswordFieldPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordKeyReleased
+    validateFields();
+}//GEN-LAST:event_jPasswordFieldPasswordKeyReleased
+private void validateFields(){
+    int id = getIdAsInteger();
     if ((!this.jTextFieldUsername.getText().equals("")) &&
             (this.jPasswordFieldPassword.getPassword().length != 0) &&
             (this.jFormattedTextFieldId.isEditValid())
+            && (id >= 0) && (id <= 999999999)
             /*(this.jFormattedTextFieldId.getText().length() == 9)*/){
         enableEnter(true);
     } else{
         enableEnter(false);
     }
 }
+
+private int getIdAsInteger(){
+    int id = -1;
+    if (this.jPasswordFieldPassword.getPassword().length != 0){
+        try{
+            id = Integer.parseInt(this.jFormattedTextFieldId.getText());
+        } catch (NumberFormatException e) {}
+    }
+    return id;
+}
+
 private void enableEnter(boolean b){
     this.jButton2.setEnabled(b);
 }

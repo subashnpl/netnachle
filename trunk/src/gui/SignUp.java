@@ -36,7 +36,7 @@ public class SignUp extends JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldUserName = new javax.swing.JTextField();
-        jPasswordChoose = new javax.swing.JPasswordField();
+        jPasswordFieldPassword = new javax.swing.JPasswordField();
         jButtonNextStep = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -47,9 +47,10 @@ public class SignUp extends JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextFieldFirstName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelID = new javax.swing.JLabel();
         jButtonCancel = new javax.swing.JButton();
         jFormattedTextFieldId = new javax.swing.JFormattedTextField();
+        jLabelMustBe9Digits = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(gui.GeneralJFrame.backgroundColor);
@@ -79,16 +80,22 @@ public class SignUp extends JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldUserNameKeyPressed(evt);
             }
-        });
-
-        jPasswordChoose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordChooseActionPerformed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldUserNameKeyReleased(evt);
             }
         });
-        jPasswordChoose.addKeyListener(new java.awt.event.KeyAdapter() {
+
+        jPasswordFieldPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldPasswordActionPerformed(evt);
+            }
+        });
+        jPasswordFieldPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordChooseKeyPressed(evt);
+                jPasswordFieldPasswordKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordFieldPasswordKeyReleased(evt);
             }
         });
 
@@ -135,8 +142,8 @@ public class SignUp extends JFrame {
         jLabel2.setForeground(GeneralJFrame.regularFontColor);
         jLabel2.setText("Let's rate some movies...");
 
-        jLabel5.setForeground(GeneralJFrame.regularFontColor);
-        jLabel5.setText("Enter Your ID: *");
+        jLabelID.setForeground(GeneralJFrame.regularFontColor);
+        jLabelID.setText("Enter Your ID: *");
 
         jButtonCancel.setText("Cancel");
         jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +161,13 @@ public class SignUp extends JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jFormattedTextFieldIdKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jFormattedTextFieldIdKeyReleased(evt);
+            }
         });
+
+        jLabelMustBe9Digits.setForeground(GeneralJFrame.regularFontColor);
+        jLabelMustBe9Digits.setText("(Must be 9 digits)");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,16 +195,18 @@ public class SignUp extends JFrame {
                                     .add(jLabel8)
                                     .add(jLabel7)
                                     .add(jLabel6)
-                                    .add(jLabel5))
-                                .add(139, 139, 139)
+                                    .add(jLabelID))
+                                .add(51, 51, 51)
+                                .add(jLabelMustBe9Digits)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jComboBoxGender, 0, 143, Short.MAX_VALUE)
-                                    .add(jComboBoxLocation, 0, 143, Short.MAX_VALUE)
-                                    .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .add(jTextFieldUserName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .add(jPasswordChoose, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .add(jTextFieldFirstName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .add(jTextFieldLastName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))))))
+                                    .add(jComboBoxGender, 0, 138, Short.MAX_VALUE)
+                                    .add(jComboBoxLocation, 0, 138, Short.MAX_VALUE)
+                                    .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                    .add(jTextFieldUserName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                    .add(jPasswordFieldPassword, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                    .add(jTextFieldFirstName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                    .add(jTextFieldLastName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -206,11 +221,12 @@ public class SignUp extends JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
-                    .add(jPasswordChoose))
+                    .add(jPasswordFieldPassword))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel5)
-                    .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jLabelID)
+                    .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabelMustBe9Digits))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE, false)
                     .add(jLabel9)
@@ -273,9 +289,9 @@ public class SignUp extends JFrame {
 
 }//GEN-LAST:event_jTextFieldUserNameActionPerformed
 
-private void jPasswordChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordChooseActionPerformed
+private void jPasswordFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordActionPerformed
 
-}//GEN-LAST:event_jPasswordChooseActionPerformed
+}//GEN-LAST:event_jPasswordFieldPasswordActionPerformed
 
 private void jComboBoxGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGenderActionPerformed
 
@@ -285,7 +301,7 @@ private void jComboBoxGenderActionPerformed(java.awt.event.ActionEvent evt) {//G
 private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStepActionPerformed
     String _name = this.jTextFieldUserName.getText();
     boolean idValid = this.jFormattedTextFieldId.isEditValid();
-    char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
+    char[] passwordChars1 = this.jPasswordFieldPassword.getPassword(); 
     String _password = new String(passwordChars1);
     if (_name.equals("") ||
             !idValid ||
@@ -299,7 +315,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
                     "ID Already Exits", JOptionPane.ERROR_MESSAGE);
         }
         else{
-            String _secret=null;
+            String _secret = null;
             try {
                 _secret = new String(GeneralJFrame.encrypt(_password));
             } catch (Exception ex) {
@@ -318,14 +334,27 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
     }
 }//GEN-LAST:event_jButtonNextStepActionPerformed
 private void validateFields(){
+    int id = getIdAsInteger();
     if ((!this.jTextFieldUserName.getText().equals("")) &&
-            (this.jPasswordChoose.getPassword().length != 0) &&
-            (this.jFormattedTextFieldId.isEditValid())){
+            (this.jPasswordFieldPassword.getPassword().length != 0) &&
+            (this.jFormattedTextFieldId.isEditValid()) &&
+            (id >= 0) && (id <= 999999999)){
         enableNextStep(true);
     } else{
         enableNextStep(false);
     }
 }
+
+private int getIdAsInteger(){
+    int id = -1;
+    if (this.jPasswordFieldPassword.getPassword().length != 0){
+        try{
+            id = Integer.parseInt(this.jFormattedTextFieldId.getText());
+        } catch (NumberFormatException e) {}
+    }
+    return id;
+}
+
 private void enableNextStep(boolean b){
     this.jButtonNextStep.setEnabled(b);
 }
@@ -348,16 +377,28 @@ private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 }//GEN-LAST:event_jButtonCancelActionPerformed
 
 private void jTextFieldUserNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUserNameKeyPressed
-    validateFields();
+
 }//GEN-LAST:event_jTextFieldUserNameKeyPressed
 
-private void jPasswordChooseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordChooseKeyPressed
+private void jPasswordFieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordKeyPressed
     validateFields();
-}//GEN-LAST:event_jPasswordChooseKeyPressed
+}//GEN-LAST:event_jPasswordFieldPasswordKeyPressed
 
 private void jFormattedTextFieldIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIdKeyPressed
-    validateFields();
+    
 }//GEN-LAST:event_jFormattedTextFieldIdKeyPressed
+
+private void jTextFieldUserNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUserNameKeyReleased
+    validateFields();
+}//GEN-LAST:event_jTextFieldUserNameKeyReleased
+
+private void jPasswordFieldPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordKeyReleased
+    validateFields();
+}//GEN-LAST:event_jPasswordFieldPasswordKeyReleased
+
+private void jFormattedTextFieldIdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIdKeyReleased
+    validateFields();
+}//GEN-LAST:event_jFormattedTextFieldIdKeyReleased
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancel;
@@ -369,14 +410,15 @@ private void jFormattedTextFieldIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelMustBe9Digits;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordChoose;
+    private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldLastName;
     private javax.swing.JTextField jTextFieldUserName;

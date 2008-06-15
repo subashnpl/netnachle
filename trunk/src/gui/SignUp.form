@@ -104,17 +104,19 @@
                                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelID" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="jLabelMustBe9Digits" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jComboBoxGender" pref="143" max="32767" attributes="1"/>
-                                          <Component id="jComboBoxLocation" alignment="1" pref="143" max="32767" attributes="1"/>
-                                          <Component id="jFormattedTextFieldId" alignment="1" pref="143" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldUserName" alignment="1" pref="143" max="32767" attributes="1"/>
-                                          <Component id="jPasswordChoose" alignment="1" pref="143" max="32767" attributes="1"/>
-                                          <Component id="jTextFieldFirstName" alignment="1" pref="143" max="32767" attributes="1"/>
-                                          <Component id="jTextFieldLastName" alignment="1" pref="143" max="32767" attributes="1"/>
+                                          <Component id="jComboBoxGender" pref="138" max="32767" attributes="1"/>
+                                          <Component id="jComboBoxLocation" alignment="1" pref="138" max="32767" attributes="1"/>
+                                          <Component id="jFormattedTextFieldId" alignment="1" pref="138" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldUserName" alignment="1" pref="138" max="32767" attributes="1"/>
+                                          <Component id="jPasswordFieldPassword" alignment="1" pref="138" max="32767" attributes="1"/>
+                                          <Component id="jTextFieldFirstName" alignment="1" pref="138" max="32767" attributes="1"/>
+                                          <Component id="jTextFieldLastName" alignment="1" pref="138" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -137,12 +139,13 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPasswordChoose" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jPasswordFieldPassword" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelID" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jFormattedTextFieldId" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelMustBe9Digits" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" max="-2" attributes="0">
@@ -208,12 +211,14 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUserNameActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldUserNameKeyPressed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldUserNameKeyReleased"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordChoose">
+            <Component class="javax.swing.JPasswordField" name="jPasswordFieldPassword">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordChooseActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordChooseKeyPressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordFieldPasswordActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordFieldPasswordKeyPressed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordFieldPasswordKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonNextStep">
@@ -302,7 +307,7 @@
                 <Property name="text" type="java.lang.String" value="Let&apos;s rate some movies..."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="jLabelID">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="GeneralJFrame.regularFontColor" type="code"/>
@@ -326,7 +331,16 @@
               </Properties>
               <Events>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jFormattedTextFieldIdKeyPressed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jFormattedTextFieldIdKeyReleased"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMustBe9Digits">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GeneralJFrame.regularFontColor" type="code"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="(Must be 9 digits)"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
