@@ -209,9 +209,9 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabelMovie1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jComboBoxRate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelMovie1" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">

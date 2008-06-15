@@ -353,9 +353,9 @@ public class RateMovies extends JFrame {
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(27, 27, 27)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabelMovie1)
                                     .add(jLabelDirector1)
-                                    .add(jComboBoxRate1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                    .add(jComboBoxRate1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(jLabelMovie1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 41, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jLabelPicture1)))
@@ -518,8 +518,6 @@ private void writeDown7Selection(){//oz1
 private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishActionPerformed
     writeDown7Selection();
     this.setVisible(false);
-    _parent.setEnabled(true);
-    _parent.setVisible(true);
 }//GEN-LAST:event_jButtonFinishActionPerformed
 
 private void jComboBoxRate7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRate7ActionPerformed

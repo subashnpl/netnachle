@@ -21,6 +21,7 @@ public class SignUp extends JFrame {
         this._controller = controller;
         this._parent = parent;
 	initComponents();
+        validateFields();
     }
     public void setVisible(boolean b){
         GeneralJFrame.setFrameAtCenter(this);
@@ -52,7 +53,7 @@ public class SignUp extends JFrame {
         jTextFieldFirstName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButtonNextStep1 = new javax.swing.JButton();
+        jButtonCancel = new javax.swing.JButton();
         jFormattedTextFieldId = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -79,10 +80,20 @@ public class SignUp extends JFrame {
                 jTextFieldUserNameActionPerformed(evt);
             }
         });
+        jTextFieldUserName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldUserNameKeyPressed(evt);
+            }
+        });
 
         jPasswordChoose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordChooseActionPerformed(evt);
+            }
+        });
+        jPasswordChoose.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordChooseKeyPressed(evt);
             }
         });
 
@@ -132,10 +143,10 @@ public class SignUp extends JFrame {
         jLabel5.setForeground(GeneralJFrame.regularFontColor);
         jLabel5.setText("Enter Your ID: *");
 
-        jButtonNextStep1.setText("Cancel");
-        jButtonNextStep1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCancel.setText("Cancel");
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNextStep1ActionPerformed(evt);
+                jButtonCancelActionPerformed(evt);
             }
         });
 
@@ -144,6 +155,11 @@ public class SignUp extends JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jFormattedTextFieldIdKeyPressed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,7 +172,7 @@ public class SignUp extends JFrame {
                         .add(jLabel1))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(jButtonNextStep1)
+                        .add(jButtonCancel)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 232, Short.MAX_VALUE)
                         .add(jButtonNextStep))
                     .add(jPanel1Layout.createSequentialGroup()
@@ -221,7 +237,7 @@ public class SignUp extends JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButtonNextStep)
-                    .add(jButtonNextStep1))
+                    .add(jButtonCancel))
                 .addContainerGap())
         );
 
@@ -272,61 +288,46 @@ private void jComboBoxGenderActionPerformed(java.awt.event.ActionEvent evt) {//G
 
 
 private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStepActionPerformed
-        boolean encoded1 = true;
-    if (encoded1){     
-        System.out.println("setMoviesNdirectors2Select");
     _name = this.jTextFieldUserName.getText();
-        idString = this.jFormattedTextFieldId.getText();
-         char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
-          _password = new String(passwordChars1);
-          if (_name.equals("")||idString.equals("")||_password.equals("")){
-             JOptionPane.showMessageDialog(this, "Please enter all details Lesbo",
+    idString = this.jFormattedTextFieldId.getText();
+    char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
+    _password = new String(passwordChars1);
+    if (_name.equals("") ||
+            idString.equals("")||
+            _password.equals("")){
+        JOptionPane.showMessageDialog(this, "Please enter all details Lesbo",
                     "", JOptionPane.ERROR_MESSAGE);
-                }
-          else{
-               _id =  Integer.parseInt(idString);
-          String _secret=null;
-            try {
-                _secret = new String(GeneralJFrame.encrypt(_password));
-            } catch (Exception ex) {
-                Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-            }
-          _sex = this.jComboBoxGender.getSelectedItem().toString();
-            sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-            String encoded=encoder.encode(_secret.getBytes());
-
+    } else{
+        _id = Integer.parseInt(idString);
+        String _secret=null;
+        try {
+            _secret = new String(GeneralJFrame.encrypt(_password));
+        } catch (Exception ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        _sex = this.jComboBoxGender.getSelectedItem().toString();
+        sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+        String encoded=encoder.encode(_secret.getBytes());
         User tuser = new  User( encoded, "user", _id, _name, _sex);
         _controller.addUser(tuser);
         _controller.setCurrentUser(tuser);
         exit();
         this.setVisible(false);
         new RateMovies(this, _controller).setVisible(true);
-              System.out.println("here");
-        }
-    }
-    else{
-    _name = this.jTextFieldUserName.getText();
-        idString = this.jFormattedTextFieldId.getText();
-         char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
-          _password = new String(passwordChars1);
-          if (_name.equals("")||idString.equals("")||_password.equals("")){
-             JOptionPane.showMessageDialog(this, "Please enter all details Lesbo",
-                    "", JOptionPane.ERROR_MESSAGE);
-                }
-          else{
-               _id =  Integer.parseInt(idString);
-          _sex = this.jComboBoxGender.getSelectedItem().toString();
-        User tuser = new  User( _password, "user", _id, _name, _sex);
-        _controller.addUser(tuser);
-        _controller.setCurrentUser(tuser);
-        exit();
-        this.setVisible(false);
-        new RateMovies(this, _controller).setVisible(true);
-        System.out.println("here1");
-        }            
     }
 }//GEN-LAST:event_jButtonNextStepActionPerformed
-        
+private void validateFields(){
+    if ((!this.jTextFieldUserName.getText().equals("")) &&
+            (this.jPasswordChoose.getPassword().length != 0) &&
+            (this.jFormattedTextFieldId.isEditValid())){
+        enableNextStep(true);
+    } else{
+        enableNextStep(false);
+    }
+}
+private void enableNextStep(boolean b){
+    this.jButtonNextStep.setEnabled(b);
+}
 private void exit(){
     this.setEnabled(false);
     this.setVisible(false);
@@ -341,13 +342,25 @@ private void jTextFieldFirstNameActionPerformed(java.awt.event.ActionEvent evt) 
 // TODO add your handling code here:
 }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
-private void jButtonNextStep1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStep1ActionPerformed
+private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
     exit();
-}//GEN-LAST:event_jButtonNextStep1ActionPerformed
+}//GEN-LAST:event_jButtonCancelActionPerformed
+
+private void jTextFieldUserNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUserNameKeyPressed
+    validateFields();
+}//GEN-LAST:event_jTextFieldUserNameKeyPressed
+
+private void jPasswordChooseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordChooseKeyPressed
+    validateFields();
+}//GEN-LAST:event_jPasswordChooseKeyPressed
+
+private void jFormattedTextFieldIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIdKeyPressed
+    validateFields();
+}//GEN-LAST:event_jFormattedTextFieldIdKeyPressed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonNextStep;
-    private javax.swing.JButton jButtonNextStep1;
     private javax.swing.JComboBox jComboBoxGender;
     private javax.swing.JComboBox jComboBoxLocation;
     private javax.swing.JFormattedTextField jFormattedTextFieldId;

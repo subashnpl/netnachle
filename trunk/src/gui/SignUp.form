@@ -88,7 +88,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonNextStep1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonCancel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="232" max="32767" attributes="0"/>
                               <Component id="jButtonNextStep" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -169,7 +169,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonNextStep" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonNextStep1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -207,11 +207,13 @@
             <Component class="javax.swing.JTextField" name="jTextFieldUserName">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUserNameActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldUserNameKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordChoose">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordChooseActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordChooseKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonNextStep">
@@ -308,12 +310,12 @@
                 <Property name="text" type="java.lang.String" value="Enter Your ID: *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonNextStep1">
+            <Component class="javax.swing.JButton" name="jButtonCancel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNextStep1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldId">
@@ -322,6 +324,9 @@
                   <Format format="#########" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jFormattedTextFieldIdKeyPressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
