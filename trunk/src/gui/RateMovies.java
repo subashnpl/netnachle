@@ -18,7 +18,7 @@ public class RateMovies extends JFrame {
         this._parent = parent;
         this._controller = controller;
 	initComponents();
-        this.setMoviesNdirectors2Select();
+        this.setMoviesNdirectors2Select("f");
     }
     
     public void setVisible(boolean b){
@@ -26,22 +26,46 @@ public class RateMovies extends JFrame {
         super.setVisible(b);
     }    
     
-    private void setMoviesNdirectors2Select(){
-        _movies2rate = this._controller.getMoviesToRate();
+    private void setMoviesNdirectors2Select(String for_back){
+        //Important _controller.getMoviesToRate return { {movName , movDirctor , movId}, ..... and so on }
+        //System.out.println("start");
+        int rateASindex=-1;
+        _movies2rate = this._controller.getMoviesToRate(for_back);
+        
         jLabelMovie1.setText(_movies2rate[0][0]);
         jLabelDirector1.setText(_movies2rate[0][1]);
-         jLabelMovie2.setText(_movies2rate[1][0]);
+        rateASindex = _controller.userSaw(new Integer(_movies2rate[0][2]));// will return 0 if haven't seen
+        jComboBoxRate1.setSelectedIndex(rateASindex);    
+        
+        jLabelMovie2.setText(_movies2rate[1][0]);
         jLabelDirector2.setText(_movies2rate[1][1]);
+        rateASindex = _controller.userSaw(new Integer(_movies2rate[1][2]));// will return 0 if haven't seen
+        jComboBoxRate2.setSelectedIndex(rateASindex);    
+        
         jLabelMovie3.setText(_movies2rate[2][0]);
         jLabelDirector3.setText(_movies2rate[2][1]);
+        rateASindex = _controller.userSaw(new Integer(_movies2rate[2][2]));// will return 0 if haven't seen
+        jComboBoxRate3.setSelectedIndex(rateASindex);    
+        
         jLabelMovie4.setText(_movies2rate[3][0]);
-         jLabelDirector4.setText(_movies2rate[3][1]);
+        jLabelDirector4.setText(_movies2rate[3][1]);
+        rateASindex = _controller.userSaw(new Integer(_movies2rate[3][2]));// will return 0 if haven't seen
+        jComboBoxRate4.setSelectedIndex(rateASindex);    
+        
         jLabelMovie5.setText(_movies2rate[4][0]);
         jLabelDirector5.setText(_movies2rate[4][1]);
-         jLabelMovie6.setText(_movies2rate[5][0]);
+        rateASindex = _controller.userSaw(new Integer(_movies2rate[4][2]));// will return 0 if haven't seen
+        jComboBoxRate5.setSelectedIndex(rateASindex);    
+        
+        jLabelMovie6.setText(_movies2rate[5][0]);
         jLabelDirector6.setText(_movies2rate[5][1]);
-         jLabelMovie7.setText(_movies2rate[6][0]);
+        rateASindex = _controller.userSaw(new Integer(_movies2rate[5][2]));// will return 0 if haven't seen
+        jComboBoxRate6.setSelectedIndex(rateASindex);    
+        
+        jLabelMovie7.setText(_movies2rate[6][0]);
         jLabelDirector7.setText(_movies2rate[6][1]);
+        rateASindex = _controller.userSaw(new Integer(_movies2rate[6][2]));// will return 0 if haven't seen
+        jComboBoxRate7.setSelectedIndex(rateASindex);    
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -100,11 +124,11 @@ public class RateMovies extends JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setForeground(GeneralJFrame.headersFontColor);
 
-        jLabelRateMoviesTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelRateMoviesTitle.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabelRateMoviesTitle.setForeground(GeneralJFrame.headerColor);
         jLabelRateMoviesTitle.setText("Rate Movies");
 
-        jLabelMovieName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelMovieName.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelMovieName.setForeground(GeneralJFrame.headersFontColor);
         jLabelMovieName.setText("Movie's Name");
 
@@ -115,13 +139,14 @@ public class RateMovies extends JFrame {
             }
         });
 
-        jComboBoxRate1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate1.setMaximumRowCount(10);
+        jComboBoxRate1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "haven't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
-        jLabelMovieName1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelMovieName1.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelMovieName1.setForeground(GeneralJFrame.headersFontColor);
         jLabelMovieName1.setText("Director's Name");
 
-        jLabelMovieName2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelMovieName2.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelMovieName2.setForeground(GeneralJFrame.headersFontColor);
         jLabelMovieName2.setText("Rate");
 
@@ -139,7 +164,8 @@ public class RateMovies extends JFrame {
         jLabelDirector2.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector2.setText("Mel Gibson");
 
-        jComboBoxRate2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate2.setMaximumRowCount(10);
+        jComboBoxRate2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "haven't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -149,7 +175,8 @@ public class RateMovies extends JFrame {
         jLabelDirector3.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector3.setText("Mel Gibson");
 
-        jComboBoxRate3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate3.setMaximumRowCount(10);
+        jComboBoxRate3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "haven't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -159,7 +186,8 @@ public class RateMovies extends JFrame {
         jLabelDirector4.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector4.setText("Mel Gibson");
 
-        jComboBoxRate4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate4.setMaximumRowCount(10);
+        jComboBoxRate4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "haven't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -169,7 +197,8 @@ public class RateMovies extends JFrame {
         jLabelDirector5.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector5.setText("Mel Gibson");
 
-        jComboBoxRate5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate5.setMaximumRowCount(10);
+        jComboBoxRate5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "haven't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -179,7 +208,8 @@ public class RateMovies extends JFrame {
         jLabelDirector6.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector6.setText("Mel Gibson");
 
-        jComboBoxRate6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate6.setMaximumRowCount(10);
+        jComboBoxRate6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "haven't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
         jLabelPicture6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.JPG"))); // NOI18N
 
@@ -189,7 +219,8 @@ public class RateMovies extends JFrame {
         jLabelDirector7.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector7.setText("Mel Gibson");
 
-        jComboBoxRate7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "havn't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        jComboBoxRate7.setMaximumRowCount(10);
+        jComboBoxRate7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "haven't seen", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
         jComboBoxRate7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRate7ActionPerformed(evt);
@@ -205,7 +236,7 @@ public class RateMovies extends JFrame {
             }
         });
 
-        jButtonFinish.setText("save & finish");
+        jButtonFinish.setText("Press To Finish");
         jButtonFinish.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFinishActionPerformed(evt);
@@ -219,19 +250,19 @@ public class RateMovies extends JFrame {
             .add(jPanel1Layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(jLabelRateMoviesTitle)
-                .addContainerGap(424, Short.MAX_VALUE))
+                .addContainerGap(473, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
+                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabelMovieName)
                 .add(68, 68, 68)
                 .add(jLabelMovieName1)
-                .add(80, 80, 80)
+                .add(154, 154, 154)
                 .add(jLabelMovieName2)
-                .add(68, 68, 68))
+                .add(165, 165, 165))
             .add(jPanel1Layout.createSequentialGroup()
                 .add(21, 21, 21)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -246,60 +277,58 @@ public class RateMovies extends JFrame {
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 116, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(jLabelDirector3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                        .add(jLabelDirector3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 116, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(jLabelDirector4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                        .add(jLabelDirector4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jLabelDirector5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                        .add(jLabelDirector5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 128, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jLabelDirector6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                        .add(jLabelDirector6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jLabelDirector7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jLabelDirector7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 69, Short.MAX_VALUE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(jComboBoxRate7, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(65, 65, 65)
-                        .add(jLabelPicture7))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(jComboBoxRate6, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(65, 65, 65)
-                        .add(jLabelPicture6))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(jComboBoxRate5, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(65, 65, 65)
-                        .add(jLabelPicture5))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(jComboBoxRate4, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(65, 65, 65)
-                        .add(jLabelPicture4))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(jComboBoxRate3, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(65, 65, 65)
-                        .add(jLabelPicture3))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(jComboBoxRate2, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(65, 65, 65)
-                        .add(jLabelPicture2))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .add(jComboBoxRate1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(65, 65, 65)
-                        .add(jLabelPicture1)))
+                        .add(jComboBoxRate7, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabelPicture7))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jComboBoxRate6, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabelPicture6))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jComboBoxRate5, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabelPicture5))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jComboBoxRate4, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabelPicture4))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(jComboBoxRate3, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jComboBoxRate2, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jComboBoxRate1, 0, 128, Short.MAX_VALUE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabelPicture1)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabelPicture2)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabelPicture3))))
                 .add(45, 45, 45))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jButtonPreviousStep)
                 .add(122, 122, 122)
                 .add(jButtonFinish)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 114, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 153, Short.MAX_VALUE)
                 .add(jButtonNextStep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 95, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -324,9 +353,9 @@ public class RateMovies extends JFrame {
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(27, 27, 27)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jComboBoxRate1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabelMovie1)
-                                    .add(jLabelDirector1)))
+                                    .add(jLabelDirector1)
+                                    .add(jComboBoxRate1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jLabelPicture1)))
@@ -335,54 +364,54 @@ public class RateMovies extends JFrame {
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(21, 21, 21)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jComboBoxRate2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabelMovie2)
-                                    .add(jLabelDirector2)))
+                                    .add(jLabelDirector2)
+                                    .add(jComboBoxRate2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jLabelPicture2))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(21, 21, 21)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jComboBoxRate3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabelMovie3)
-                                    .add(jLabelDirector3)))
+                                    .add(jLabelDirector3)
+                                    .add(jComboBoxRate3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jLabelPicture3))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(21, 21, 21)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jComboBoxRate4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabelMovie4)
-                                    .add(jLabelDirector4)))
+                                    .add(jLabelDirector4)
+                                    .add(jComboBoxRate4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jLabelPicture4))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(21, 21, 21)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jComboBoxRate5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabelMovie5)
-                                    .add(jLabelDirector5)))
+                                    .add(jLabelDirector5)
+                                    .add(jComboBoxRate5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jLabelPicture5))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(21, 21, 21)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jComboBoxRate6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabelMovie6)
-                                    .add(jLabelDirector6)))
+                                    .add(jLabelDirector6)
+                                    .add(jComboBoxRate6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jLabelPicture6))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(21, 21, 21)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jComboBoxRate7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabelMovie7)
-                                    .add(jLabelDirector7)))
+                                    .add(jLabelDirector7)
+                                    .add(jComboBoxRate7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(jLabelPicture7))
                         .add(45, 45, 45)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -427,14 +456,18 @@ public class RateMovies extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStepActionPerformed
-        
+    writeDown7Selection();
+    setMoviesNdirectors2Select("f");
 }//GEN-LAST:event_jButtonNextStepActionPerformed
 
 private void jButtonPreviousStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviousStepActionPerformed
-// TODO add your handling code here:
+    writeDown7Selection();
+    setMoviesNdirectors2Select("b");
 }//GEN-LAST:event_jButtonPreviousStepActionPerformed
-
-private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishActionPerformed
+/*
+ * write down current 7 on screen selections to _controller
+ **/
+private void writeDown7Selection(){//oz1
     Integer[]  moviesId=new Integer[7];
     Integer[] rates = new Integer[7]; 
     moviesId[0] = new Integer(_movies2rate[0][2]);
@@ -481,6 +514,9 @@ private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         rate[i]=rateStk.pop().intValue();
     }
     _controller.setRatesByUser(movId, rate, _controller.getCurrentUser().getId());
+} 
+private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishActionPerformed
+    writeDown7Selection();
     this.setVisible(false);
     _parent.setEnabled(true);
     _parent.setVisible(true);

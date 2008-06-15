@@ -17,12 +17,14 @@ public class Controller {
 	private HashMap<Integer, Movie> _movies;
 	private HashMap<Integer, User> _usersInSystem;  //this is a hash map that tell us who looged in
         private User _currentUser;
+        private int _movRand;//oz1
         
 	public Controller(Strategy strategy){
 		upLoad();
                 strategy.set_users(_users);
                 strategy.set_movies(_movies);
 		_strategy = strategy;
+                _movRand = -1;
 	}//constructor
         
         public String[]  getMovieNames() {
@@ -82,14 +84,24 @@ public class Controller {
     /*
      /  return 7 movies randomly to be rate by the user   
     *///oz
-    public String[][] getMoviesToRate() {
+    public String[][] getMoviesToRate(String for_back) {
+        int fb=0;
+        if (for_back.equalsIgnoreCase("f")) fb=7;
+        else fb=-7;
         String[][]  mov_director_id = new String[7][3];
         int upperLimit=this._movies.size();
-        int movRand = (int)((double)upperLimit * Math.random() );
+        if (_movRand == -1){//oz1  //if first time getting to rate movie
+            _movRand = (int)((double)upperLimit * Math.random() );
+        }else{
+            _movRand = (_movRand + fb);
+            if (_movRand<0) _movRand += upperLimit;
+            _movRand = _movRand % upperLimit;
+        }//else
+        
         Object[]  movies2choos = _movies.values().toArray();
         Movie tMov=null;
         for(int i=0;i<7;i++){
-            tMov = (Movie)movies2choos[(i+movRand)%upperLimit];
+            tMov = (Movie)movies2choos[(i+_movRand) % upperLimit];
             mov_director_id[i][0] =tMov.get_name();
             mov_director_id[i][1] = tMov.get_director();
             mov_director_id[i][2] = tMov.get_id()+"";
@@ -97,6 +109,13 @@ public class Controller {
         } //while(!doneRandMovies){
         return mov_director_id;
     }//getMoviesToRate
+    
+    public int userSaw(Integer movId) {//oz1
+        int ret=0;
+        Integer saw = getCurrentUser().get_rates().get(movId);
+        if (saw!=null) ret = saw.intValue();
+        return ret;
+    }    
     
     public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
        User tUser=_users.get(userID);
