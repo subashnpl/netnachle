@@ -46,7 +46,16 @@ public class Controller {
         }
         return usersIds;
     }
-
+    
+    public boolean isUserExist(int id){
+        int[] usersIds = new int[_users.size()];
+        Iterator<User> iter = _users.values().iterator();
+        for(int i = 0; i < usersIds.length; i++){
+            if (iter.next().getId() == id)
+                return true;
+        }
+        return false;
+    }
     public String[] getUsersNamesById(int[] usersId) {
         String[] usersName=new String[usersId.length];
         for(int i=0; i<usersId.length;i++){
