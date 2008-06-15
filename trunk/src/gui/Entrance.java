@@ -40,8 +40,8 @@ public class Entrance extends JFrame {
         jPasswordFieldPassword = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jButtonExit = new javax.swing.JButton();
-        jTextIdField = new javax.swing.JTextField();
         jLabelId = new javax.swing.JLabel();
+        jFormattedTextFieldId = new javax.swing.JFormattedTextField();
         jLabelSignUp = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -55,7 +55,7 @@ public class Entrance extends JFrame {
         jPanel1.setBackground(GeneralJFrame.backgroundColor);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel1.setForeground(GeneralJFrame.regularFontColor);
         jLabel1.setText("Login");
 
@@ -95,6 +95,12 @@ public class Entrance extends JFrame {
         jLabelId.setForeground(GeneralJFrame.regularFontColor);
         jLabelId.setText("ID");
 
+        try {
+            jFormattedTextFieldId.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -102,26 +108,27 @@ public class Entrance extends JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jButtonExit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(8, 8, 8))
                     .add(jLabel1)
-                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                        .add(jPanel1Layout.createSequentialGroup()
-                            .add(jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                            .add(18, 18, 18)
-                            .add(jButtonExit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(jLabel3)
-                                .add(jLabel4)
-                                .add(jLabelId))
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                .add(jTextFieldUsername, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                                .add(jPasswordFieldPassword, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .add(jTextIdField)))))
-                .add(14, 14, 14))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel3)
+                            .add(jLabel4)
+                            .add(jLabelId))
+                        .add(12, 12, 12)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(jPasswordFieldPassword)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldUsername, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 92, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
+                .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(new java.awt.Component[] {jPasswordFieldPassword, jTextFieldUsername}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
+        jPanel1Layout.linkSize(new java.awt.Component[] {jFormattedTextFieldId, jPasswordFieldPassword, jTextFieldUsername}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -139,9 +146,9 @@ public class Entrance extends JFrame {
                 .add(5, 5, 5)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabelId)
-                    .add(jTextIdField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButton2)
                     .add(jButtonExit))
                 .addContainerGap())
@@ -177,15 +184,12 @@ public class Entrance extends JFrame {
                 .add(109, 109, 109)
                 .add(jLabelSignUp)
                 .addContainerGap(113, Short.MAX_VALUE))
-            .add(jPanel2Layout.createSequentialGroup()
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                 .add(93, 93, 93)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(95, 95, 95))))
+                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(95, 95, 95))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -196,7 +200,7 @@ public class Entrance extends JFrame {
                 .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jLabelSignUp)
-                .add(76, 76, 76))
+                .add(80, 80, 80))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -248,14 +252,13 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         String userName = this.jTextFieldUsername.getText();
         char[] passwordChars = this.jPasswordFieldPassword.getPassword();
         String _password = new String(passwordChars);
-
-        String _secret=null;
+        String _secret = null;
         try {
             _secret = new String(GeneralJFrame.encrypt(_password));
         } catch (Exception ex) {
             Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int id = Integer.parseInt(this.jTextIdField.getText());
+        int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
         sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
         String encoded=encoder.encode(_secret.getBytes());
         try {
@@ -274,7 +277,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         String userName = this.jTextFieldUsername.getText();
         char[] passwordChars = this.jPasswordFieldPassword.getPassword();
         String _password = new String(passwordChars);
-        int id = Integer.parseInt(this.jTextIdField.getText());
+        int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
         try {
             User tUser = _controller.login(_password, userName, id);
             _controller.setCurrentUser(tUser);
@@ -298,6 +301,7 @@ private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonExit;
+    private javax.swing.JFormattedTextField jFormattedTextFieldId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -308,7 +312,6 @@ private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JTextField jTextFieldUsername;
-    private javax.swing.JTextField jTextIdField;
     // End of variables declaration//GEN-END:variables
     
     
