@@ -86,11 +86,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                       <Component id="jLabelRateMoviesTitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="424" max="32767" attributes="0"/>
+                      <EmptySpace pref="473" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" pref="523" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" pref="572" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -98,9 +98,9 @@
                       <Component id="jLabelMovieName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       <Component id="jLabelMovieName1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                       <Component id="jLabelMovieName2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -118,65 +118,63 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie3" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector3" pref="122" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector3" pref="135" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie4" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector4" pref="122" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector4" pref="135" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie5" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector5" pref="122" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector5" pref="135" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie6" min="-2" pref="128" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelDirector6" pref="122" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector6" pref="135" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie7" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector7" pref="122" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector7" pref="135" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="18" max="-2" attributes="0"/>
+                      <EmptySpace pref="69" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="1">
+                          <Group type="102" alignment="1" attributes="1">
                               <Component id="jComboBoxRate7" max="32767" attributes="1"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelPicture7" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="1">
+                          <Group type="102" alignment="1" attributes="1">
                               <Component id="jComboBoxRate6" max="32767" attributes="1"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelPicture6" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="1">
+                          <Group type="102" alignment="1" attributes="1">
                               <Component id="jComboBoxRate5" max="32767" attributes="1"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelPicture5" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="1">
+                          <Group type="102" alignment="1" attributes="1">
                               <Component id="jComboBoxRate4" max="32767" attributes="1"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelPicture4" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="1">
-                              <Component id="jComboBoxRate3" max="32767" attributes="1"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                              <Component id="jLabelPicture3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="1">
-                              <Component id="jComboBoxRate2" max="32767" attributes="1"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                              <Component id="jLabelPicture2" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jComboBoxRate1" min="-2" max="-2" attributes="1"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                              <Component id="jLabelPicture1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jComboBoxRate3" max="32767" attributes="1"/>
+                                  <Component id="jComboBoxRate2" alignment="1" max="32767" attributes="1"/>
+                                  <Component id="jComboBoxRate1" alignment="1" pref="128" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelPicture1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPicture2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPicture3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
@@ -186,7 +184,7 @@
                       <Component id="jButtonPreviousStep" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       <Component id="jButtonFinish" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="114" max="32767" attributes="0"/>
+                      <EmptySpace pref="153" max="32767" attributes="0"/>
                       <Component id="jButtonNextStep" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -211,9 +209,9 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBoxRate1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelMovie1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRate1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -226,9 +224,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBoxRate2" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelMovie2" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRate2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabelPicture2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -238,9 +236,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBoxRate3" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelMovie3" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRate3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabelPicture3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -250,9 +248,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBoxRate4" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelMovie4" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRate4" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabelPicture4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -262,9 +260,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBoxRate5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelMovie5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRate5" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabelPicture5" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -274,9 +272,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBoxRate6" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelMovie6" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRate6" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabelPicture6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -286,9 +284,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBoxRate7" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelMovie7" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelDirector7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRate7" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabelPicture7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -345,9 +343,10 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRate1">
               <Properties>
+                <Property name="maximumRowCount" type="int" value="10"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="10">
-                    <StringItem index="0" value="havn&apos;t seen"/>
+                    <StringItem index="0" value="haven&apos;t seen"/>
                     <StringItem index="1" value="1"/>
                     <StringItem index="2" value="2"/>
                     <StringItem index="3" value="3"/>
@@ -426,9 +425,10 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRate2">
               <Properties>
+                <Property name="maximumRowCount" type="int" value="10"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="10">
-                    <StringItem index="0" value="havn&apos;t seen"/>
+                    <StringItem index="0" value="haven&apos;t seen"/>
                     <StringItem index="1" value="1"/>
                     <StringItem index="2" value="2"/>
                     <StringItem index="3" value="3"/>
@@ -467,9 +467,10 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRate3">
               <Properties>
+                <Property name="maximumRowCount" type="int" value="10"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="10">
-                    <StringItem index="0" value="havn&apos;t seen"/>
+                    <StringItem index="0" value="haven&apos;t seen"/>
                     <StringItem index="1" value="1"/>
                     <StringItem index="2" value="2"/>
                     <StringItem index="3" value="3"/>
@@ -508,9 +509,10 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRate4">
               <Properties>
+                <Property name="maximumRowCount" type="int" value="10"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="10">
-                    <StringItem index="0" value="havn&apos;t seen"/>
+                    <StringItem index="0" value="haven&apos;t seen"/>
                     <StringItem index="1" value="1"/>
                     <StringItem index="2" value="2"/>
                     <StringItem index="3" value="3"/>
@@ -549,9 +551,10 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRate5">
               <Properties>
+                <Property name="maximumRowCount" type="int" value="10"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="10">
-                    <StringItem index="0" value="havn&apos;t seen"/>
+                    <StringItem index="0" value="haven&apos;t seen"/>
                     <StringItem index="1" value="1"/>
                     <StringItem index="2" value="2"/>
                     <StringItem index="3" value="3"/>
@@ -590,9 +593,10 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRate6">
               <Properties>
+                <Property name="maximumRowCount" type="int" value="10"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="10">
-                    <StringItem index="0" value="havn&apos;t seen"/>
+                    <StringItem index="0" value="haven&apos;t seen"/>
                     <StringItem index="1" value="1"/>
                     <StringItem index="2" value="2"/>
                     <StringItem index="3" value="3"/>
@@ -631,9 +635,10 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRate7">
               <Properties>
+                <Property name="maximumRowCount" type="int" value="10"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="10">
-                    <StringItem index="0" value="havn&apos;t seen"/>
+                    <StringItem index="0" value="haven&apos;t seen"/>
                     <StringItem index="1" value="1"/>
                     <StringItem index="2" value="2"/>
                     <StringItem index="3" value="3"/>
@@ -669,7 +674,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonFinish">
               <Properties>
-                <Property name="text" type="java.lang.String" value="save &amp; finish"/>
+                <Property name="text" type="java.lang.String" value="Press To Finish"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFinishActionPerformed"/>

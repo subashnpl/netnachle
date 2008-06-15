@@ -278,6 +278,7 @@ private void jComboBoxGenderActionPerformed(java.awt.event.ActionEvent evt) {//G
 private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStepActionPerformed
         boolean encoded1 = true;
     if (encoded1){     
+        System.out.println("setMoviesNdirectors2Select");
     _name = this.jTextFieldUserName.getText();
         idString = this.jTextId.getText();
          char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
@@ -304,6 +305,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
         exit();
         this.setVisible(false);
         new RateMovies(this, _controller).setVisible(true);
+              System.out.println("here");
         }
     }
     else{
@@ -324,6 +326,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
         exit();
         this.setVisible(false);
         new RateMovies(this, _controller).setVisible(true);
+        System.out.println("here1");
         }            
     }
 }//GEN-LAST:event_jButtonNextStepActionPerformed
