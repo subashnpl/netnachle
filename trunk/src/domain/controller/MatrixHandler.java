@@ -1,5 +1,6 @@
 package domain.controller;
 
+import Exceptions.NoRateException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,17 +10,13 @@ import java.util.Map.Entry;
 
 import domain.Movie;
 import domain.User;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MatrixHandler implements Strategy{
 
 	private HashMap<Integer,User> _users;
 	private HashMap<Integer,Movie> _movies;
-
-//	public MatrixHandler(HashMap<Integer, User> _users,
-//			HashMap<Integer, Movie> _movies) {
-//		this._users = _users;
-//		this._movies = _movies;
-//	}
 
 	public HashMap<Integer, User> get_users() {
 		return _users;
@@ -48,10 +45,14 @@ public class MatrixHandler implements Strategy{
 		while(moviesIter.hasNext()) {
 			tMovie = _movies.get(moviesIter.next().getKey());
 			if (tMovie.get_rates().containsKey(otherUser)){
-				tNumer += _users.get(currUser).getNormelizedMovieRate(tMovie.get_id())*
-					_users.get(otherUser).getNormelizedMovieRate(tMovie.get_id());
-				tDenom1 += Math.pow(_users.get(currUser).getNormelizedMovieRate(tMovie.get_id()),2);
-				tDenom2 += Math.pow(_users.get(otherUser).getNormelizedMovieRate(tMovie.get_id()),2);
+                try {
+                    tNumer += _users.get(currUser).getNormelizedMovieRate(tMovie.get_id()) * _users.get(otherUser).getNormelizedMovieRate(tMovie.get_id());
+                    tDenom1 += Math.pow(_users.get(currUser).getNormelizedMovieRate(tMovie.get_id()), 2);
+                    tDenom2 += Math.pow(_users.get(otherUser).getNormelizedMovieRate(tMovie.get_id()), 2);
+                } catch (NoRateException ex) {
+                    System.out.println("no rate 1");
+                    Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
+                }
 			}
 		}
 		tDenom = Math.sqrt(tDenom1*tDenom2);
@@ -59,24 +60,21 @@ public class MatrixHandler implements Strategy{
 			return 0;
 		}
 		else{
-			//System.out.println("weight("+currUser+", "+otherUser+") = sqrt("+
-			//		tNumer+"/"+tDenom1+"*"+tDenom2+") = "+ tNumer/tDenom);
 			return tNumer/tDenom;
 		}
 	}
 
 	public double getK(int userId){
 		double tSum = 0;
-
 		Iterator<Entry<Integer, User>> usersIter = _users.entrySet().iterator();
 		User tUser;
 		while(usersIter.hasNext()) {
 			tUser = usersIter.next().getValue();
 			if (userId != tUser.getId()) {
-				tSum += weight(userId, tUser.getId());
+				tSum += Math.abs(weight(userId, tUser.getId()));
 			}
 		}
-		return Math.abs(1/tSum);
+		return 1/tSum;
 	}
 
 	public int getPredictedRate(int userId, int movieId){
@@ -91,8 +89,13 @@ public class MatrixHandler implements Strategy{
                 while (usersIter.hasNext()) {
                     tUser = usersIter.next().getValue();
                     if (userId != tUser.getId()) {
-                        System.out.println("weight("+userId+", "+tUser.getId()+") = "+weight(userId, tUser.getId()));
-                    	tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
+                    try {
+                        System.out.println("weight(" + userId + ", " + tUser.getId() + ") = " + weight(userId, tUser.getId()));
+                        tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
+                    } catch (NoRateException ex) {
+                        System.out.println("no rate 2");
+                        Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     }
                 }
                 ret = (int) Math.round(ret + getK(userId) * tSum);
