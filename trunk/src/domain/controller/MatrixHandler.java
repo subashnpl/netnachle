@@ -1,6 +1,7 @@
 package domain.controller;
 
 import Exceptions.NoRateException;
+import Exceptions.RateNotAtRangeException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,30 +35,35 @@ public class MatrixHandler implements Strategy{
 		this._movies = _movies;
 	}
 
-	public double weight(Integer currUser, Integer otherUser) {
+	public double weight(Integer currUserId, Integer otherUserId) {
 		double tNumer = 0;
 		double tDenom = 0;
 		double tDenom1 = 0;
 		double tDenom2 = 0;
-		Iterator<Entry<Integer, Integer>> moviesIter = _users.get(currUser).get_rates().entrySet().iterator();
+		Iterator<Entry<Integer, Integer>> moviesIter = _users.get(currUserId).get_rates().entrySet().iterator();
 		Movie tMovie;
-
+                User currUser;
+                User otherUser;
+                
 		while(moviesIter.hasNext()) {
 			tMovie = _movies.get(moviesIter.next().getKey());
-			if (tMovie.get_rates().containsKey(otherUser)){
-                try {
-                    tNumer += _users.get(currUser).getNormelizedMovieRate(tMovie.get_id()) * _users.get(otherUser).getNormelizedMovieRate(tMovie.get_id());
-                    tDenom1 += Math.pow(_users.get(currUser).getNormelizedMovieRate(tMovie.get_id()), 2);
-                    tDenom2 += Math.pow(_users.get(otherUser).getNormelizedMovieRate(tMovie.get_id()), 2);
-                } catch (NoRateException ex) {
-                    System.out.println("no rate 1");
-                    Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
-                }
+			if (tMovie.get_rates().containsKey(otherUserId)){
+                            try {
+                                currUser =  _users.get(currUserId);
+                                otherUser = _users.get(otherUserId);
+                                tNumer += currUser.getNormelizedMovieRate(tMovie.get_id())  *
+                                        otherUser.getNormelizedMovieRate(tMovie.get_id());
+                                tDenom1 += Math.pow(currUser.getNormelizedMovieRate(tMovie.get_id()), 2);
+                                tDenom2 += Math.pow(otherUser.getNormelizedMovieRate(tMovie.get_id()), 2);
+                            } catch (NoRateException ex) {
+                                 Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
+                            }
 			}
 		}
 		tDenom = Math.sqrt(tDenom1*tDenom2);
 		if (tDenom==0){
-			return 0;
+                    System.out.println("the tDenom at weight function is 0");
+                    return 0;
 		}
 		else{
 			return tNumer/tDenom;
@@ -77,36 +83,37 @@ public class MatrixHandler implements Strategy{
 		return 1/tSum;
 	}
 
-	public int getPredictedRate(int userId, int movieId){
+	public int getPredictedRate(int userId, int movieId) throws RateNotAtRangeException{
             int ret = _users.get(userId).getMeanRate();
             double tSum = 0;
             if (_users.get(userId).get_rates().containsKey(movieId)) {
                     return _users.get(userId).get_rates().get(movieId);
             }
             else {
-                Iterator<Entry<Integer, User>> usersIter = _users.entrySet().iterator();
+                Iterator<Entry<Integer, Integer>> usersIter = _movies.get(movieId).get_rates().entrySet().iterator();
                 User tUser;
                 while (usersIter.hasNext()) {
-                    tUser = usersIter.next().getValue();
+                    tUser = _users.get(usersIter.next().getKey());
                     if (userId != tUser.getId()) {
-                    try {
-                        System.out.println("weight(" + userId + ", " + tUser.getId() + ") = " + weight(userId, tUser.getId()));
-                        tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
-                    } catch (NoRateException ex) {
-                        System.out.println("no rate 2");
-                        Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                        try {
+                            tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
+                        } catch (NoRateException ex) {
+                            Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
                 ret = (int) Math.round(ret + getK(userId) * tSum);
                 if (ret > 9) {
-                	return 9;
+                	   throw new RateNotAtRangeException("the predicted rate is over 9");
                 }
-                else return ret;
+                if  (ret < 1) {
+                	   throw new RateNotAtRangeException("the predicted rate is under 0");
+                }
+                return ret;
             }
 	}
 
-	public Vector[] get10Recomendations(int userId){
+	public Vector[] getRecomendations(int userId) throws RateNotAtRangeException{
             Vector[] ans = new Vector[2];
             Vector<Movie> movies = new Vector<Movie>(); // Vector (10 movies) of movies sorted by predicted rate
             Vector<Integer> rates = new Vector<Integer>();
@@ -126,7 +133,7 @@ public class MatrixHandler implements Strategy{
             tRates.addAll(tMoviesPredictions.entrySet());
             Iterator<Entry<Integer, Integer>> it = tRates.iterator();
             Entry<Integer, Integer> tEntry = null;
-            for (int i = 0; it.hasNext() && i < 10; i++){
+            while (it.hasNext()){
 	            tEntry = it.next();
 	            movies.add(_movies.get(tEntry.getKey()));
 	            rates.add(getPredictedRate(userId,_movies.get(tEntry.getKey()).get_id()));
@@ -152,7 +159,4 @@ public class MatrixHandler implements Strategy{
 			}
 		};
 	}
-
-
-
 }
