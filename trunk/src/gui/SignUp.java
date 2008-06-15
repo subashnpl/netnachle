@@ -52,8 +52,8 @@ public class SignUp extends JFrame {
         jTextFieldFirstName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextId = new javax.swing.JTextField();
         jButtonNextStep1 = new javax.swing.JButton();
+        jFormattedTextFieldId = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(gui.GeneralJFrame.backgroundColor);
@@ -64,7 +64,7 @@ public class SignUp extends JFrame {
         jPanel1.setBackground(GeneralJFrame.backgroundColor);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel1.setForeground(GeneralJFrame.headerColor);
         jLabel1.setText("SignUp");
 
@@ -130,13 +130,7 @@ public class SignUp extends JFrame {
         jLabel2.setText("Let's rate some movies...");
 
         jLabel5.setForeground(GeneralJFrame.regularFontColor);
-        jLabel5.setText("Choose Id: *");
-
-        jTextId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextIdActionPerformed(evt);
-            }
-        });
+        jLabel5.setText("Enter Your ID: *");
 
         jButtonNextStep1.setText("Cancel");
         jButtonNextStep1.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +138,12 @@ public class SignUp extends JFrame {
                 jButtonNextStep1ActionPerformed(evt);
             }
         });
+
+        try {
+            jFormattedTextFieldId.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -157,7 +157,7 @@ public class SignUp extends JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jButtonNextStep1)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 228, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 232, Short.MAX_VALUE)
                         .add(jButtonNextStep))
                     .add(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -172,29 +172,23 @@ public class SignUp extends JFrame {
                                     .add(jLabel7)
                                     .add(jLabel6)
                                     .add(jLabel5))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(139, 139, 139)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jComboBoxLocation, 0, 143, Short.MAX_VALUE)
                                     .add(jComboBoxGender, 0, 143, Short.MAX_VALUE)
-                                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .add(135, 135, 135)
-                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jTextFieldLastName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jTextFieldUserName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPasswordChoose, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jTextFieldFirstName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                            .add(jTextId, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))))))))
+                                    .add(jComboBoxLocation, 0, 143, Short.MAX_VALUE)
+                                    .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .add(jTextFieldUserName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .add(jPasswordChoose, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .add(jTextFieldFirstName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .add(jTextFieldLastName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))))))
                 .addContainerGap())
         );
-
-        jPanel1Layout.linkSize(new java.awt.Component[] {jComboBoxGender, jComboBoxLocation, jTextFieldLastName}, org.jdesktop.layout.GroupLayout.HORIZONTAL);
-
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel1)
-                .add(18, 18, 18)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
                     .add(jTextFieldUserName))
@@ -205,15 +199,15 @@ public class SignUp extends JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel5)
-                    .add(jTextId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE, false)
                     .add(jLabel9)
-                    .add(jTextFieldFirstName))
+                    .add(jTextFieldFirstName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel8)
-                    .add(jTextFieldLastName))
+                    .add(jTextFieldLastName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
@@ -230,6 +224,8 @@ public class SignUp extends JFrame {
                     .add(jButtonNextStep1))
                 .addContainerGap())
         );
+
+        jPanel1Layout.linkSize(new java.awt.Component[] {jTextFieldFirstName, jTextFieldLastName}, org.jdesktop.layout.GroupLayout.VERTICAL);
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -280,7 +276,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
     if (encoded1){     
         System.out.println("setMoviesNdirectors2Select");
     _name = this.jTextFieldUserName.getText();
-        idString = this.jTextId.getText();
+        idString = this.jFormattedTextFieldId.getText();
          char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
           _password = new String(passwordChars1);
           if (_name.equals("")||idString.equals("")||_password.equals("")){
@@ -310,7 +306,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
     }
     else{
     _name = this.jTextFieldUserName.getText();
-        idString = this.jTextId.getText();
+        idString = this.jFormattedTextFieldId.getText();
          char[] passwordChars1 = this.jPasswordChoose.getPassword(); 
           _password = new String(passwordChars1);
           if (_name.equals("")||idString.equals("")||_password.equals("")){
@@ -345,10 +341,6 @@ private void jTextFieldFirstNameActionPerformed(java.awt.event.ActionEvent evt) 
 // TODO add your handling code here:
 }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
-private void jTextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIdActionPerformed
-    _id = Integer.parseInt(this.jTextId.getText());
-}//GEN-LAST:event_jTextIdActionPerformed
-
 private void jButtonNextStep1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextStep1ActionPerformed
     exit();
 }//GEN-LAST:event_jButtonNextStep1ActionPerformed
@@ -358,6 +350,7 @@ private void jButtonNextStep1ActionPerformed(java.awt.event.ActionEvent evt) {//
     private javax.swing.JButton jButtonNextStep1;
     private javax.swing.JComboBox jComboBoxGender;
     private javax.swing.JComboBox jComboBoxLocation;
+    private javax.swing.JFormattedTextField jFormattedTextFieldId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -373,7 +366,6 @@ private void jButtonNextStep1ActionPerformed(java.awt.event.ActionEvent evt) {//
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldLastName;
     private javax.swing.JTextField jTextFieldUserName;
-    private javax.swing.JTextField jTextId;
     // End of variables declaration//GEN-END:variables
     
 }
