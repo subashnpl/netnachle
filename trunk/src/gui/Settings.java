@@ -8,12 +8,16 @@ public class Settings extends JFrame {
     
     private JFrame _parent;
     private Controller _controller;
+    private int _currentBackground;
+    
     
     /** Creates new form NewJFrame1 */
-    public Settings(JFrame parent, Controller controller) {
+    public Settings(JFrame parent, Controller controller, int currentBackground) {
         this._controller = controller;
         this._parent = parent;
+        this._currentBackground = currentBackground;
 	initComponents();
+        this.jComboBoxBackGround.setSelectedIndex(currentBackground);
     }
     @Override
     public void setVisible(boolean b){
@@ -136,18 +140,16 @@ private void jButtonSaveNCloseActionPerformed(java.awt.event.ActionEvent evt) {/
     
     switch (jComboBoxBackGround.getSelectedIndex()){
         case 0: GeneralJFrame.setBackgroundColor(Color.DARK_GRAY);
-                ((MainFrame)_parent).rePaintPanels();
                 break;
         case 1: GeneralJFrame.setBackgroundColor(Color.ORANGE);
-                ((MainFrame)_parent).rePaintPanels();
                 break;
         case 2: GeneralJFrame.setBackgroundColor(Color.LIGHT_GRAY);
-                ((MainFrame)_parent).rePaintPanels();
                 break;
         case 3: GeneralJFrame.setBackgroundColor(Color.BLACK);
-                ((MainFrame)_parent).rePaintPanels();
                 break;
     }
+    ((MainFrame)_parent).rePaintPanels();
+    ((MainFrame)_parent).setCurrentBackground(jComboBoxBackGround.getSelectedIndex());
     setVisible(false);
     _parent.setEnabled(true);
     _parent.setVisible(true);
@@ -166,5 +168,13 @@ private void jComboBoxBackGroundActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JComboBox getJComboBoxBackGround() {
+        return jComboBoxBackGround;
+    }
+
+    public javax.swing.JPanel getJPanel1() {
+        return jPanel1;
+    }
     
 }

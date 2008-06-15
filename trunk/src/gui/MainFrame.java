@@ -16,11 +16,12 @@ public class MainFrame extends JFrame {
     private Controller _controller;
     private Vector[] _rated;
     private Vector<JPanel> _jPanels = new Vector<JPanel>();
+    private int _currentBackground;
     
     /** Creates new form NewJFrame1 */
     public MainFrame(Controller controller) {
         this._controller = controller;
-        
+        this._currentBackground = 0;
 	initComponents();
         this._jPanels.addElement(jPanel1);
         this._jPanels.addElement(jPanel2);
@@ -598,7 +599,8 @@ private void jButtonSystemManagementActionPerformed(java.awt.event.ActionEvent e
 
 private void jButtonSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSettingsActionPerformed
     this.setEnabled(false);
-    new Settings(this, _controller).setVisible(true);
+    Settings settings = new Settings(this, _controller, _currentBackground);
+    settings.setVisible(true);
 }//GEN-LAST:event_jButtonSettingsActionPerformed
 
 private void jLabelLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseClicked
@@ -677,5 +679,13 @@ private void jLabelLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST
 
     public javax.swing.JPanel getJPanel3() {
         return jPanel3;
-    }  
+    }
+
+    public int getCurrentBackground() {
+        return _currentBackground;
+    }
+
+    public void setCurrentBackground(int currentBackground) {
+        this._currentBackground = currentBackground;
+    }
 }

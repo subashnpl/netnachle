@@ -34,10 +34,7 @@ public class GeneralJFrame extends javax.swing.JFrame {
         //frame.setSize(1320, 240);
         int x = (int)((t.getScreenSize().getWidth() - width) / 2);
         int y = (int)((t.getScreenSize().getHeight() - height) / 2);
-        frame.setLocation(x-20, 10);
         frame.setLocation(x, y);
-        //setLocationRelativeTo(null);
-        //setBounds(x-30, 10, width, height);
     }
     public static void setLinkEntered(JLabel label, Color color){
         label.setCursor(new Cursor(Cursor.HAND_CURSOR));
