@@ -16,6 +16,7 @@ public class Entrance extends JFrame {
     public Entrance(Controller controller) {
         this._controller = controller;
 	initComponents();
+        validateFields();
     }
     @Override
     public void setVisible(boolean b){
@@ -70,10 +71,20 @@ public class Entrance extends JFrame {
                 jTextFieldUsernameActionPerformed(evt);
             }
         });
+        jTextFieldUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldUsernameKeyPressed(evt);
+            }
+        });
 
         jPasswordFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldPasswordActionPerformed(evt);
+            }
+        });
+        jPasswordFieldPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldPasswordKeyPressed(evt);
             }
         });
 
@@ -100,6 +111,11 @@ public class Entrance extends JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jFormattedTextFieldIdKeyPressed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -297,7 +313,36 @@ private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     _controller.shutDown();
     System.exit(0);
 }//GEN-LAST:event_jButtonExitActionPerformed
-       
+
+private void jFormattedTextFieldIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIdKeyPressed
+    validateFields();
+}//GEN-LAST:event_jFormattedTextFieldIdKeyPressed
+
+private void jTextFieldUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsernameKeyPressed
+    validateFields();
+}//GEN-LAST:event_jTextFieldUsernameKeyPressed
+
+private void jPasswordFieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordKeyPressed
+    validateFields();
+}//GEN-LAST:event_jPasswordFieldPasswordKeyPressed
+private void validateFields(){
+    /*
+    System.out.println("userName: "+this.jTextFieldUsername.getText());
+    if (this.jPasswordFieldPassword.getPassword().length != 0)
+        System.out.println("pass: "+this.jPasswordFieldPassword.getPassword()[0]);
+    System.out.println("id: "+this.jFormattedTextFieldId.isEditValid());
+    */
+    if ((!this.jTextFieldUsername.getText().equals("")) &&
+            (this.jPasswordFieldPassword.getPassword().length != 0) &&
+            (this.jFormattedTextFieldId.isEditValid())){
+        enableEnter(true);
+    } else{
+        enableEnter(false);
+    }
+}
+private void enableEnter(boolean b){
+    this.jButton2.setEnabled(b);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonExit;
