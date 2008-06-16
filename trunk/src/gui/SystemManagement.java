@@ -1,6 +1,7 @@
 package gui;
 
 import domain.controller.Controller;
+import java.util.Vector;
 import javax.swing.JFrame;
 
 public class SystemManagement extends JFrame {
@@ -15,30 +16,33 @@ public class SystemManagement extends JFrame {
         _controller = controller;
         _parent = parent;
         initComponents();
-        updateUsersModel();
-        updateMoviesModel();
+        setUsersModel();
+        setMoviesModel();
     }
     @Override
     public void setVisible(boolean b){
         GeneralJFrame.setFrameAtCenter(this);
         super.setVisible(b);
     }    
-    public void updateMoviesModel(){
+    public void setMoviesModel(){
         _moviesId = _controller.getMoviesIds();
         _moviesNames = _controller.getMoviesNamesById(_moviesId);
         jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
         validate();
     }
-    public void updateUsersModel(){
+    // sets users model with all ids excluding administrator's id
+    public void setUsersModel(){
         _usersId = _controller.getUsersIds();
-        boolean flag = false;
-        // this loop removes the administrator from the list of users to remove
+        Vector<Integer> tmp = new Vector<Integer>();
         for (int i = 0; i < _usersId.length; i++) {
-            if (_usersId[i] == _controller.getCurrentUser().getId()){
-                flag = true;
-            }
-            if (flag)
-                _usersId[i] = _usersId[i+1];
+            tmp.addElement(new Integer(_usersId[i]));
+        }
+        // next line removes the administrator from the list of users that he can remove
+        tmp.removeElement(new Integer(_controller.getCurrentUser().getId()));
+        Object _usersIdAsInteger[] = tmp.toArray();
+        _usersId = new int[_usersIdAsInteger.length];
+        for (int i = 0; i < _usersId.length; i++) {
+            _usersId[i] = ((Integer)_usersIdAsInteger[i]).intValue();
         }
         _usersNames = _controller.getUsersNamesById(_usersId);
         jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
