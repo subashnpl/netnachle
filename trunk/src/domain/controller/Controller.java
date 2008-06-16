@@ -26,7 +26,9 @@ public class Controller {
 		_strategy = strategy;
                 _movRand = -1;
 	}//constructor
-        
+        public boolean lowRateUser(){
+            return (_currentUser.get_rates().size() < 7);
+        }
         public String[]  getMovieNames() {
             String[] moviesNames=new String[this._movies.size()];
             Iterator iter=this.get_movies().values().iterator();
@@ -442,7 +444,7 @@ public class Controller {
 	    u3.rateMovie(113, 2);
 	    u3.rateMovie(114, 1);
 	    c.addUser(u3);
-		System.out.println(c.get_Strategy().get10Recomendations(100));
+		//System.out.println(c.get_Strategy().getRecomendations(100));
 	    c.shutDown();
 	}
 }
