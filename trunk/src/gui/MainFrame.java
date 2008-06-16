@@ -1,5 +1,6 @@
 package gui;
 
+import Exceptions.RateNotAtRangeException;
 import domain.Movie;
 import domain.controller.Controller;
 import java.io.File;
@@ -7,9 +8,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 public class MainFrame extends JFrame {
     
@@ -50,7 +54,12 @@ public class MainFrame extends JFrame {
     }    
     
     public void setMostRecommendedMovies(){
-         _rated = _controller.get_Strategy().getRecomendations(_controller.getCurrentUser().getId());
+        try {
+            _rated = _controller.get_Strategy().getRecomendations(_controller.getCurrentUser().getId());
+        } catch (RateNotAtRangeException ex) {
+            JOptionPane.showMessageDialog(this, "Rate Not At Range",
+                    "Hey Hey Hey!", JOptionPane.ERROR_MESSAGE);
+        }
          Vector<Movie> movies = _rated[0];
          Vector<Integer> rates = _rated[1];
 
