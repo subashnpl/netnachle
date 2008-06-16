@@ -8,7 +8,7 @@ public class SystemManagement extends JFrame {
     private Controller _controller;
     private JFrame _parent;
     private int[] _usersId;
-    private int[] _moviesId;
+    private int[] _moviesIds;
     private String[] _usersNames;
     private String[] _moviesNames;
     
@@ -25,9 +25,13 @@ public class SystemManagement extends JFrame {
         super.setVisible(b);
     }    
     public void setMoviesModel(){
-        _moviesId = _controller.getMoviesIds();
-        _moviesNames = _controller.getMoviesNamesById(_moviesId);
-        jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
+        _moviesIds = _controller.getMoviesIds();
+        _moviesNames = _controller.getMoviesNamesById(_moviesIds);
+        String[] moviesNamesAndIds = new String[_moviesNames.length];
+        for (int i = 0; i < _moviesIds.length; i++) {
+            moviesNamesAndIds[i] = _moviesNames[i] + "  (ID: " + _moviesIds[i] + ")";
+        }
+        jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(moviesNamesAndIds));
         validate();
     }
     // sets users model with all ids excluding administrator's id
@@ -45,7 +49,12 @@ public class SystemManagement extends JFrame {
             _usersId[i] = ((Integer)_usersIdAsInteger[i]).intValue();
         }
         _usersNames = _controller.getUsersNamesById(_usersId);
-        jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
+        String[] userNamesAndIds = new String[_usersNames.length];
+        for (int i = 0; i < userNamesAndIds.length; i++) {
+            String string = userNamesAndIds[i];
+            userNamesAndIds[i] = _usersNames[i] + "  (ID: " + _usersId[i] + ")";
+        }
+        jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(userNamesAndIds));
         validate();
     }
     /** This method is called from within the constructor to
@@ -113,10 +122,10 @@ public class SystemManagement extends JFrame {
                 .addContainerGap()
                 .add(jLabel3)
                 .add(63, 63, 63)
-                .add(jComboBoxUser, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jButtonDeleteUser)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(jComboBoxUser, 0, 169, Short.MAX_VALUE)
+                .add(18, 18, 18)
+                .add(jButtonDeleteUser, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 101, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -124,8 +133,8 @@ public class SystemManagement extends JFrame {
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
-                    .add(jComboBoxUser, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonDeleteUser))
+                    .add(jButtonDeleteUser)
+                    .add(jComboBoxUser, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -169,11 +178,11 @@ public class SystemManagement extends JFrame {
                     .add(jLabel6))
                 .add(56, 56, 56)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel3Layout.createSequentialGroup()
-                        .add(jComboBoxMovie, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButtonDeleteMovie, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-                    .add(jButtonAddMovie, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .add(jComboBoxMovie, 0, 168, Short.MAX_VALUE)
+                        .add(18, 18, 18)
+                        .add(jButtonDeleteMovie, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 103, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jButtonAddMovie, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -182,8 +191,8 @@ public class SystemManagement extends JFrame {
                 .addContainerGap()
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
-                    .add(jComboBoxMovie, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonDeleteMovie))
+                    .add(jButtonDeleteMovie)
+                    .add(jComboBoxMovie, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel6)
@@ -202,20 +211,20 @@ public class SystemManagement extends JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .add(jPanel2Layout.createSequentialGroup()
-                .add(141, 141, 141)
-                .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(247, 247, 247))
-            .add(jPanel2Layout.createSequentialGroup()
-                .add(78, 78, 78)
+                .add(191, 191, 191)
+                .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                .add(197, 197, 197))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(137, Short.MAX_VALUE)
                 .add(jLabel1)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .add(133, 133, 133))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -235,7 +244,7 @@ public class SystemManagement extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 354, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -247,8 +256,8 @@ public class SystemManagement extends JFrame {
 
 private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
     this.setVisible(false);
-    _parent.setVisible(true);
     _parent.setEnabled(true);
+    _parent.setVisible(true);
 }//GEN-LAST:event_jButton5ActionPerformed
 
 private void jComboBoxUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxUserActionPerformed
@@ -258,33 +267,26 @@ private void jComboBoxUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 private void jButtonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteUserActionPerformed
     int selectItemToDel =  jComboBoxUser.getSelectedIndex();
     _controller.removeUser(_usersId[selectItemToDel]);
-    
-      _usersId=_controller.getUsersIds();
-         _usersNames=_controller.getUsersNamesById(_usersId);
-         _moviesNames=_controller.getMoviesNamesById(_moviesId);
-        jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
-        jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
-        if (jComboBoxUser.getModel().getSize() == 0){
-            jButtonDeleteUser.setEnabled(false);
-        }
-        this.validate();
+    setUsersModel();
+    //setMoviesModel();
+    /*
+    _usersId=_controller.getUsersIds();
+    _usersNames=_controller.getUsersNamesById(_usersId);
+    _moviesNames=_controller.getMoviesNamesById(_moviesIds);
+    jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
+    jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
+    if (jComboBoxUser.getModel().getSize() == 0){
+        jButtonDeleteUser.setEnabled(false);
+    }
+    this.validate();
+    */
 }//GEN-LAST:event_jButtonDeleteUserActionPerformed
 
 private void jButtonDeleteMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteMovieActionPerformed
     int selectItemToDel =   jComboBoxMovie.getSelectedIndex();//GEN-LAST:event_jButtonDeleteMovieActionPerformed
-    _controller.removeMovie(_moviesId[selectItemToDel]);
-    
-    _moviesId=_controller.getMoviesIds();
-    _moviesNames=_controller.getMoviesNamesById(_moviesId);
-    _usersNames=_controller.getUsersNamesById(_usersId);
-    jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(_usersNames));
-    jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(_moviesNames));
-    
-     if (jComboBoxMovie.getModel().getSize() == 0){
-            jButtonDeleteMovie.setEnabled(false);
-     }
-     this.validate();
-     ((MainFrame)this._parent).setMostRecommendedMovies();
+    _controller.removeMovie(_moviesIds[selectItemToDel]);
+    setMoviesModel();
+    ((MainFrame)this._parent).setMostRecommendedMovies();
 }                                                  
 
 private void jButtonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddMovieActionPerformed
