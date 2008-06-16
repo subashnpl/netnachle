@@ -38,7 +38,7 @@ public class Entrance extends JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextFieldUsername = new javax.swing.JTextField();
         jPasswordFieldPassword = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        jButtonEnter = new javax.swing.JButton();
         jButtonExit = new javax.swing.JButton();
         jLabelId = new javax.swing.JLabel();
         jFormattedTextFieldId = new javax.swing.JFormattedTextField();
@@ -93,11 +93,11 @@ public class Entrance extends JFrame {
             }
         });
 
-        jButton2.setText("Enter");
-        jButton2.setNextFocusableComponent(jLabelSignUp);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEnter.setText("Enter");
+        jButtonEnter.setNextFocusableComponent(jLabelSignUp);
+        jButtonEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonEnterActionPerformed(evt);
             }
         });
 
@@ -136,7 +136,7 @@ public class Entrance extends JFrame {
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .add(jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                        .add(jButtonEnter, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jButtonExit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(8, 8, 8))
@@ -176,7 +176,7 @@ public class Entrance extends JFrame {
                     .add(jFormattedTextFieldId, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jButton2)
+                    .add(jButtonEnter)
                     .add(jButtonExit))
                 .addContainerGap())
         );
@@ -273,19 +273,13 @@ private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signU
     }
 }//GEN-LAST:event_signUpHandler
 
-private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
     String userName = this.jTextFieldUsername.getText();
-    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
-    String _password = new String(passwordChars);
-    String _secret = null;
-    try {
-        _secret = new String(GeneralJFrame.encrypt(_password));
-    } catch (Exception ex) {
-        Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-    }
     int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
+    char[] passwordChars = this.jPasswordFieldPassword.getPassword(); 
+    System.out.println("getPass: "+this.jPasswordFieldPassword.getPassword());
     try {
-        User tUser = _controller.login(encode(_secret), userName, id);
+        User tUser = _controller.login(encode(passwordChars), userName, id);
         _controller.setCurrentUser(tUser);
         doLoginActions();
     } catch (NonUserException ex) {
@@ -294,8 +288,15 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     } catch (Exception ex) {
         Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
     }
-}//GEN-LAST:event_jButton2ActionPerformed
-private String encode(String _secret){
+}//GEN-LAST:event_jButtonEnterActionPerformed
+private String encode(char[] passwordChars){
+    String _password = new String(passwordChars);
+    String _secret = null;
+    try {
+        _secret = new String(GeneralJFrame.encrypt(_password));
+    } catch (Exception ex) {
+        Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+    }
     sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
     return encoder.encode(_secret.getBytes());
 }
@@ -332,14 +333,17 @@ private void jFormattedTextFieldIdKeyReleased(java.awt.event.KeyEvent evt) {//GE
 private void jTextFieldUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsernameKeyReleased
     
     if (evt.getKeyChar() == '`'){
-            try {
-                User tUser = _controller.login(encode("1"), "shaigi", 043137314);
-                _controller.setCurrentUser(tUser);
-                this.setVisible(false);
-                new MainFrame(_controller).setVisible(true);
-            } catch (Exception ex) {
-                Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        this.jPasswordFieldPassword.setText("1");
+        try {
+            User tUser = _controller.login(encode(this.jPasswordFieldPassword.getPassword()), "shaigi", 43137314);
+            _controller.setCurrentUser(tUser);
+            this.setVisible(false);
+            new MainFrame(_controller).setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Hack didn't work!\n" + ex.getMessage(),
+                "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
     } else{
         validateFields();
     }
@@ -372,10 +376,10 @@ private int getIdAsInteger(){
 }
 
 private void enableEnter(boolean b){
-    this.jButton2.setEnabled(b);
+    this.jButtonEnter.setEnabled(b);
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonEnter;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JFormattedTextField jFormattedTextFieldId;
     private javax.swing.JLabel jLabel1;
