@@ -396,7 +396,7 @@ private boolean addMovie(){
         if(!actor3.equals("")) _actors.addElement(actor3);
         Movie newMovie = new Movie(_name, _id, _category, _actors, _year, _country, _duration, _director);
         _controller.addMovie(newMovie);
-        ((SystemManagement)_parent).updateMoviesModel();
+        ((SystemManagement)_parent).setMoviesModel();
         return true;
     }
     else{
