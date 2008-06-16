@@ -140,9 +140,6 @@ public class MatrixHandler implements Strategy{
             }
             ans[0] = movies;
             ans[1] = rates;
-            for (int i=0;i<ans[0].size();i++){
-            	System.out.println("movie: "+((Movie)ans[0].get(i)).get_id()+" rate: "+ (Integer)ans[1].get(i));
-            }
             return ans;
 	}
 
