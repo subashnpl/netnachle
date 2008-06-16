@@ -75,7 +75,7 @@ public class DataManipulate {
 		nodeMovie.setAttribute("category", ""+mov.get_category());
 		nodeMovie.setAttribute("year", ""+mov.get_year());
 		nodeMovie.setAttribute("country", mov.get_country());
-		nodeMovie.setAttribute("duration", ""+mov.get_duration());
+		nodeMovie.setAttribute("duration", ""+ mov.get_duration());
 		nodeMovie.setAttribute("director", mov.get_director());
 		Vector<String> actors = mov.get_actors();
 		for(int j=0; actors != null && j < actors.size(); j++){
@@ -176,7 +176,7 @@ public class DataManipulate {
 					tActors,
 					(new Integer(movieAttrs.getNamedItem("year").getNodeValue())).intValue(),
 					movieAttrs.getNamedItem("country").getNodeValue(),
-					(new Double(movieAttrs.getNamedItem("duration").getNodeValue())).doubleValue(),
+					(new Integer(movieAttrs.getNamedItem("duration").getNodeValue())).intValue(),
 					movieAttrs.getNamedItem("director").getNodeValue());
 
 			movies.put(tMovie.get_id(), tMovie);
