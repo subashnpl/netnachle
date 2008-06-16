@@ -32,12 +32,10 @@ public class SystemManagement extends JFrame {
     public void updateUsersModel(){
         _usersId = _controller.getUsersIds();
         boolean flag = false;
-        int tmp = 0;
         // this loop removes the administrator from the list of users to remove
-        for (int i = 0; i < _usersId.length - tmp; i++) {
+        for (int i = 0; i < _usersId.length; i++) {
             if (_usersId[i] == _controller.getCurrentUser().getId()){
                 flag = true;
-                tmp = 1;
             }
             if (flag)
                 _usersId[i] = _usersId[i+1];
