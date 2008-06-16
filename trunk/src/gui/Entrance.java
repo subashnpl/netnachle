@@ -210,12 +210,12 @@ public class Entrance extends JFrame {
             .add(jPanel2Layout.createSequentialGroup()
                 .add(109, 109, 109)
                 .add(jLabelSignUp)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                 .add(93, 93, 93)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                 .add(95, 95, 95))
         );
         jPanel2Layout.setVerticalGroup(
@@ -281,7 +281,15 @@ private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     try {
         User tUser = _controller.login(encode(passwordChars), userName, id);
         _controller.setCurrentUser(tUser);
+                  if (_controller.lowRateUser()){
+                JOptionPane.showMessageDialog(this, "Dear user, this is not a hore house please rate movies",
+                "RATING ERROR", JOptionPane.ERROR_MESSAGE);
+                RateMovies Rm = new RateMovies(this, _controller);
+                Rm.setVisible(true);
+            }
+    else{
         doLoginActions();
+               }
     } catch (NonUserException ex) {
         JOptionPane.showMessageDialog(this, ex.getMessage(),
                 "Login Error", JOptionPane.ERROR_MESSAGE);
