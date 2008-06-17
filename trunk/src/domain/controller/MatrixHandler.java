@@ -62,7 +62,6 @@ public class MatrixHandler implements Strategy{
 		}
 		tDenom = Math.sqrt(tDenom1*tDenom2);
 		if (tDenom==0){
-                    System.out.println("the tDenom at weight function is 0");
                     return 0;
 		}
 		else{
