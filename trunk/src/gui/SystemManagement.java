@@ -29,7 +29,7 @@ public class SystemManagement extends JFrame {
         _moviesNames = _controller.getMoviesNamesById(_moviesIds);
         String[] moviesNamesAndIds = new String[_moviesNames.length];
         for (int i = 0; i < _moviesIds.length; i++) {
-            moviesNamesAndIds[i] = _moviesNames[i] + "  (ID: " + _moviesIds[i] + ")";
+            moviesNamesAndIds[i] = "(ID: " + _moviesIds[i] + ") " + _moviesNames[i];
         }
         jComboBoxMovie.setModel(new javax.swing.DefaultComboBoxModel(moviesNamesAndIds));
         validate();
@@ -51,8 +51,7 @@ public class SystemManagement extends JFrame {
         _usersNames = _controller.getUsersNamesById(_usersId);
         String[] userNamesAndIds = new String[_usersNames.length];
         for (int i = 0; i < userNamesAndIds.length; i++) {
-            String string = userNamesAndIds[i];
-            userNamesAndIds[i] = _usersNames[i] + "  (ID: " + _usersId[i] + ")";
+            userNamesAndIds[i] = "(ID: " + _usersId[i] + ") " + _usersNames[i];
         }
         jComboBoxUser.setModel(new javax.swing.DefaultComboBoxModel(userNamesAndIds));
         validate();
@@ -217,14 +216,14 @@ public class SystemManagement extends JFrame {
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .add(jPanel2Layout.createSequentialGroup()
-                .add(191, 191, 191)
-                .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                .add(197, 197, 197))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(137, Short.MAX_VALUE)
                 .add(jLabel1)
                 .add(133, 133, 133))
+            .add(jPanel2Layout.createSequentialGroup()
+                .add(190, 190, 190)
+                .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                .add(198, 198, 198))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
