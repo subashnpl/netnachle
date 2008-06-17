@@ -518,15 +518,14 @@ private void writeDown7Selection(){//oz1
 } 
 private void jButtonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinishActionPerformed
     writeDown7Selection();
-  if (_controller.lowRateUser()){
-                JOptionPane.showMessageDialog(this, "Dear user, this is not a hore house please rate movies",
+    if (_controller.lowRateUser()){
+        JOptionPane.showMessageDialog(this, "Dear user, this is not a hore house please rate movies",
                 "RATING ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-  else{
-    this.setVisible(false);
-    MainFrame Mf = new MainFrame(_controller);
-    Mf.setVisible(true);
-  }
+    } else {
+        this.setVisible(false);
+        MainFrame Mf = new MainFrame(_controller);
+        Mf.setVisible(true);
+    }
 }//GEN-LAST:event_jButtonFinishActionPerformed
 
 private void jComboBoxRate7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRate7ActionPerformed
