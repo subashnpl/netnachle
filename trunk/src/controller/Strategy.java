@@ -1,6 +1,6 @@
-package domain.controller;
+package controller;
 
-import Exceptions.RateNotAtRangeException;
+import exceptions1.RateNotAtRangeException;
 import domain.Movie;
 import domain.User;
 import java.util.HashMap;

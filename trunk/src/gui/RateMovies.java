@@ -1,6 +1,6 @@
 package gui;
 
-import domain.controller.Controller;
+import controller.Controller;
 import java.util.Stack;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

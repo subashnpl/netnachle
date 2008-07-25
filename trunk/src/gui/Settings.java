@@ -1,6 +1,6 @@
 package gui;
 
-import domain.controller.Controller;
+import controller.Controller;
 import java.awt.Color;
 import javax.swing.JFrame;
 

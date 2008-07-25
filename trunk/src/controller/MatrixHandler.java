@@ -1,7 +1,8 @@
-package domain.controller;
+package controller;
 
-import Exceptions.NoRateException;
-import Exceptions.RateNotAtRangeException;
+import controller.Strategy;
+import exceptions1.NoRateException;
+import exceptions1.RateNotAtRangeException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;

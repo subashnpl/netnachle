@@ -1,7 +1,7 @@
 package gui;
 
 import domain.Movie;
-import domain.controller.Controller;
+import controller.Controller;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
