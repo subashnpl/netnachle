@@ -1,6 +1,6 @@
 package domain;
 
-import Exceptions.NoRateException;
+import exceptions1.NoRateException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;

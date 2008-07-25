@@ -11,13 +11,13 @@ public class Movie {
 	private Vector<String> _actors;
 	private int _year;
 	private String _country;
-	private double _duration;
+	private int _duration;
 	private String _director;
 	public HashMap<Integer,Integer>_rates;
 
 	public Movie(String _name, int _id, String _category,
 			Vector<String> _actors, int _year, String _country,
-			double _duration, String _director) {
+			int _duration, String _director) {
 		this._name = _name;
 		this._id = _id;
 		this._category = _category;
@@ -96,11 +96,11 @@ public class Movie {
 		this._country = _country;
 	}
 
-	public double get_duration() {
+	public int get_duration() {
 		return _duration;
 	}
 
-	public void set_duration(double _duration) {
+	public void set_duration(int _duration) {
 		this._duration = _duration;
 	}
 

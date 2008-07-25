@@ -1,7 +1,7 @@
 package gui;
 
-import domain.controller.Controller;
-import domain.controller.MatrixHandler;
+import controller.Controller;
+import controller.MatrixHandler;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Toolkit;

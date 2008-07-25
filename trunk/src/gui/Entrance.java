@@ -1,8 +1,8 @@
 package gui;
 
-import Exceptions.NonUserException;
+import exceptions1.NonUserException;
 import domain.User;
-import domain.controller.Controller;
+import controller.Controller;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;

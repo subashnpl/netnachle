@@ -1,6 +1,10 @@
-package domain.controller;
+package controller;
 
-import Exceptions.NonUserException;
+import controller.Logger;
+import controller.MatrixHandler;
+import controller.Strategy;
+import controller.DataManipulate;
+import exceptions1.NonUserException;
 import java.util.HashMap;
 import java.util.Iterator;
 import domain.Movie;
@@ -18,6 +22,8 @@ public class Controller {
 	private HashMap<Integer, User> _usersInSystem;  //this is a hash map that tell us who looged in
         private User _currentUser;
         private int _movRand;//oz1
+        private Thread updater;
+        private int _cycleInMinutes;
         
 	public Controller(Strategy strategy){
 		upLoad();
@@ -25,7 +31,30 @@ public class Controller {
                 strategy.set_movies(_movies);
 		_strategy = strategy;
                 _movRand = -1;
+                updater = null;
+                _cycleInMinutes = 1;    // writes to DB every 1 minute
+                runUpdater();
 	}//constructor
+        
+        private void runUpdater(){
+            updater = new Thread(new Runnable(){
+                public void run() {
+                    while(true){
+                        writeMemoryToDataBase();
+                        System.out.println("Memory wrote to DB.");
+                        try {
+                            Thread.sleep((int)(60000*_cycleInMinutes));
+                        } catch (InterruptedException ex) {System.out.println("Error in sleep of thread");}
+                    }
+                }
+            });
+            updater.start();
+        }
+        
+        public void stopUpdater(){
+            updater.interrupt();
+        }
+                
         public boolean lowRateUser(){
             return (_currentUser.get_rates().size() < 7);
         }
@@ -253,10 +282,15 @@ public class Controller {
     }
 
     public void shutDown(){
-            _usersHandler.setUsers(_users);
-            _moviesHandler.setMovies(_movies);
+            writeMemoryToDataBase();
             logger.log("System is down gracefully.");
             logger.exit();
+    }
+    
+    public void writeMemoryToDataBase(){
+        _usersHandler.setUsers(_users);
+        _moviesHandler.setMovies(_movies);
+        logger.log("System's memory was written to DB.");
     }
 
     /**
@@ -447,6 +481,15 @@ public class Controller {
 		//System.out.println(c.get_Strategy().getRecomendations(100));
 	    c.shutDown();
 	}
+
+    public int getCycleInMinutes() {
+        return _cycleInMinutes;
+    }
+
+    public void setCycleInMinutes(int cycleInMinutes) {
+        if (cycleInMinutes > 0.0)
+            this._cycleInMinutes = cycleInMinutes;
+    }
 }
 
 

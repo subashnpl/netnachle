@@ -1,4 +1,4 @@
-package domain.controller;
+package controller;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

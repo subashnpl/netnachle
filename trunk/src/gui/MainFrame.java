@@ -1,8 +1,8 @@
 package gui;
 
-import Exceptions.RateNotAtRangeException;
+import exceptions1.RateNotAtRangeException;
 import domain.Movie;
-import domain.controller.Controller;
+import controller.Controller;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;

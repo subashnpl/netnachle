@@ -1,6 +1,6 @@
 package domain;
 
-import domain.controller.Controller;
+import controller.Controller;
 
 public class Administrator extends User{
 

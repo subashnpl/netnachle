@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions1;
 
 public class NonUserException extends Exception{
 
