@@ -41,7 +41,7 @@ public class Controller {
                 public void run() {
                     while(true){
                         writeMemoryToDataBase();
-                        System.out.println("Memory wrote to DB (Memory is written every " + _cycleInMinutes + " min.).");
+                        System.out.println("Memory wrote to DB (Memory is written every " + _cycleInMinutes + " minutes).");
                         try {
                             Thread.sleep((int)(60000*_cycleInMinutes));
                         } catch (InterruptedException ex) {System.out.println("Error in sleep of thread");}
