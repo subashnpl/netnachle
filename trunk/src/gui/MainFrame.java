@@ -1,6 +1,6 @@
 package gui;
 
-import exceptions1.RateNotAtRangeException;
+import exceptions.RateNotAtRangeException;
 import domain.Movie;
 import controller.Controller;
 import java.io.File;
@@ -8,8 +8,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
