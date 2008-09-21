@@ -1,15 +1,9 @@
 package domain.controller;
 
 import static org.junit.Assert.*;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import org.junit.Test;
-
-import domain.Movie;
-import domain.User;
-import domain.controller.Controller;
-import domain.controller.Strategy;
 
 public class ControllerTest extends TestCase{
 
