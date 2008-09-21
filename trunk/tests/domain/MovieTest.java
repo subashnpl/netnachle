@@ -12,7 +12,7 @@ public class MovieTest extends TestCase{
 
 	@Test
 	public void testMovie() {
-		Movie m=new Movie("kadoshara",22,"action",null,1984,"israel",120.0,"katzman");
+		Movie m=new Movie("kadoshara",22,"action",null,1984,"israel",120,"katzman");
 		Assert.assertTrue("impropper category ", m.get_category().equalsIgnoreCase("action"));
 		Assert.assertTrue("impropper year ", m.get_year()==1984);
 	}

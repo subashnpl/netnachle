@@ -71,16 +71,19 @@ public class MatrixHandler implements Strategy{
 	}
 
 	public double getK(int userId){
-		double tSum = 0;
-		Iterator<Entry<Integer, User>> usersIter = _users.entrySet().iterator();
-		User tUser;
-		while(usersIter.hasNext()) {
-			tUser = usersIter.next().getValue();
-			if (userId != tUser.getId()) {
-				tSum += Math.abs(weight(userId, tUser.getId()));
-			}
-		}
-		return 1/tSum;
+            double tSum = 0;
+            Iterator<Entry<Integer, User>> usersIter = _users.entrySet().iterator();
+            User tUser;
+            while(usersIter.hasNext()) {
+                    tUser = usersIter.next().getValue();
+                    if (userId != tUser.getId()) {
+                            tSum += Math.abs(weight(userId, tUser.getId()));
+                    }
+            }
+            if (tSum == 0) {
+                return 0;
+            }
+            return 1 / tSum;
 	}
 
 	public int getPredictedRate(int userId, int movieId) throws RateNotAtRangeException{

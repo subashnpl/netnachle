@@ -1,295 +1,302 @@
 package controller;
 
-import controller.Logger;
-import controller.MatrixHandler;
-import controller.Strategy;
-import controller.DataManipulate;
 import exceptions1.NonUserException;
 import java.util.HashMap;
 import java.util.Iterator;
 import domain.Movie;
 import domain.User;
+import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import sql.DataManipulate;
 
 public class Controller {
-	private DataManipulate _moviesHandler = null;
-	private DataManipulate _usersHandler = null;
-        public Strategy _strategy;
-	private Logger logger;
-	private HashMap<Integer, User> _users;
-	private HashMap<Integer, Movie> _movies;
-	private HashMap<Integer, User> _usersInSystem;  //this is a hash map that tell us who looged in
-        private User _currentUser;
-        private int _movRand;//oz1
-        private Thread updater;
-        private int _cycleInMinutes;
-        
-	public Controller(Strategy strategy){
-		upLoad();
-                strategy.set_users(_users);
-                strategy.set_movies(_movies);
-		_strategy = strategy;
-                _movRand = -1;
-                updater = null;
-                _cycleInMinutes = 1;    // writes to DB every 1 minute
-                runUpdater();
-	}//constructor
-        
-        private void runUpdater(){
-            updater = new Thread(new Runnable(){
-                public void run() {
-                    while(true){
-                        writeMemoryToDataBase();
-                        System.out.println("Memory wrote to DB (Memory is written every " + _cycleInMinutes + " minutes).");
-                        try {
-                            Thread.sleep((int)(60000*_cycleInMinutes));
-                        } catch (InterruptedException ex) {System.out.println("Error in sleep of thread");}
+//	private DataManipulate _moviesHandler = null;
+//	private DataManipulate _usersHandler = null;
+    public Strategy _strategy;
+    private Logger logger;
+    private HashMap<Integer, User> _users;
+    private HashMap<Integer, Movie> _movies;
+    private HashMap<Integer, User> _usersInSystem;  //this is a hash map that tell us who looged in
+    private User _currentUser;
+    private int _movRand;//oz1
+    private Thread updater;
+    private int _cycleInMinutes;
+    private DataManipulate _dataHandler;
+
+    public Controller(Strategy strategy) {
+        try {
+            _dataHandler = new DataManipulate();
+            upLoad();
+            strategy.set_users(_users);
+            strategy.set_movies(_movies);
+            _strategy = strategy;
+            _movRand = -1;
+            updater = null;
+            _cycleInMinutes = 1;    // writes to DB every 1 minute
+            //runUpdater();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Controller: SQLException", JOptionPane.ERROR_MESSAGE);
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Controller: ClassNotFoundException", JOptionPane.ERROR_MESSAGE);
+        }
+    }//constructor
+
+    private void runUpdater() {
+        updater = new Thread(new Runnable() {
+
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep((int) (60000 * _cycleInMinutes));
+                    } catch (InterruptedException ex) {
+                        System.out.println("Error in sleep of thread");
                     }
+                    
+                    try {
+                        writeMemoryToDataBase();
+                    } catch (SQLException ex) {
+                        if (_currentUser.getPermission().equalsIgnoreCase("administrator")) {
+                            JOptionPane.showMessageDialog(null, ex.getMessage(), "Controller: SQLException", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    
+                    System.out.println("Memory wrote to DB (Memory is written every " + _cycleInMinutes + " minutes).");
                 }
-            });
-            updater.start();
-        }
-        
-        public void stopUpdater(){
-            updater.interrupt();
-        }
-                
-        public boolean lowRateUser(){
-            return (_currentUser.get_rates().size() < 7);
-        }
-        public String[]  getMovieNames() {
-            String[] moviesNames=new String[this._movies.size()];
-            Iterator iter=this.get_movies().values().iterator();
-            Movie tMovie=null;
-            for (int i=0 ;i< moviesNames.length;i++){
-                tMovie = (Movie)iter.next();
-                moviesNames[i]=tMovie.get_name() ;
             }
-            return moviesNames;
+        });
+        updater.start();
+    }
+
+    public void stopUpdater() {
+        updater.interrupt();
+    }
+
+    public boolean lowRateUser() {
+        return (_currentUser.get_rates().size() < 7);
+    }
+
+    public String[] getMovieNames() {
+        String[] moviesNames = new String[this._movies.size()];
+        Iterator iter = this.get_movies().values().iterator();
+        Movie tMovie = null;
+        for (int i = 0; i < moviesNames.length; i++) {
+            tMovie = (Movie) iter.next();
+            moviesNames[i] = tMovie.get_name();
         }
+        return moviesNames;
+    }
 
     public int[] getUsersIds() {
-        int[] usersIds=new int[_users.size()];
-        Iterator<User> iter=_users.values().iterator();
-        for(int i=0;i<usersIds.length;i++){
-            usersIds[i]=iter.next().getId();
+        int[] usersIds = new int[_users.size()];
+        Iterator<User> iter = _users.values().iterator();
+        for (int i = 0; i < usersIds.length; i++) {
+            usersIds[i] = iter.next().getId();
         }
         return usersIds;
     }
-    
-    public boolean isUserExist(int id){
+
+    public boolean isUserExist(int id) {
         int[] usersIds = new int[_users.size()];
         Iterator<User> iter = _users.values().iterator();
-        for(int i = 0; i < usersIds.length; i++){
-            if (iter.next().getId() == id)
+        for (int i = 0; i < usersIds.length; i++) {
+            if (iter.next().getId() == id) {
                 return true;
+            }
         }
         return false;
     }
+
     public String[] getUsersNamesById(int[] usersId) {
-        String[] usersName=new String[usersId.length];
-        for(int i=0; i<usersId.length;i++){
-            usersName[i]=_users.get(usersId[i]).getName();
+        String[] usersName = new String[usersId.length];
+        for (int i = 0; i < usersId.length; i++) {
+            usersName[i] = _users.get(usersId[i]).getName();
         }
         return usersName;
     }
+
     public int[] getMoviesIds() {
-        int[] moviesIds=new int[_movies.size()];
-        Iterator<Movie> iter=_movies.values().iterator();
-        for(int i=0;i<moviesIds.length;i++){
-            moviesIds[i]=iter.next().get_id();
+        int[] moviesIds = new int[_movies.size()];
+        Iterator<Movie> iter = _movies.values().iterator();
+        for (int i = 0; i < moviesIds.length; i++) {
+            moviesIds[i] = iter.next().get_id();
         }
         return moviesIds;
     }
+
     public String[] getMoviesNamesById(int[] moviesId) {
-        String[] moviesName=new String[moviesId.length];
-        for(int i=0; i<moviesId.length;i++){
-            moviesName[i]=_movies.get(moviesId[i]).get_name();  //  .getName();
+        String[] moviesName = new String[moviesId.length];
+        for (int i = 0; i < moviesId.length; i++) {
+            moviesName[i] = _movies.get(moviesId[i]).get_name();  //  .getName();
         }
         return moviesName;
     }
-    public DataManipulate get_movieHandler() {
-        return _moviesHandler;
-    }
+
     public void removeUser(int i) {
         logger.log("remove user  : " + _users.get(i));
         this.removeUser(_users.get(i));
     }
-    
+
     public void removeMovie(int i) {
         logger.log("remove movie  : " + _movies.get(i));
         this.removeMovie(_movies.get(i));
     }
     /*
-     /  return 7 movies randomly to be rate by the user   
-    *///oz
+    /  return 7 movies randomly to be rate by the user   
+     *///oz
+
     public String[][] getMoviesToRate(String for_back) {
-        int fb=0;
-        if (for_back.equalsIgnoreCase("f")) fb=7;
-        else fb=-7;
-        String[][]  mov_director_id = new String[7][3];
-        int upperLimit=this._movies.size();
-        if (_movRand == -1){//oz1  //if first time getting to rate movie
-            _movRand = (int)((double)upperLimit * Math.random() );
-        }else{
+        int fb = 0;
+        if (for_back.equalsIgnoreCase("f")) {
+            fb = 7;
+        } else {
+            fb = -7;
+        }
+        String[][] mov_director_id = new String[7][3];
+        int upperLimit = this._movies.size();
+        if (_movRand == -1) {//oz1  //if first time getting to rate movie
+            _movRand = (int) ((double) upperLimit * Math.random());
+        } else {
             _movRand = (_movRand + fb);
-            if (_movRand<0) _movRand += upperLimit;
+            if (_movRand < 0) {
+                _movRand += upperLimit;
+            }
             _movRand = _movRand % upperLimit;
         }//else
-        
-        Object[]  movies2choos = _movies.values().toArray();
-        Movie tMov=null;
-        for(int i=0;i<7;i++){
-            tMov = (Movie)movies2choos[(i+_movRand) % upperLimit];
-            mov_director_id[i][0] =tMov.get_name();
+
+        Object[] movies2choos = _movies.values().toArray();
+        Movie tMov = null;
+        for (int i = 0; i < 7; i++) {
+            tMov = (Movie) movies2choos[(i + _movRand) % upperLimit];
+            mov_director_id[i][0] = tMov.get_name();
             mov_director_id[i][1] = tMov.get_director();
-            mov_director_id[i][2] = tMov.get_id()+"";
+            mov_director_id[i][2] = tMov.get_id() + "";
             System.out.println(mov_director_id[i][2]);
         } //while(!doneRandMovies){
         return mov_director_id;
     }//getMoviesToRate
-    
+
     public int userSaw(Integer movId) {//oz1
-        int ret=0;
+        int ret = 0;
         Integer saw = getCurrentUser().get_rates().get(movId);
-        if (saw!=null) ret = saw.intValue();
+        if (saw != null) {
+            ret = saw.intValue();
+        }
         return ret;
-    }    
-    
+    }
+
     public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
-       User tUser=_users.get(userID);
-        for (int i=0;i<rates.length;i++){
+        User tUser = _users.get(userID);
+        for (int i = 0; i < rates.length; i++) {
             tUser.rateMovie(moviesId[i], rates[i]);
             _movies.get(moviesId[i]).add_rater(userID, rates[i]);
         }//for
     }//void setRatesByUser  
-    public String[]  getUsersNames() {
-        String[] usersNames=new String[this._users.size()];
-        Iterator iter=this.get_users().values().iterator();
-        User tUser=null;
-        for (int i=0 ;i< usersNames.length;i++){
-            tUser=(User)iter.next();
-            usersNames[i]=tUser.getName();
+
+    public String[] getUsersNames() {
+        String[] usersNames = new String[this._users.size()];
+        Iterator iter = this.get_users().values().iterator();
+        User tUser = null;
+        for (int i = 0; i < usersNames.length; i++) {
+            tUser = (User) iter.next();
+            usersNames[i] = tUser.getName();
         }
         return usersNames;
     }
-    public void set_movieHandler(DataManipulate handler) {
-            _moviesHandler = handler;
-    }
-    public DataManipulate get_usersHandler() {
-            return _usersHandler;
-    }
-    public void set_usersHandler(DataManipulate handler) {
-            _usersHandler = handler;
-    }
+
     public HashMap<Integer, User> get_users() {
-            return _users;
+        return _users;
     }
+
     public void set_users(HashMap<Integer, User> _users) {
-            this._users = _users;
+        this._users = _users;
     }
 
     public HashMap<Integer, User> get_usersIn() {
-            return _usersInSystem;
+        return _usersInSystem;
     }
 
     public void set_usersIn(HashMap<Integer, User> in) {
-            _usersInSystem = in;
+        _usersInSystem = in;
     }
+
     public HashMap<Integer, Movie> get_movies() {
-            return _movies;
+        return _movies;
     }
+
     public void set_movies(HashMap<Integer, Movie> movies) {
-            this._movies = movies;
+        this._movies = movies;
     }
-    public void addUser(User usr){
-            _users.put(usr.getId(), usr);
-            logger.log("User " + usr.getName() + " has been added to database.");
+
+    public void addUser(User usr) {
+        _users.put(usr.getId(), usr);
+        logger.log("User " + usr.getName() + " has been added to database.");
     }
+
     public Strategy get_Strategy() {
-            return _strategy;
+        return _strategy;
     }
 
     public void set_Strategy(Strategy strategy) {
-            _strategy = strategy;
+        _strategy = strategy;
     }
     //public void removeUser(int i){
     //	_users.remove(i);
-    public void removeUser(User u){
-            Iterator<Integer> ratesIter = u.get_rates().keySet().iterator();
-            while(ratesIter.hasNext()){
-                _movies.get(ratesIter.next()).removeRater(u.getId());
-            }
-            _users.remove(u.getId());
-            logger.log("User " + u.getName() + " has been removed from database.");
+    public void removeUser(User u) {
+        Iterator<Integer> ratesIter = u.get_rates().keySet().iterator();
+        while (ratesIter.hasNext()) {
+            _movies.get(ratesIter.next()).removeRater(u.getId());
+        }
+        _users.remove(u.getId());
+        logger.log("User " + u.getName() + " has been removed from database.");
     }
-    public void addMovie(Movie mov){
-            _movies.put(mov.get_id(), mov);
-            logger.log("Movie " + mov.get_name() + " has added to movies database.");
+
+    public void addMovie(Movie mov) {
+        _movies.put(mov.get_id(), mov);
+        logger.log("Movie " + mov.get_name() + " has added to movies database.");
     }
     //public void removeMovie(int i){
     //	_users.remove(i);
     //}
-    public void removeMovie(Movie m){
-        
+    public void removeMovie(Movie m) {
+
         Iterator<Integer> ratesIter = m.get_rates().keySet().iterator();
-        while(ratesIter.hasNext()){
+        while (ratesIter.hasNext()) {
             _users.get(ratesIter.next()).removeRater(m.get_id());
         }
-            _movies.remove(m.get_id());
-            logger.log("Movie " + m.get_name() + " has been removed from database.");
+        _movies.remove(m.get_id());
+        logger.log("Movie " + m.get_name() + " has been removed from database.");
     }
 
-    private void upLoad(){
-        try {
-            _moviesHandler = new DataManipulate("movies");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(),
-                    "Movies File Error", JOptionPane.ERROR_MESSAGE);
-        }
-        try{
-            _usersHandler = new DataManipulate("users");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(),
-                    "Users File Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        _users = _usersHandler.getUsers();
-        _usersInSystem = new HashMap<Integer, User>();
-        _movies = _moviesHandler.getMovies();
-        generateMoviesRaters();
+    private void upLoad() throws SQLException {
+        _users = _dataHandler.getUsers();
+        _movies = _dataHandler.getMovies();
         logger = Logger.makeSingleton("log.txt");
         logger.log("System is up.");
     }
 
-    // Updating movies' rates according to rates that users rated that were read from the users.xml file
-    private void generateMoviesRaters(){
-            Integer tRaterId = null;
-            HashMap<Integer, Integer> tUserRates = null;
-            Iterator<Integer> userRateIter = null;
-            Iterator<Integer> usersIter = _users.keySet().iterator();
-            while(usersIter.hasNext()){
-                    tRaterId = usersIter.next();
-                    tUserRates = _users.get(tRaterId).get_rates();
-                    userRateIter = tUserRates.keySet().iterator();
-                    while (userRateIter.hasNext()){
-                            Integer nxt = userRateIter.next();
-                            Movie tMovie=_movies.get(nxt);
-                            tMovie.add_rater(tRaterId, _users.get(tRaterId).get_rates().get(nxt));
-                    }
-            }
-    }
-
-    public void shutDown(){
+    public void shutDown() {
+        try {
             writeMemoryToDataBase();
             logger.log("System is down gracefully.");
+        } catch (SQLException ex) {
+            logger.log("System's memory was NOT written to DB (Reason: SQLException).");
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "shutdown: SQLException", JOptionPane.ERROR_MESSAGE);
+        } finally {
             logger.exit();
+        }
     }
-    
-    public void writeMemoryToDataBase(){
-        _usersHandler.setUsers(_users);
-        _moviesHandler.setMovies(_movies);
+
+    public void writeMemoryToDataBase() throws SQLException {
+        try {
+            _dataHandler.deleteAllTables();
+            _dataHandler.setUsers(_users);
+            _dataHandler.setMovies(_movies);
+        } catch (SQLException sQLException) {
+            logger.log("System's memory was NOT written to DB.");
+            throw sQLException;
+        }
         logger.log("System's memory was written to DB.");
     }
 
@@ -297,43 +304,44 @@ public class Controller {
      * login gets userName, password & id
      * if user exists returns the user, otherwise returns null
      */
-    public void signUp(String name, String password,String permission,int id,String sex){
-            User newUser = new User(password,permission,id,name,sex);
-            this.addUser(newUser);
+    public void signUp(String name, String password, String permission, int id, String sex) {
+        User newUser = new User(password, permission, id, name, sex);
+        this.addUser(newUser);
     }
-    public User login(String password, String userName, int id) throws Exception{
-            User tUser = _users.get(id);
-            String message;
-            if(tUser!=null && tUser.getId()==id &&
-                            tUser.getName().equals(userName) &&
-                            tUser.getPassword().equals(password)){
-                    message = "User " + userName + " has logged on.";
-                    logger.log(message);
-                    _usersInSystem.put(tUser.getId(), tUser);	//add the user to the system                        
-            }
-            else{
-                tUser = null;
-                message = "Non-User " + userName + " has tried to login but failed.";
-                logger.log(message);
-                throw new NonUserException("No such user: " + userName +"\n- OR -\nPassword doesn't match");
-            }
-            return tUser;
+
+    public User login(String password, String userName, int id) throws Exception {
+        User tUser = _users.get(id);
+        String message;
+        if (tUser != null && tUser.getId() == id &&
+                tUser.getName().equals(userName) &&
+                tUser.getPassword().equals(password)) {
+            message = "User " + userName + " has logged on.";
+            _currentUser = tUser;
+            //logger.log(message);
+        } else {
+            tUser = null;
+            message = "Non-User " + userName + " has tried to login but failed.";
+            logger.log(message);
+            throw new NonUserException("No such user: " + userName + "\n- OR -\nPassword doesn't match");
+        }
+        return tUser;
     }
-    public void logout(User user){
-            _usersInSystem.remove(user.getId());
+
+    public void logout(User user) {
+        _usersInSystem.remove(user.getId());
     }
+
     /**
      * recieveRecommendations(random for now) returns randomly movies
      * if there are no movies returns null
      */
-    public Movie recieveRecommendations(){
-            if(!_movies.isEmpty()){
-                    int ran = (int) (Math.random()*_movies.size());
-                    return _movies.get(ran);
-            }
-            else {
-                    return null;
-            }
+    public Movie recieveRecommendations() {
+        if (!_movies.isEmpty()) {
+            int ran = (int) (Math.random() * _movies.size());
+            return _movies.get(ran);
+        } else {
+            return null;
+        }
     }
 
     public User getCurrentUser() {
@@ -344,155 +352,152 @@ public class Controller {
         this._currentUser = currentUser;
     }
 
-	public static void main(String[] args) {
-	    Controller c = new Controller(new MatrixHandler());
-	    /* Example that works*/
+    public static void main(String[] args) {
+        Controller c = new Controller(new MatrixHandler());
+        
+        Vector<String> movieActors1 = new Vector<String>();
+        movieActors1.add("Yehuda Barkan");
+        Movie m1 = new Movie("ima ganuv1", 100, "action", movieActors1, 1980, "Israel", 189, "Yehuda Barkan");
+        c.addMovie(m1);
 
-	    /* Initialize some movies: */
-	    Vector<String> movieActors1 = new Vector<String>();
-	    movieActors1.add("Yehuda Barkan");
-	    Movie m1 = new Movie("ima ganuv1",100,"action",movieActors1,1980,"Israel",189,"Yehuda Barkan");
-	    c.addMovie(m1);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Stalon");
-	    Movie m2 = new Movie("Rambo1",101,"action",movieActors1,1981,"USA",112,"Michael");
-	    c.addMovie(m2);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Uri Zohar");
-	    movieActors1.add("Arik Ainstein");
-	    Movie m3 = new Movie("Matzizim",102,"Comedy",movieActors1,1984,"Israel",134,"Uri Zohar");
-	    c.addMovie(m3);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Kiano Rives");
-	    Movie m4 = new Movie("Matrix1",103,"Action",movieActors1,1999,"USA",126,"Jordan");
-	    m1.add_rater(101, 1);
-	    c.addMovie(m4);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Kiano Rives");
-	    Movie m5 = new Movie("Matrix2",104,"Action",movieActors1,2001,"USA",106,"Jordan");
-	    c.addMovie(m5);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Kiano Rives");
-	    Movie m6 = new Movie("Matrix3",105,"Action",movieActors1,2003,"USA",177,"Jordan");
-	    c.addMovie(m6);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Stalon");
-	    Movie m7 = new Movie("Rambo2",106,"action",movieActors1,1981,"USA",155,"Michael");
-	    c.addMovie(m7);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Stalon");
-	    Movie m8 = new Movie("Rambo3",107,"action",movieActors1,1983,"USA",137,"Michael");
-	    c.addMovie(m8);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Katzman");
-	    Movie m9 = new Movie("Net-Nachle",108,"Fiction",movieActors1,2003,"USA",17,"BGU");
-	    c.addMovie(m9);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Katzman");
-	    Movie m10 = new Movie("Net-Nachle - the coming back",109,"Fiction",movieActors1,2003,"USA",147,"BGU");
-	    c.addMovie(m10);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Hobite");
-	    Movie m11 = new Movie("Lord of the rings1",110,"Fiction",movieActors1,2002,"USA",104,"Roy");
-	    c.addMovie(m11);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Hobite");
-	    Movie m12 = new Movie("Lord of the rings2",111,"Fiction",movieActors1,2003,"USA",144,"Roy");
-	    c.addMovie(m12);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Hobite");
-	    Movie m13 = new Movie("Lord of the rings3",112,"Fiction",movieActors1,2005,"USA",144,"Roy");
-	    c.addMovie(m13);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("Katash");
-	    Movie m14 = new Movie("Rockie1",113,"action",movieActors1,2004,"USA",184,"Roy");
-	    c.addMovie(m14);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("jony");
-	    Movie m15 = new Movie("Rockie2",114,"action",movieActors1,2005,"USA",174,"Roy");
-	    c.addMovie(m15);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("vanbasten");
-	    Movie m16 = new Movie("Rockie3",115,"action",movieActors1,2006,"USA",114,"Roy");
-	    c.addMovie(m16);
-	    
-	    movieActors1 = new Vector<String>();
-	    movieActors1.add("rodman");
-	    Movie m17 = new Movie("Robokop",116,"action",movieActors1,1850,"USA",164,"Roy");
-	    c.addMovie(m17);
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Stalon");
+        Movie m2 = new Movie("Rambo1", 101, "action", movieActors1, 1981, "USA", 112, "Michael");
+        c.addMovie(m2);
 
-	    User u1 = new User("123","user" , 100 , "ido" , "male");
-	    u1.rateMovie(100, 4);
-	    u1.rateMovie(101, 5);
-	    u1.rateMovie(102, 6);
-	    u1.rateMovie(103, 7);
-	    c.addUser(u1);
-	    
-	    User u2 = new User("124","user" , 101 , "Elad" , "male");
-	    u2.rateMovie(100, 4);
-	    u2.rateMovie(101, 5);
-	    u2.rateMovie(102, 6);
-	    u2.rateMovie(103, 7);
-	    u2.rateMovie(104, 4);
-	    u2.rateMovie(105, 1);
-	    u2.rateMovie(106, 3);
-	    u2.rateMovie(107, 9);
-	    u2.rateMovie(108, 9);
-	    u2.rateMovie(109, 8);
-	    u2.rateMovie(110, 7);
-	    u2.rateMovie(111, 2);
-	    u2.rateMovie(112, 5);
-	    u2.rateMovie(113, 4);
-	    u2.rateMovie(114, 7);
-	    c.addUser(u2);
-	    
-	    User u3 = new User("125","user" , 102 , "sami" , "male");
-	    u3.rateMovie(100, 4);
-	    u3.rateMovie(101, 5);
-	    u3.rateMovie(102, 6);
-	    u3.rateMovie(103, 7);
-	    u3.rateMovie(104, 9);
-	    u3.rateMovie(105, 8);
-	    u3.rateMovie(106, 7);
-	    u3.rateMovie(107, 6);
-	    u3.rateMovie(108, 5);
-	    u3.rateMovie(109, 4);
-	    u3.rateMovie(110, 3);
-	    u3.rateMovie(111, 2);
-	    u3.rateMovie(112, 1);
-	    u3.rateMovie(113, 2);
-	    u3.rateMovie(114, 1);
-	    c.addUser(u3);
-		//System.out.println(c.get_Strategy().getRecomendations(100));
-	    c.shutDown();
-	}
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Uri Zohar");
+        movieActors1.add("Arik Ainstein");
+        Movie m3 = new Movie("Matzizim", 102, "Comedy", movieActors1, 1984, "Israel", 134, "Uri Zohar");
+        c.addMovie(m3);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Kiano Rives");
+        Movie m4 = new Movie("Matrix1", 103, "Action", movieActors1, 1999, "USA", 126, "Jordan");
+        m1.add_rater(101, 1);
+        c.addMovie(m4);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Kiano Rives");
+        Movie m5 = new Movie("Matrix2", 104, "Action", movieActors1, 2001, "USA", 106, "Jordan");
+        c.addMovie(m5);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Kiano Rives");
+        Movie m6 = new Movie("Matrix3", 105, "Action", movieActors1, 2003, "USA", 177, "Jordan");
+        c.addMovie(m6);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Stalon");
+        Movie m7 = new Movie("Rambo2", 106, "action", movieActors1, 1981, "USA", 155, "Michael");
+        c.addMovie(m7);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Stalon");
+        Movie m8 = new Movie("Rambo3", 107, "action", movieActors1, 1983, "USA", 137, "Michael");
+        c.addMovie(m8);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Katzman");
+        Movie m9 = new Movie("Net-Nachle", 108, "Fiction", movieActors1, 2003, "USA", 17, "BGU");
+        c.addMovie(m9);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Katzman");
+        Movie m10 = new Movie("Net-Nachle - the coming back", 109, "Fiction", movieActors1, 2003, "USA", 147, "BGU");
+        c.addMovie(m10);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Hobite");
+        Movie m11 = new Movie("Lord of the rings1", 110, "Fiction", movieActors1, 2002, "USA", 104, "Roy");
+        c.addMovie(m11);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Hobite");
+        Movie m12 = new Movie("Lord of the rings2", 111, "Fiction", movieActors1, 2003, "USA", 144, "Roy");
+        c.addMovie(m12);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Hobite");
+        Movie m13 = new Movie("Lord of the rings3", 112, "Fiction", movieActors1, 2005, "USA", 144, "Roy");
+        c.addMovie(m13);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("Katash");
+        Movie m14 = new Movie("Rockie1", 113, "action", movieActors1, 2004, "USA", 184, "Roy");
+        c.addMovie(m14);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("jony");
+        Movie m15 = new Movie("Rockie2", 114, "action", movieActors1, 2005, "USA", 174, "Roy");
+        c.addMovie(m15);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("vanbasten");
+        Movie m16 = new Movie("Rockie3", 115, "action", movieActors1, 2006, "USA", 114, "Roy");
+        c.addMovie(m16);
+
+        movieActors1 = new Vector<String>();
+        movieActors1.add("rodman");
+        Movie m17 = new Movie("Robokop", 116, "action", movieActors1, 1850, "USA", 164, "Roy");
+        c.addMovie(m17);
+
+        User u1 = new User("123123123", "user", 100, "ido", "male");
+        u1.rateMovie(100, 4);
+        u1.rateMovie(101, 5);
+        u1.rateMovie(102, 6);
+        u1.rateMovie(103, 7);
+        c.addUser(u1);
+
+        User u2 = new User("124124124", "user", 101, "Elad", "male");
+        u2.rateMovie(100, 4);
+        u2.rateMovie(101, 5);
+        u2.rateMovie(102, 6);
+        u2.rateMovie(103, 7);
+        u2.rateMovie(104, 4);
+        u2.rateMovie(105, 1);
+        u2.rateMovie(106, 3);
+        u2.rateMovie(107, 9);
+        u2.rateMovie(108, 9);
+        u2.rateMovie(109, 8);
+        u2.rateMovie(110, 7);
+        u2.rateMovie(111, 2);
+        u2.rateMovie(112, 5);
+        u2.rateMovie(113, 4);
+        u2.rateMovie(114, 7);
+        c.addUser(u2);
+        User admin = new User("admin", "administrator", 111111111, "admin", "male");
+        admin.rateMovie(100, 4);
+        admin.rateMovie(101, 5);
+        admin.rateMovie(102, 6);
+        admin.rateMovie(103, 7);
+        admin.rateMovie(104, 9);
+        admin.rateMovie(105, 8);
+        admin.rateMovie(106, 7);
+        admin.rateMovie(107, 6);
+        admin.rateMovie(108, 5);
+        admin.rateMovie(109, 4);
+        admin.rateMovie(110, 3);
+        admin.rateMovie(111, 2);
+        admin.rateMovie(112, 1);
+        admin.rateMovie(113, 2);
+        admin.rateMovie(114, 1);
+        c.addUser(admin);
+
+        //System.out.println(c.get_Strategy().getRecomendations(100));
+        c.shutDown();
+    }
 
     public int getCycleInMinutes() {
         return _cycleInMinutes;
     }
 
     public void setCycleInMinutes(int cycleInMinutes) {
-        if (cycleInMinutes > 0.0)
+        if (cycleInMinutes > 0.0) {
             this._cycleInMinutes = cycleInMinutes;
+        }
     }
 }
-
-
 /*******************************************************************************/
 /* Example that works*/
 
@@ -626,7 +631,6 @@ public class Controller {
 //u3.rateMovie(113, 2);
 //u3.rateMovie(114, 1);
 //c.addUser(u3);
-
 /************************ to be checked ****************************************/
 //User u1 = new User("123"/*"QL0AFWMIX8NRZTI/oT9cXss/vu8"*/,"user" , 100 , "ido" , "male");
 //u1.rateMovie(100, 4);
