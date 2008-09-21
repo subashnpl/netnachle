@@ -16,19 +16,24 @@ import java.util.Vector;
 public class DataManipulate {
 
     private String _url;
+    private String _user;
+    private String _password;
     private Connection _conn;
     private Statement _stmt;
     private ResultSet _rs;
     private ResultSetMetaData _rsmd;
-    
+
     // open connection to the databse
     public DataManipulate() throws ClassNotFoundException {
-        _url = "jdbc:mysql://localhost/netnachle?user=root&password=";
         Class.forName("com.mysql.jdbc.Driver");
+        _url = "jdbc:mysql://webdev/netnachle";
+        _user = "netnachle";
+        _password = ";tTl&I47";
+    // _url = "jdbc:mysql://webdev/netnachle?user=netnachle&password=;tTl&I47";
     }
     // open the database
     private void openConnection() throws SQLException {
-        _conn = DriverManager.getConnection(_url);
+        _conn = DriverManager.getConnection(_url, _user, _password);
         _stmt = _conn.createStatement();
     }
     // close the database
