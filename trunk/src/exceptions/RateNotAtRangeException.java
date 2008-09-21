@@ -1,4 +1,4 @@
-package exceptions1;
+package exceptions;
 
 public class RateNotAtRangeException extends Exception{
 
