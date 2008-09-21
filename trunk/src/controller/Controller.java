@@ -1,6 +1,6 @@
 package controller;
 
-import exceptions1.NonUserException;
+import exceptions.NonUserException;
 import java.util.HashMap;
 import java.util.Iterator;
 import domain.Movie;
