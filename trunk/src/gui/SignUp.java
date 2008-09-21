@@ -324,7 +324,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
             _sex = this.jComboBoxGender.getSelectedItem().toString();
             sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
             String encoded=encoder.encode(_secret.getBytes());
-            User tuser = new  User( encoded, "user", _id, _name, _sex);
+            User tuser = new User( encoded, "user", _id, _name, _sex);
             _controller.addUser(tuser);
             _controller.setCurrentUser(tuser);
             exit();

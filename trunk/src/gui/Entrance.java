@@ -136,7 +136,7 @@ public class Entrance extends JFrame {
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .add(jButtonEnter, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                        .add(jButtonEnter, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jButtonExit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(8, 8, 8))
@@ -276,20 +276,19 @@ private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signU
 private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
     String userName = this.jTextFieldUsername.getText();
     int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
-    char[] passwordChars = this.jPasswordFieldPassword.getPassword(); 
-    System.out.println("getPass: "+this.jPasswordFieldPassword.getPassword());
+    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
+    System.out.println("getPass: " + this.jPasswordFieldPassword.getPassword());
     try {
         User tUser = _controller.login(encode(passwordChars), userName, id);
-        _controller.setCurrentUser(tUser);
-                  if (_controller.lowRateUser()){
-                JOptionPane.showMessageDialog(this, "Dear user, this is not a hore house please rate movies",
-                "RATING ERROR", JOptionPane.ERROR_MESSAGE);
-                RateMovies Rm = new RateMovies(this, _controller);
-                Rm.setVisible(true);
-            }
-    else{
-        doLoginActions();
-               }
+        //_controller.setCurrentUser(tUser);
+        if (_controller.lowRateUser()) {
+            JOptionPane.showMessageDialog(this, "Dear user, this is not a hore house please rate movies",
+                    "RATING ERROR", JOptionPane.ERROR_MESSAGE);
+            RateMovies Rm = new RateMovies(this, _controller);
+            Rm.setVisible(true);
+        } else {
+            doLoginActions();
+        }
     } catch (NonUserException ex) {
         JOptionPane.showMessageDialog(this, ex.getMessage(),
                 "Login Error", JOptionPane.ERROR_MESSAGE);
@@ -344,7 +343,7 @@ private void jTextFieldUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-F
         this.jPasswordFieldPassword.setText("1");
         try {
             User tUser = _controller.login(encode(this.jPasswordFieldPassword.getPassword()), "shaigi", 43137314);
-            _controller.setCurrentUser(tUser);
+            //_controller.setCurrentUser(tUser);
             this.setVisible(false);
             new MainFrame(_controller).setVisible(true);
         } catch (Exception ex) {
