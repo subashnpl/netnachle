@@ -296,7 +296,7 @@ public class AddMovie extends JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jButtonExitNoSaving)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 17, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 23, Short.MAX_VALUE)
                         .add(jButtonSaveAndAddAnotherMovie)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jButtonSaveAndExit))
@@ -468,6 +468,8 @@ private void jTextFieldActor3ActionPerformed(java.awt.event.ActionEvent evt) {//
 private void jButtonSaveAndAddAnotherMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveAndAddAnotherMovieActionPerformed
     if (addMovie()){
         this.setVisible(false);
+        ((SystemManagement)(this._parent))._parent.setVisible(true);
+        this._parent.setVisible(true);
         new AddMovie(_controller, _parent).setVisible(true);
     }
 }//GEN-LAST:event_jButtonSaveAndAddAnotherMovieActionPerformed
