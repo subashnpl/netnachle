@@ -261,6 +261,7 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     this.setVisible(false);
     _parent.setEnabled(true);
     _parent.setVisible(true);
+
 }//GEN-LAST:event_jButton5ActionPerformed
 
 private void jComboBoxUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxUserActionPerformed
