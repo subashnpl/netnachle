@@ -468,7 +468,8 @@ private void jTextFieldActor3ActionPerformed(java.awt.event.ActionEvent evt) {//
 private void jButtonSaveAndAddAnotherMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveAndAddAnotherMovieActionPerformed
     if (addMovie()){
         this.setVisible(false);
-        ((SystemManagement)(this._parent))._parent.setVisible(true);
+        this._parent.getParent().setVisible(true);
+        //((SystemManagement)(this._parent))._parent.setVisible(true);
         this._parent.setVisible(true);
         new AddMovie(_controller, _parent).setVisible(true);
     }

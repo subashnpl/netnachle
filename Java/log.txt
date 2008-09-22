@@ -1,6 +1,8 @@
 Movie Recommender ver 1.01 - Log file
 -------------------------------------------------------------
-1 [Mon Sep 22 19:06:28 IDT 2008]: System is up.
-2 [Mon Sep 22 19:06:57 IDT 2008]: Movie adfa has added to movies database.
-3 [Mon Sep 22 19:07:01 IDT 2008]: System's memory was written to DB.
-4 [Mon Sep 22 19:07:01 IDT 2008]: System is down gracefully.
+1 [Mon Sep 22 19:20:11 IDT 2008]: System is up.
+2 [Mon Sep 22 19:20:35 IDT 2008]: Movie yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy has added to movies database.
+3 [Mon Sep 22 19:20:47 IDT 2008]: Movie bmnb has added to movies database.
+4 [Mon Sep 22 19:21:05 IDT 2008]: Movie fas has added to movies database.
+5 [Mon Sep 22 19:21:11 IDT 2008]: System's memory was NOT written to DB.
+6 [Mon Sep 22 19:21:11 IDT 2008]: System's memory was NOT written to DB (Reason: SQLException).
