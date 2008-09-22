@@ -6,8 +6,7 @@ import javax.swing.JFrame;
 
 public class SystemManagement extends JFrame {
     private Controller _controller;
-    public JFrame _parent;
-    public int ofir;
+    private JFrame _parent;
     private int[] _usersId;
     private int[] _moviesIds;
     private String[] _usersNames;
@@ -24,7 +23,11 @@ public class SystemManagement extends JFrame {
     public void setVisible(boolean b){
         GeneralJFrame.setFrameAtCenter(this);
         super.setVisible(b);
-    }    
+    }
+    @Override
+    public MainFrame getParent(){
+        return (MainFrame) this._parent;
+    }
     public void setMoviesModel(){
         _moviesIds = _controller.getMoviesIds();
         _moviesNames = _controller.getMoviesNamesById(_moviesIds);
