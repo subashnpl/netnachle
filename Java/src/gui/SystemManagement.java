@@ -6,7 +6,8 @@ import javax.swing.JFrame;
 
 public class SystemManagement extends JFrame {
     private Controller _controller;
-    private JFrame _parent;
+    public JFrame _parent;
+    public int ofir;
     private int[] _usersId;
     private int[] _moviesIds;
     private String[] _usersNames;
