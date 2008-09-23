@@ -67,7 +67,6 @@ public class MainFrame extends JFrame {
              try {
                 this.jLabelPicture1.setIcon(loadIcon(movies.elementAt(0).get_name() + ".gif"));
              } catch (MalformedURLException ex) {
-                //Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
              }
          }
          if (movies.size() > 1){
