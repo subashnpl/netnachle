@@ -23,13 +23,20 @@ public class DataManipulate {
     private ResultSet _rs;
     private ResultSetMetaData _rsmd;
 
-    // open connection to the databse
+    // open connection to the database
     public DataManipulate() throws ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        _url = "jdbc:mysql://webdev/netnachle";
+        
+        // for use in external DB (not on local computer)
+        _url = "jdbc:mysql://localhost:8888/netnachle";
         _user = "netnachle";
         _password = ";tTl&I47";
-    // _url = "jdbc:mysql://webdev/netnachle?user=netnachle&password=;tTl&I47";
+        
+        //add it:
+        // for use in internal DB (on this computer using wamp)
+        //_url = "jdbc:mysql://localhost/netnachle";
+        //_user = "root";
+        //_password = "";
     }
     // open the database
     private void openConnection() throws SQLException {
