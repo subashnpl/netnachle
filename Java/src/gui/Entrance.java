@@ -136,7 +136,7 @@ public class Entrance extends JFrame {
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .add(jButtonEnter, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                        .add(jButtonEnter, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jButtonExit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(8, 8, 8))
@@ -337,20 +337,23 @@ private void jFormattedTextFieldIdKeyReleased(java.awt.event.KeyEvent evt) {//GE
     validateFields();
 }//GEN-LAST:event_jFormattedTextFieldIdKeyReleased
 
+private void enterWithHack(String userName, String password, int id){
+    this.jPasswordFieldPassword.setText(password);
+    try {
+        User tUser = _controller.login(encode(this.jPasswordFieldPassword.getPassword()), userName, id);
+        _controller.setCurrentUser(tUser);
+        this.setVisible(false);
+        new MainFrame(_controller).setVisible(true);
+    } catch (Exception ex) {
+        Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(this, "Hack didn't work!\n" + ex.getMessage(),
+            "Login Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
 private void jTextFieldUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsernameKeyReleased
-    
     if (evt.getKeyChar() == '`'){
-        this.jPasswordFieldPassword.setText("1");
-        try {
-            User tUser = _controller.login(encode(this.jPasswordFieldPassword.getPassword()), "shaigi", 43137314);
-            //_controller.setCurrentUser(tUser);
-            this.setVisible(false);
-            new MainFrame(_controller).setVisible(true);
-        } catch (Exception ex) {
-            Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Hack didn't work!\n" + ex.getMessage(),
-                "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
+        enterWithHack("admin", "abc", 111111111);
     } else{
         validateFields();
     }
