@@ -153,6 +153,7 @@ public class RateMovies extends JFrame {
 
         jLabelMovie1.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie1.setText("Shrek1");
+        jLabelMovie1.setToolTipText(this.jLabelMovie1.getText());
 
         jLabelDirector1.setForeground(GeneralJFrame.regularFontColor);
         jLabelDirector1.setText("Mel Gibson");
@@ -251,10 +252,10 @@ public class RateMovies extends JFrame {
             .add(jPanel1Layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(jLabelRateMoviesTitle)
-                .addContainerGap(477, Short.MAX_VALUE))
+                .addContainerGap(481, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -278,24 +279,24 @@ public class RateMovies extends JFrame {
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 116, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(jLabelDirector3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .add(jLabelDirector3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 116, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(jLabelDirector4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .add(jLabelDirector4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jLabelDirector5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .add(jLabelDirector5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 128, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jLabelDirector6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .add(jLabelDirector6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jLabelMovie7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jLabelDirector7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 71, Short.MAX_VALUE)
+                        .add(jLabelDirector7, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 73, Short.MAX_VALUE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .add(jComboBoxRate7, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -470,7 +471,7 @@ private void jButtonPreviousStepActionPerformed(java.awt.event.ActionEvent evt) 
  **/
 private void writeDown7Selection(){//oz1
     Integer[]  moviesId=new Integer[7];
-    Integer[] rates = new Integer[7]; 
+    Integer[] rates = new Integer[7];
     moviesId[0] = new Integer(_movies2rate[0][2]);
     rates[0] = jComboBoxRate1.getSelectedIndex();
     moviesId[1] = new Integer(_movies2rate[1][2]);
@@ -485,7 +486,7 @@ private void writeDown7Selection(){//oz1
     rates[5] = jComboBoxRate6.getSelectedIndex();
     moviesId[6] = new Integer(_movies2rate[6][2]);
     rates[6] = jComboBoxRate7.getSelectedIndex();
-   
+    
     Integer[][]  movie_reates=new Integer[2][];
     movie_reates[0] = moviesId;
     movie_reates[1] =rates;
