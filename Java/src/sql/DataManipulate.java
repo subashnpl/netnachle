@@ -27,13 +27,12 @@ public class DataManipulate {
     public DataManipulate() throws ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         
-        // for use in external DB (not on local computer)
+        /* for use in external DB (not on local computer) */
         _url = "jdbc:mysql://localhost:8888/netnachle";
         _user = "netnachle";
         _password = ";tTl&I47";
         
-        //add it:
-        // for use in internal DB (on this computer using wamp)
+        /* for use in internal DB (on this computer using wamp) */
         //_url = "jdbc:mysql://localhost/netnachle";
         //_user = "root";
         //_password = "";
@@ -45,7 +44,9 @@ public class DataManipulate {
     }
     // close the database
     private void closeConnection() throws SQLException {
-        _conn.close();
+        if (!_conn.isClosed()){
+            _conn.close();
+        }
     }
     // execute sql command
     private void executeCommand(String query) throws SQLException {
@@ -139,9 +140,7 @@ public class DataManipulate {
     // delete all tables for restarting the system (mostly for refresh the data)
     public void deleteAllTables() throws SQLException{
         openConnection();
-        System.out.println("_stmt: "+_stmt);
-        _stmt.executeUpdate("delete from users"); 
-        System.out.println("_stmt: "+_stmt);
+        _stmt.executeUpdate("delete from users");
         _stmt.executeUpdate("delete from movies");
         _stmt.executeUpdate("delete from rates");
         _stmt.executeUpdate("delete from actors");
