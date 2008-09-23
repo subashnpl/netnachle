@@ -86,11 +86,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                       <Component id="jLabelRateMoviesTitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="477" max="32767" attributes="0"/>
+                      <EmptySpace pref="481" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" pref="576" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" pref="580" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -118,30 +118,30 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie3" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector3" pref="137" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector3" pref="139" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie4" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector4" pref="137" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector4" pref="139" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie5" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector5" pref="137" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector5" pref="139" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie6" min="-2" pref="128" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelDirector6" pref="137" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector6" pref="139" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelMovie7" min="-2" pref="124" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelDirector7" pref="137" max="32767" attributes="0"/>
+                              <Component id="jLabelDirector7" pref="139" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="1">
                               <Component id="jComboBoxRate7" max="32767" attributes="1"/>
@@ -388,6 +388,9 @@
                   <Connection code="GeneralJFrame.regularFontColor" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Shrek1"/>
+                <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="this.jLabelMovie1.getText()" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
