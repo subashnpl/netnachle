@@ -100,6 +100,7 @@ public class GeneralJFrame extends javax.swing.JFrame {
     public void setController(Controller controller) {
         _controller = controller;
     }
+
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -116,6 +117,7 @@ public class GeneralJFrame extends javax.swing.JFrame {
 	java.awt.EventQueue.invokeLater(new Runnable() {
 	    public void run() {
                 Controller controller = new Controller(new MatrixHandler());
+                controller.initDataBase();
                 Entrance entrance = null;
 		try{
                     entrance = new Entrance(controller);
