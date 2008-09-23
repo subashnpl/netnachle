@@ -133,12 +133,12 @@ public class Controller {
     }
 
     public void removeUser(int i) {
-        logger.log("remove user  : " + _users.get(i));
+        logger.log("removed user  : " + _users.get(i));
         this.removeUser(_users.get(i));
     }
 
     public void removeMovie(int i) {
-        logger.log("remove movie  : " + _movies.get(i));
+        logger.log("removed movie  : " + _movies.get(i));
         this.removeMovie(_movies.get(i));
     }
     /*
@@ -298,10 +298,20 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
     public void writeMemoryToDataBase() throws SQLException {
         try {
             _dataHandler.deleteAllTables();
+        } catch (SQLException sQLException) {
+            logger.log("System's memory was NOT written to DB. Can't delete tables.");
+            throw sQLException;
+        }
+        try {
             _dataHandler.setUsers(_users);
+        } catch (SQLException sQLException) {
+            logger.log("System's memory was NOT written to DB. Can't write users to DB");
+            throw sQLException;
+        }
+        try {
             _dataHandler.setMovies(_movies);
         } catch (SQLException sQLException) {
-            logger.log("System's memory was NOT written to DB.");
+            logger.log("System's memory was NOT written to DB. Can't write movies to DB");
             throw sQLException;
         }
         logger.log("System's memory was written to DB.");
@@ -359,136 +369,207 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
         this._currentUser = currentUser;
     }
 
+    public void initDataBase(){
+        int answer = JOptionPane.showConfirmDialog(null, "init DB?");
+        if (answer == 0){
+            try {
+                this._dataHandler.deleteAllTables();
+            } catch (SQLException ex) {
+                System.out.println("Exception caught1");
+            }
+            User admin = new User("YWJj", "administrator", 111111111, "admin", "male");
+            addUser(admin);
+            //adding some movies:
+            Vector<String> movieActors1 = new Vector<String>();
+            movieActors1.add("Yehuda Barkan");
+            Movie m1 = new Movie("ima ganuv1", 100, "action", movieActors1, 1980, "Israel", 189, "Yehuda Barkan");
+            addMovie(m1);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Stalon");
+            Movie m2 = new Movie("Rambo1", 101, "action", movieActors1, 1981, "USA", 112, "Michael");
+            addMovie(m2);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Uri Zohar");
+            movieActors1.add("Arik Ainstein");
+            Movie m3 = new Movie("Matzizim", 102, "Comedy", movieActors1, 1984, "Israel", 134, "Uri Zohar");
+            addMovie(m3);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Kiano Rives");
+            Movie m4 = new Movie("Matrix1", 103, "Action", movieActors1, 1999, "USA", 126, "Jordan");
+            m1.add_rater(101, 1);
+            addMovie(m4);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Kiano Rives");
+            Movie m5 = new Movie("Matrix2", 104, "Action", movieActors1, 2001, "USA", 106, "Jordan");
+            addMovie(m5);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Kiano Rives");
+            Movie m6 = new Movie("Matrix3", 105, "Action", movieActors1, 2003, "USA", 177, "Jordan");
+            addMovie(m6);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Stalon");
+            Movie m7 = new Movie("Rambo2", 106, "action", movieActors1, 1981, "USA", 155, "Michael");
+            addMovie(m7);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Stalon");
+            Movie m8 = new Movie("Rambo3", 107, "action", movieActors1, 1983, "USA", 137, "Michael");
+            addMovie(m8);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Katzman");
+            Movie m9 = new Movie("Net-Nachle", 108, "Fiction", movieActors1, 2003, "USA", 17, "BGU");
+            addMovie(m9);
+
+            movieActors1 = new Vector<String>();
+            movieActors1.add("Katzman");
+            Movie m10 = new Movie("Net-Nachle - the coming back", 109, "Fiction", movieActors1, 2003, "USA", 147, "BGU");
+            addMovie(m10);
+        }
+        try {
+            this._dataHandler.deleteAllTables();
+            this._dataHandler.setMovies(_movies);
+            this._dataHandler.setUsers(_users);
+        } catch (SQLException ex) {
+            System.out.println("Exception caught2: "+ex.getMessage());
+        }      
+    }
     public static void main(String[] args) {
         Controller c = new Controller(new MatrixHandler());
         
         Vector<String> movieActors1 = new Vector<String>();
-        movieActors1.add("Yehuda Barkan");
-        Movie m1 = new Movie("ima ganuv1", 100, "action", movieActors1, 1980, "Israel", 189, "Yehuda Barkan");
-        c.addMovie(m1);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Stalon");
-        Movie m2 = new Movie("Rambo1", 101, "action", movieActors1, 1981, "USA", 112, "Michael");
-        c.addMovie(m2);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Uri Zohar");
-        movieActors1.add("Arik Ainstein");
-        Movie m3 = new Movie("Matzizim", 102, "Comedy", movieActors1, 1984, "Israel", 134, "Uri Zohar");
-        c.addMovie(m3);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Kiano Rives");
-        Movie m4 = new Movie("Matrix1", 103, "Action", movieActors1, 1999, "USA", 126, "Jordan");
-        m1.add_rater(101, 1);
-        c.addMovie(m4);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Kiano Rives");
-        Movie m5 = new Movie("Matrix2", 104, "Action", movieActors1, 2001, "USA", 106, "Jordan");
-        c.addMovie(m5);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Kiano Rives");
-        Movie m6 = new Movie("Matrix3", 105, "Action", movieActors1, 2003, "USA", 177, "Jordan");
-        c.addMovie(m6);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Stalon");
-        Movie m7 = new Movie("Rambo2", 106, "action", movieActors1, 1981, "USA", 155, "Michael");
-        c.addMovie(m7);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Stalon");
-        Movie m8 = new Movie("Rambo3", 107, "action", movieActors1, 1983, "USA", 137, "Michael");
-        c.addMovie(m8);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Katzman");
-        Movie m9 = new Movie("Net-Nachle", 108, "Fiction", movieActors1, 2003, "USA", 17, "BGU");
-        c.addMovie(m9);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Katzman");
-        Movie m10 = new Movie("Net-Nachle - the coming back", 109, "Fiction", movieActors1, 2003, "USA", 147, "BGU");
-        c.addMovie(m10);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Hobite");
-        Movie m11 = new Movie("Lord of the rings1", 110, "Fiction", movieActors1, 2002, "USA", 104, "Roy");
-        c.addMovie(m11);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Hobite");
-        Movie m12 = new Movie("Lord of the rings2", 111, "Fiction", movieActors1, 2003, "USA", 144, "Roy");
-        c.addMovie(m12);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Hobite");
-        Movie m13 = new Movie("Lord of the rings3", 112, "Fiction", movieActors1, 2005, "USA", 144, "Roy");
-        c.addMovie(m13);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("Katash");
-        Movie m14 = new Movie("Rockie1", 113, "action", movieActors1, 2004, "USA", 184, "Roy");
-        c.addMovie(m14);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("jony");
-        Movie m15 = new Movie("Rockie2", 114, "action", movieActors1, 2005, "USA", 174, "Roy");
-        c.addMovie(m15);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("vanbasten");
-        Movie m16 = new Movie("Rockie3", 115, "action", movieActors1, 2006, "USA", 114, "Roy");
-        c.addMovie(m16);
-
-        movieActors1 = new Vector<String>();
-        movieActors1.add("rodman");
-        Movie m17 = new Movie("Robokop", 116, "action", movieActors1, 1850, "USA", 164, "Roy");
-        c.addMovie(m17);
-
-        User u1 = new User("123123123", "user", 100, "ido", "male");
-        u1.rateMovie(100, 4);
-        u1.rateMovie(101, 5);
-        u1.rateMovie(102, 6);
-        u1.rateMovie(103, 7);
-        c.addUser(u1);
-
-        User u2 = new User("124124124", "user", 101, "Elad", "male");
-        u2.rateMovie(100, 4);
-        u2.rateMovie(101, 5);
-        u2.rateMovie(102, 6);
-        u2.rateMovie(103, 7);
-        u2.rateMovie(104, 4);
-        u2.rateMovie(105, 1);
-        u2.rateMovie(106, 3);
-        u2.rateMovie(107, 9);
-        u2.rateMovie(108, 9);
-        u2.rateMovie(109, 8);
-        u2.rateMovie(110, 7);
-        u2.rateMovie(111, 2);
-        u2.rateMovie(112, 5);
-        u2.rateMovie(113, 4);
-        u2.rateMovie(114, 7);
-        c.addUser(u2);
+//        movieActors1.add("Yehuda Barkan");
+//        Movie m1 = new Movie("ima ganuv1", 100, "action", movieActors1, 1980, "Israel", 189, "Yehuda Barkan");
+//        c.addMovie(m1);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Stalon");
+//        Movie m2 = new Movie("Rambo1", 101, "action", movieActors1, 1981, "USA", 112, "Michael");
+//        c.addMovie(m2);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Uri Zohar");
+//        movieActors1.add("Arik Ainstein");
+//        Movie m3 = new Movie("Matzizim", 102, "Comedy", movieActors1, 1984, "Israel", 134, "Uri Zohar");
+//        c.addMovie(m3);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Kiano Rives");
+//        Movie m4 = new Movie("Matrix1", 103, "Action", movieActors1, 1999, "USA", 126, "Jordan");
+//        m1.add_rater(101, 1);
+//        c.addMovie(m4);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Kiano Rives");
+//        Movie m5 = new Movie("Matrix2", 104, "Action", movieActors1, 2001, "USA", 106, "Jordan");
+//        c.addMovie(m5);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Kiano Rives");
+//        Movie m6 = new Movie("Matrix3", 105, "Action", movieActors1, 2003, "USA", 177, "Jordan");
+//        c.addMovie(m6);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Stalon");
+//        Movie m7 = new Movie("Rambo2", 106, "action", movieActors1, 1981, "USA", 155, "Michael");
+//        c.addMovie(m7);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Stalon");
+//        Movie m8 = new Movie("Rambo3", 107, "action", movieActors1, 1983, "USA", 137, "Michael");
+//        c.addMovie(m8);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Katzman");
+//        Movie m9 = new Movie("Net-Nachle", 108, "Fiction", movieActors1, 2003, "USA", 17, "BGU");
+//        c.addMovie(m9);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Katzman");
+//        Movie m10 = new Movie("Net-Nachle - the coming back", 109, "Fiction", movieActors1, 2003, "USA", 147, "BGU");
+//        c.addMovie(m10);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Hobite");
+//        Movie m11 = new Movie("Lord of the rings1", 110, "Fiction", movieActors1, 2002, "USA", 104, "Roy");
+//        c.addMovie(m11);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Hobite");
+//        Movie m12 = new Movie("Lord of the rings2", 111, "Fiction", movieActors1, 2003, "USA", 144, "Roy");
+//        c.addMovie(m12);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Hobite");
+//        Movie m13 = new Movie("Lord of the rings3", 112, "Fiction", movieActors1, 2005, "USA", 144, "Roy");
+//        c.addMovie(m13);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("Katash");
+//        Movie m14 = new Movie("Rockie1", 113, "action", movieActors1, 2004, "USA", 184, "Roy");
+//        c.addMovie(m14);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("jony");
+//        Movie m15 = new Movie("Rockie2", 114, "action", movieActors1, 2005, "USA", 174, "Roy");
+//        c.addMovie(m15);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("vanbasten");
+//        Movie m16 = new Movie("Rockie3", 115, "action", movieActors1, 2006, "USA", 114, "Roy");
+//        c.addMovie(m16);
+//
+//        movieActors1 = new Vector<String>();
+//        movieActors1.add("rodman");
+//        Movie m17 = new Movie("Robokop", 116, "action", movieActors1, 1850, "USA", 164, "Roy");
+//        c.addMovie(m17);
+//
+//        User u1 = new User("123123123", "user", 100, "ido", "male");
+//        u1.rateMovie(100, 4);
+//        u1.rateMovie(101, 5);
+//        u1.rateMovie(102, 6);
+//        u1.rateMovie(103, 7);
+//        c.addUser(u1);
+//
+//        User u2 = new User("124124124", "user", 101, "Elad", "male");
+//        u2.rateMovie(100, 4);
+//        u2.rateMovie(101, 5);
+//        u2.rateMovie(102, 6);
+//        u2.rateMovie(103, 7);
+//        u2.rateMovie(104, 4);
+//        u2.rateMovie(105, 1);
+//        u2.rateMovie(106, 3);
+//        u2.rateMovie(107, 9);
+//        u2.rateMovie(108, 9);
+//        u2.rateMovie(109, 8);
+//        u2.rateMovie(110, 7);
+//        u2.rateMovie(111, 2);
+//        u2.rateMovie(112, 5);
+//        u2.rateMovie(113, 4);
+//        u2.rateMovie(114, 7);
+//        c.addUser(u2);
         User admin = new User("YWJj", "administrator", 111111111, "admin", "male");
-        admin.rateMovie(100, 4);
-        admin.rateMovie(101, 5);
-        admin.rateMovie(102, 6);
-        admin.rateMovie(103, 7);
-        admin.rateMovie(104, 9);
-        admin.rateMovie(105, 8);
-        admin.rateMovie(106, 7);
-        admin.rateMovie(107, 6);
-        admin.rateMovie(108, 5);
-        admin.rateMovie(109, 4);
-        admin.rateMovie(110, 3);
-        admin.rateMovie(111, 2);
-        admin.rateMovie(112, 1);
-        admin.rateMovie(113, 2);
-        admin.rateMovie(114, 1);
+//        admin.rateMovie(100, 4);
+//        admin.rateMovie(101, 5);
+//        admin.rateMovie(102, 6);
+//        admin.rateMovie(103, 7);
+//        admin.rateMovie(104, 9);
+//        admin.rateMovie(105, 8);
+//        admin.rateMovie(106, 7);
+//        admin.rateMovie(107, 6);
+//        admin.rateMovie(108, 5);
+//        admin.rateMovie(109, 4);
+//        admin.rateMovie(110, 3);
+//        admin.rateMovie(111, 2);
+//        admin.rateMovie(112, 1);
+//        admin.rateMovie(113, 2);
+//        admin.rateMovie(114, 1);
         c.addUser(admin);
         
 
