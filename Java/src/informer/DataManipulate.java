@@ -1,4 +1,4 @@
-package controller;
+package informer;
 
 import org.w3c.dom.*;
 
@@ -9,7 +9,6 @@ import domain.Manager;
 import domain.Movie;
 import domain.User;
 
-import informer.XMLUtilityManagment;
 
 import java.io.FileWriter;
 import java.io.IOException;
