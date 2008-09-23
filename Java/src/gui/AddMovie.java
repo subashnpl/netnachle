@@ -278,8 +278,8 @@ public class AddMovie extends JFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldMovieName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldCategory, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                            .add(jTextFieldDirector, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldCategory, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                            .add(jTextFieldDirector, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
                                 .add(jTextFieldActor1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -408,7 +408,6 @@ private void jButtonSaveAndExitActionPerformed(java.awt.event.ActionEvent evt) {
 }//GEN-LAST:event_jButtonSaveAndExitActionPerformed
 private boolean addMovie(){
     if (fieldsValid()){
-        System.out.println("addMovie");
         String _name = this.jTextFieldMovieName.getText();
         int _id = Integer.parseInt(this.jTextFieldID.getText());
         String _category = this.jTextFieldCategory.getText();
@@ -426,6 +425,12 @@ private boolean addMovie(){
         Movie newMovie = new Movie(_name, _id, _category, _actors, _year, _country, _duration, _director);
         _controller.addMovie(newMovie);
         ((SystemManagement)_parent).setMoviesModel();
+        
+        // rate this new movie for current user as the his average rate:
+        /*
+        int rate = _controller.getCurrentUser().getMeanRate();
+        _controller.getCurrentUser().rateMovie(_id, rate);
+         */
         return true;
     }
     else{
@@ -469,7 +474,6 @@ private void jButtonSaveAndAddAnotherMovieActionPerformed(java.awt.event.ActionE
     if (addMovie()){
         this.setVisible(false);
         this._parent.getParent().setVisible(true);
-        //((SystemManagement)(this._parent))._parent.setVisible(true);
         this._parent.setVisible(true);
         new AddMovie(_controller, _parent).setVisible(true);
     }
