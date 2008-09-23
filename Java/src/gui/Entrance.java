@@ -345,7 +345,6 @@ private void enterWithHack(String userName, String password, int id){
         this.setVisible(false);
         new MainFrame(_controller).setVisible(true);
     } catch (Exception ex) {
-        Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
         JOptionPane.showMessageDialog(this, "Hack didn't work!\n" + ex.getMessage(),
             "Login Error", JOptionPane.ERROR_MESSAGE);
     }
