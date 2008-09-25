@@ -610,8 +610,10 @@ private void jButtonSettingsActionPerformed(java.awt.event.ActionEvent evt) {//G
 }//GEN-LAST:event_jButtonSettingsActionPerformed
 
 private void jLabelLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseClicked
-    _controller.shutDown();
-    System.exit(1);// TODO add your handling code here:
+    _controller.logout();
+    this.setVisible(false);
+    Entrance entrance = new Entrance(_controller);
+    entrance.setVisible(true);
 }//GEN-LAST:event_jLabelLogOutMouseClicked
 
 private void jLabelLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseEntered

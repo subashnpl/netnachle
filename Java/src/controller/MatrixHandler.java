@@ -11,8 +11,6 @@ import java.util.Map.Entry;
 
 import domain.Movie;
 import domain.User;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MatrixHandler implements Strategy {
 
@@ -56,9 +54,7 @@ public class MatrixHandler implements Strategy {
                             otherUser.getNormelizedMovieRate(tMovie.get_id());
                     tDenom1 += Math.pow(currUser.getNormelizedMovieRate(tMovie.get_id()), 2);
                     tDenom2 += Math.pow(otherUser.getNormelizedMovieRate(tMovie.get_id()), 2);
-                } catch (NoRateException ex) {
-                    Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (NoRateException ex) {}
             }
         }
         tDenom = Math.sqrt(tDenom1 * tDenom2);
@@ -86,7 +82,7 @@ public class MatrixHandler implements Strategy {
     }
 
     public int getPredictedRate(int userId, int movieId) throws RateNotAtRangeException {
-        int ret = _users.get(userId).getMeanRate();
+        double ret = _users.get(userId).getMeanRate();
         double tSum = 0;
         if (_users.get(userId).get_rates().containsKey(movieId)) {
             return _users.get(userId).get_rates().get(movieId);
@@ -99,18 +95,23 @@ public class MatrixHandler implements Strategy {
                     try {
                         tSum += weight(userId, tUser.getId()) * tUser.getNormelizedMovieRate(movieId);
                     } catch (NoRateException ex) {
-                        Logger.getLogger(MatrixHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        ex.getStackTrace();
                     }
                 }
             }
-            ret = (int) Math.round(ret + getK(userId) * tSum);
+            ret = ret + getK(userId) * tSum;
             if (ret > 9) {
-                throw new RateNotAtRangeException("the predicted rate is over 9");
+                System.out.println("K");
+                //throw new RateNotAtRangeException("the predicted rate is over 9");
+                ret = 9;
             }
-            if (ret < 1) {
-                throw new RateNotAtRangeException("the predicted rate is under 0");
+            if (ret < 0) {
+                System.out.println("K");
+                //throw new RateNotAtRangeException("the predicted rate is under 0");
+                ret = 0;
+                
             }
-            return ret;
+            return (int)Math.round(ret);
         }
     }
 
