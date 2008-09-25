@@ -372,6 +372,8 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
     public void initDataBase(){
         int answer = JOptionPane.showConfirmDialog(null, "init DB?");
         if (answer == 0){
+           _users.clear();
+           _movies.clear();
             try {
                 this._dataHandler.deleteAllTables();
             } catch (SQLException ex) {
@@ -434,6 +436,7 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
         }
         try {
             this._dataHandler.deleteAllTables();
+            System.out.println("here");
             this._dataHandler.setMovies(_movies);
             this._dataHandler.setUsers(_users);
         } catch (SQLException ex) {

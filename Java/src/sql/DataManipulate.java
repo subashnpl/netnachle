@@ -28,7 +28,7 @@ public class DataManipulate {
         Class.forName("com.mysql.jdbc.Driver");
         
         /* for use in external DB (not on local computer) */
-        _url = "jdbc:mysql://localhost:8888/netnachle";
+        _url = "jdbc:mysql://webdev/netnachle";
         _user = "netnachle";
         _password = ";tTl&I47";
         
@@ -44,9 +44,8 @@ public class DataManipulate {
     }
     // close the database
     private void closeConnection() throws SQLException {
-        if (!_conn.isClosed()){
-            _conn.close();
-        }
+        if (!_conn.isClosed())
+            _conn.close();        
     }
     // execute sql command
     private void executeCommand(String query) throws SQLException {
