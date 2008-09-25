@@ -55,8 +55,8 @@ public class MainFrame extends JFrame {
         try {
             _rated = _controller.get_Strategy().getRecomendations(_controller.getCurrentUser().getId());
         } catch (RateNotAtRangeException ex) {
-            JOptionPane.showMessageDialog(this, "Rate Not At Range\n Please contact idolevin@gmail.com",
-                    "Hey Hey Hey!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Rate Not At Range",
+                    "Rate", JOptionPane.ERROR_MESSAGE);
         }
          Vector<Movie> movies = _rated[0];
          Vector<Integer> rates = _rated[1];

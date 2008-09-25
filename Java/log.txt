@@ -1,8 +1,16 @@
 Movie Recommender ver 1.01 - Log file
 -------------------------------------------------------------
-1 [Mon Sep 22 19:20:11 IDT 2008]: System is up.
-2 [Mon Sep 22 19:20:35 IDT 2008]: Movie yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy has added to movies database.
-3 [Mon Sep 22 19:20:47 IDT 2008]: Movie bmnb has added to movies database.
-4 [Mon Sep 22 19:21:05 IDT 2008]: Movie fas has added to movies database.
-5 [Mon Sep 22 19:21:11 IDT 2008]: System's memory was NOT written to DB.
-6 [Mon Sep 22 19:21:11 IDT 2008]: System's memory was NOT written to DB (Reason: SQLException).
+1 [Thu Sep 25 15:01:03 IDT 2008]: System is up.
+2 [Thu Sep 25 15:01:04 IDT 2008]: User admin has been added to database.
+3 [Thu Sep 25 15:01:04 IDT 2008]: Movie ima ganuv1 has added to movies database.
+4 [Thu Sep 25 15:01:04 IDT 2008]: Movie Rambo1 has added to movies database.
+5 [Thu Sep 25 15:01:04 IDT 2008]: Movie Matzizim has added to movies database.
+6 [Thu Sep 25 15:01:04 IDT 2008]: Movie Matrix1 has added to movies database.
+7 [Thu Sep 25 15:01:04 IDT 2008]: Movie Matrix2 has added to movies database.
+8 [Thu Sep 25 15:01:04 IDT 2008]: Movie Matrix3 has added to movies database.
+9 [Thu Sep 25 15:01:04 IDT 2008]: Movie Rambo2 has added to movies database.
+10 [Thu Sep 25 15:01:04 IDT 2008]: Movie Rambo3 has added to movies database.
+11 [Thu Sep 25 15:01:04 IDT 2008]: Movie Net-Nachle has added to movies database.
+12 [Thu Sep 25 15:01:04 IDT 2008]: Movie Net-Nachle - the coming back has added to movies database.
+13 [Thu Sep 25 15:01:06 IDT 2008]: System's memory was written to DB.
+14 [Thu Sep 25 15:01:06 IDT 2008]: System is down gracefully.
