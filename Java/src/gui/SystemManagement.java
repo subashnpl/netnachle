@@ -28,6 +28,8 @@ public class SystemManagement extends JFrame {
     public MainFrame getParent(){
         return (MainFrame) this._parent;
     }
+    
+    // updates the combo box content:
     public void setMoviesModel(){
         _moviesIds = _controller.getMoviesIds();
         _moviesNames = _controller.getMoviesNamesById(_moviesIds);
@@ -261,7 +263,6 @@ private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     this.setVisible(false);
     _parent.setEnabled(true);
     _parent.setVisible(true);
-
 }//GEN-LAST:event_jButton5ActionPerformed
 
 private void jComboBoxUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxUserActionPerformed
