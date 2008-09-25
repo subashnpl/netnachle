@@ -282,12 +282,24 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
         logger.log("System is up.");
     }
 
+    public void logout(){
+        logger.log("User " + _currentUser.getName() + " has logged out.");
+        try {
+            writeMemoryToDataBase();
+        } catch (SQLException ex) {
+            logger.log("System's memory was NOT written to DB (Reason: SQLException).");
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "shutdown: SQLException", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     public void shutDown() {
         try {
             writeMemoryToDataBase();
             logger.log("System is down gracefully.");
         } catch (SQLException ex) {
             logger.log("System's memory was NOT written to DB (Reason: SQLException).");
+            logger.log("System is down gracefully (But without writing to DB).");
             JOptionPane.showMessageDialog(null, ex.getMessage(),
                     "shutdown: SQLException", JOptionPane.ERROR_MESSAGE);
         } finally {
@@ -334,7 +346,7 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
                 tUser.getPassword().equals(password)) {
             message = "User " + userName + " has logged on.";
             _currentUser = tUser;
-            //logger.log(message);
+            logger.log(message);
         } else {
             tUser = null;
             message = "Non-User " + userName + " has tried to login but failed.";
