@@ -296,7 +296,7 @@ public class AddMovie extends JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jButtonExitNoSaving)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 29, Short.MAX_VALUE)
                         .add(jButtonSaveAndAddAnotherMovie)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jButtonSaveAndExit))
@@ -444,7 +444,10 @@ private boolean fieldsValid(){
             this.jTextFieldID.getText().equals("") ||
             this.jTextFieldCategory.getText().equals("") ||
             this.jFormattedTextFieldDuration.getText().equals("") ||
-            this.jTextFieldDirector.getText().equals(""));
+            this.jTextFieldDirector.getText().equals("") ||
+            ((this.jTextFieldActor1.getText().equalsIgnoreCase(this.jTextFieldActor2.getText()))  ||
+             (this.jTextFieldActor2.getText().equalsIgnoreCase(this.jTextFieldActor3.getText()))  ||
+             (this.jTextFieldActor1.getText().equalsIgnoreCase(this.jTextFieldActor3.getText()))  ));
 }
 private void exit(){
     this._parent.setEnabled(true);
