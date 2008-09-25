@@ -94,13 +94,13 @@ public class User {
 		this._rates = _rates;
 	}
 
-	public int getMeanRate(){
+	public double getMeanRate(){
 		double tSum = 0;
 		Iterator<Entry<Integer, Integer>> iter = _rates.entrySet().iterator();
 		while(iter.hasNext()) {
 			tSum += iter.next().getValue();
 		}
-		return (int) Math.round(tSum/_rates.size());
+		return tSum/_rates.size();
 	}
 
 	public int getMovieRate(int movieId) {
@@ -109,7 +109,7 @@ public class User {
 		return _rates.get(movieId);
 	}
 
-	public int getNormelizedMovieRate(int movieId) throws NoRateException{
+	public double getNormelizedMovieRate(int movieId) throws NoRateException{
 		return getMovieRate(movieId) - getMeanRate();
 	}
 }
