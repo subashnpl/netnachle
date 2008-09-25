@@ -210,12 +210,12 @@ public class Entrance extends JFrame {
             .add(jPanel2Layout.createSequentialGroup()
                 .add(109, 109, 109)
                 .add(jLabelSignUp)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
                 .add(93, 93, 93)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
                 .add(95, 95, 95))
         );
         jPanel2Layout.setVerticalGroup(
@@ -273,16 +273,13 @@ private void signUpHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_signU
     }
 }//GEN-LAST:event_signUpHandler
 
-private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
-    String userName = this.jTextFieldUsername.getText();
-    int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
-    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
-    System.out.println("getPass: " + this.jPasswordFieldPassword.getPassword());
+void enter(String userName, char[] passwordChars, int id){
+    User ans = null;
     try {
-        User tUser = _controller.login(encode(passwordChars), userName, id);
-        //_controller.setCurrentUser(tUser);
+        ans = _controller.login(encode(passwordChars), userName, id);
+        _controller.setCurrentUser(ans);
         if (_controller.lowRateUser()) {
-            JOptionPane.showMessageDialog(this, "Dear user, this is not a hore house please rate movies",
+            JOptionPane.showMessageDialog(this, "Dear " + ans.getName() + ", This is not a hore house please rate movies",
                     "RATING ERROR", JOptionPane.ERROR_MESSAGE);
             RateMovies Rm = new RateMovies(this, _controller);
             Rm.setVisible(true);
@@ -292,9 +289,17 @@ private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     } catch (NonUserException ex) {
         JOptionPane.showMessageDialog(this, ex.getMessage(),
                 "Login Error", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception ex) {
-        Logger.getLogger(Entrance.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (Exception ex){
+        JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Login Error", JOptionPane.ERROR_MESSAGE);
     }
+}
+
+private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
+    String userName = this.jTextFieldUsername.getText();
+    int id = Integer.parseInt(this.jFormattedTextFieldId.getText());
+    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
+    enter(userName, passwordChars, id);
 }//GEN-LAST:event_jButtonEnterActionPerformed
 private String encode(char[] passwordChars){
     String _password = new String(passwordChars);
@@ -339,11 +344,12 @@ private void jFormattedTextFieldIdKeyReleased(java.awt.event.KeyEvent evt) {//GE
 
 private void enterWithHack(String userName, String password, int id){
     this.jPasswordFieldPassword.setText(password);
+    char[] passwordChars = this.jPasswordFieldPassword.getPassword();
     try {
-        User tUser = _controller.login(encode(this.jPasswordFieldPassword.getPassword()), userName, id);
-        _controller.setCurrentUser(tUser);
-        this.setVisible(false);
-        new MainFrame(_controller).setVisible(true);
+        enter(userName, passwordChars, id);
+        //User tUser = _controller.login(encode(this.jPasswordFieldPassword.getPassword()), userName, id);
+        //_controller.setCurrentUser(tUser);
+        //doLoginActions();
     } catch (Exception ex) {
         JOptionPane.showMessageDialog(this, "Hack didn't work!\n" + ex.getMessage(),
             "Login Error", JOptionPane.ERROR_MESSAGE);
@@ -365,9 +371,8 @@ private void validateFields(){
     int id = getIdAsInteger();
     if ((!this.jTextFieldUsername.getText().equals("")) &&
             (this.jPasswordFieldPassword.getPassword().length != 0) &&
-            (this.jFormattedTextFieldId.isEditValid())
-            && (id >= 0) && (id <= 999999999)
-            /*(this.jFormattedTextFieldId.getText().length() == 9)*/){
+            (this.jFormattedTextFieldId.isEditValid()) &&
+            (id >= 0) && (id <= 999999999)){
         enableEnter(true);
     } else{
         enableEnter(false);
