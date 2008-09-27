@@ -49,8 +49,6 @@ public class DataManipulate {
 
 		HashMap<Integer, Integer> rates = user.get_rates();
 
-	//	System.out.println("user: \n"+user +"end of user");//*************************
-
 		Iterator<Integer> ratesIter = rates.keySet().iterator();
 		Integer tMovieId = null;
 		Integer tRate =null;
@@ -193,13 +191,7 @@ public class DataManipulate {
 		Iterator<Integer> movieIter=movies.keySet().iterator();
 		while (movieIter.hasNext()){
 			addMovie(movies.get(movieIter.next()));
-			//System.out.println(movies.get(movieIter.next()));
 		}
-		//for (int i=0;i<movies.size();i++) {
-
-
-//
-//		}
 		try {
 			XMLUtilityManagment.writeXMLFile(_document,_filename+".xml");
 		} catch (IOException e) {
