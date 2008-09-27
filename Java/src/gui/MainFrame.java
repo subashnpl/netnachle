@@ -4,6 +4,8 @@ import exceptions.RateNotAtRangeException;
 import domain.Movie;
 import controller.Controller;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -76,32 +78,6 @@ public class MainFrame extends JFrame {
         this._jLabelsPictures.addElement(jLabelPicture8);
         this._jLabelsPictures.addElement(jLabelPicture9);
         this._jLabelsPictures.addElement(jLabelPicture10);
-        
-        Vector<Movie> tmpMovies = null;
-        try {
-            tmpMovies = _controller.get_Strategy().getRecomendations(_controller.getCurrentUser().getId())[0];
-        } catch (RateNotAtRangeException ex) {
-            JOptionPane.showMessageDialog(this, "Rate Not At Range\n" + ex.getMessage(),
-                    "Rate", JOptionPane.ERROR_MESSAGE);
-        }
-        final Vector<Movie> movies = tmpMovies;
-        for (int i = 0; i < _jLabelsMovies.size(); i++) {
-            final JLabel label = _jLabelsMovies.elementAt(i);
-            final int j = i;
-            label.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    Movie movie = movies.elementAt(j);
-                    MovieDetails movieDetails = new MovieDetails(_this, movie);
-                    movieDetails.setVisible(true);
-                }
-                public void mouseEntered(java.awt.event.MouseEvent evt) {
-                    GeneralJFrame.setLinkEntered(label, GeneralJFrame.linkHeaderColor);
-                }
-                public void mouseExited(java.awt.event.MouseEvent evt) {
-                    GeneralJFrame.setLinkEntered(label, GeneralJFrame.regularFontColor);
-                }
-            });
-        }
     }
     
     // Next function is for the movies pictures:
@@ -121,6 +97,44 @@ public class MainFrame extends JFrame {
     }    
     
     public void setMostRecommendedMovies(){
+        
+        Vector<Movie> tmpMovies = null;
+        try {
+            tmpMovies = _controller.get_Strategy().getRecomendations(_controller.getCurrentUser().getId())[0];
+        } catch (RateNotAtRangeException ex) {
+            JOptionPane.showMessageDialog(this, "Rate Not At Range\n" + ex.getMessage(),
+                    "Rate", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        final Vector<Movie> movies1 = tmpMovies;
+        for (int i = 0; i < _jLabelsMovies.size(); i++) {
+            final JLabel label = _jLabelsMovies.elementAt(i);
+            for (int k = 0; k < label.getListeners(MouseListener.class).length; k++) {
+                label.removeMouseListener(label.getListeners(MouseListener.class)[k]);
+            }
+            label.setMaximumSize(new Dimension(9, 14));
+            //label.setToolTipText(movies1.elementAt(i).get_name());
+            final int j = i;
+            label.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    Movie movie = movies1.elementAt(j);
+                    MovieDetails movieDetails = new MovieDetails(_this, movie);
+                    movieDetails.setVisible(true);
+                }
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    GeneralJFrame.setLinkEntered(label, GeneralJFrame.linkHeaderColor);
+                }
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    GeneralJFrame.setLinkEntered(label, GeneralJFrame.regularFontColor);
+                }
+            });
+        }
+        //-----------------------
+        for (int i = 0; i < _jLabelsMovies.size(); i++) {
+            final JLabel label = _jLabelsMovies.elementAt(i);
+            label.setMaximumSize(new Dimension(9, 14));
+            //label.setToolTipText(movies.elementAt(i).get_name());
+        }
         Vector[] _rated = null;
         try {
             _rated = _controller.get_Strategy().getRecomendations(_controller.getCurrentUser().getId());
@@ -138,6 +152,7 @@ public class MainFrame extends JFrame {
             try {
                  _jLabelsPictures.elementAt(i).setIcon(new ImageIcon(getClass().getResource("/Images/"+ movieName +".jpg")));
             } catch (Exception ex) {
+                _jLabelsPictures.elementAt(i).setIcon(new ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.jpg")));
                  // Do nothing. The default picture stays.
             }
         }
@@ -272,17 +287,6 @@ public class MainFrame extends JFrame {
 
         jLabelMovie1.setForeground(GeneralJFrame.regularFontColor);
         jLabelMovie1.setText("-------");
-        jLabelMovie1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelMovie1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelMovie1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelMovie1MouseExited(evt);
-            }
-        });
 
         jLabelRate4.setForeground(GeneralJFrame.regularFontColor);
         jLabelRate4.setText("--");
@@ -456,8 +460,7 @@ public class MainFrame extends JFrame {
                                     .add(jPanel3Layout.createSequentialGroup()
                                         .add(jLabelRate9)
                                         .add(48, 48, 48)
-                                        .add(jLabelRate10)))))
-                        .addContainerGap(32, Short.MAX_VALUE))
+                                        .add(jLabelRate10))))))
                     .add(jPanel3Layout.createSequentialGroup()
                         .add(38, 38, 38)
                         .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
@@ -483,8 +486,8 @@ public class MainFrame extends JFrame {
                         .add(8, 8, 8)
                         .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabelMovie5)
-                            .add(jLabelRate5))
-                        .addContainerGap())))
+                            .add(jLabelRate5))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -579,9 +582,9 @@ public class MainFrame extends JFrame {
                 .addContainerGap())
             .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanel1Layout.createSequentialGroup()
-                    .add(0, 301, Short.MAX_VALUE)
+                    .add(0, 299, Short.MAX_VALUE)
                     .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(0, 217, Short.MAX_VALUE)))
+                    .add(0, 215, Short.MAX_VALUE)))
         );
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
@@ -647,18 +650,6 @@ private void jLabelLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRS
 private void jLabelLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseExited
     GeneralJFrame.setLinkExited(jLabelLogOut, GeneralJFrame.headersFontColor);
 }//GEN-LAST:event_jLabelLogOutMouseExited
-
-private void jLabelMovie1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMovie1MouseEntered
-    GeneralJFrame.setLinkEntered(jLabelMovie1, GeneralJFrame.linkHeaderColor);
-}//GEN-LAST:event_jLabelMovie1MouseEntered
-
-private void jLabelMovie1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMovie1MouseExited
-    GeneralJFrame.setLinkExited(jLabelMovie1, GeneralJFrame.regularFontColor);
-}//GEN-LAST:event_jLabelMovie1MouseExited
-
-private void jLabelMovie1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMovie1MouseClicked
-    
-}//GEN-LAST:event_jLabelMovie1MouseClicked
     
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
