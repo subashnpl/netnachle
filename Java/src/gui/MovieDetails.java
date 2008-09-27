@@ -303,8 +303,8 @@ private void jButtonExitNoSavingActionPerformed(java.awt.event.ActionEvent evt) 
 }//GEN-LAST:event_jButtonExitNoSavingActionPerformed
 
 private void exit(){
-    this._parent.setEnabled(true);
     this.setVisible(false);
+    //this._parent.setEnabled(true);
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
