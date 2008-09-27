@@ -7,6 +7,7 @@
 package gui;
 
 import domain.Movie;
+import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -36,30 +37,46 @@ public class MovieDetails extends javax.swing.JFrame {
     private void setMoviesDetails() {
         this.jLabelID1.setText(""+_movie.get_id());
         this.jLabelID1.setToolTipText(""+_movie.get_id());
+        
         this.jLabelName1.setText(_movie.get_name());
         this.jLabelName1.setToolTipText(_movie.get_name());
+        this.jLabelName1.setMaximumSize(new Dimension(9, 14));
+
         this.jLabelDirector1.setText(_movie.get_director());
         this.jLabelDirector1.setToolTipText(_movie.get_director());
+        this.jLabelDirector1.setMaximumSize(new Dimension(9, 14));
+        
         this.jLabelCategory1.setText(_movie.get_category());
         this.jLabelCategory1.setToolTipText(_movie.get_category());
+        this.jLabelCategory1.setMaximumSize(new Dimension(9, 14));
+        
         try {
             this.jLabelActor1.setText(_movie.get_actors().elementAt(0));
             this.jLabelActor1.setToolTipText(_movie.get_actors().elementAt(0));
+            this.jLabelActor1.setMaximumSize(new Dimension(9, 14));
+            
             this.jLabelActor2.setText(_movie.get_actors().elementAt(1));
             this.jLabelActor2.setToolTipText(_movie.get_actors().elementAt(1));
+            this.jLabelActor2.setMaximumSize(new Dimension(9, 14));
+            
             this.jLabelActor3.setText(_movie.get_actors().elementAt(2));
             this.jLabelActor3.setToolTipText(_movie.get_actors().elementAt(2));
+            this.jLabelActor3.setMaximumSize(new Dimension(9, 14));
         } catch (Exception e) {
         }
         this.jLabelCountry1.setText(_movie.get_country());
         this.jLabelCountry1.setToolTipText(_movie.get_country());
+        this.jLabelCountry1.setMaximumSize(new Dimension(9, 14));
+        
         this.jLabelYear.setText(""+_movie.get_year());
         this.jLabelYear.setToolTipText(""+_movie.get_year());
+        
         this.jLabelDuration1.setText(""+_movie.get_duration());
         this.jLabelDuration1.setToolTipText(""+_movie.get_duration());
         try {
             this.jLabelPicture.setIcon(new ImageIcon(getClass().getResource("/Images/" + _movie.get_name() + "_big.jpg")));
         } catch (Exception e) {
+            this.jLabelPicture.setIcon(new ImageIcon(getClass().getResource("/Images/NetNachle.jpg")));
         }
     }
     /** This method is called from within the constructor to
