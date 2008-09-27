@@ -75,7 +75,17 @@ public class Movie {
 	public Vector<String> get_actors() {
 		return _actors;
 	}
-
+        /*
+        public String get_actors_string(){
+            String ans = "";
+            for (int i = 0; i < _actors.size()-1; i++) {
+                ans += _actors.elementAt(i) + ", ";
+            }
+            if (_actors.size() > 0)
+                ans += _actors.elementAt(_actors.size()-1);
+            return ans;
+        }
+        */
 	public void set_actors(Vector<String> _actors) {
 		this._actors = _actors;
 	}
