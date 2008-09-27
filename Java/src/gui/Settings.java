@@ -64,7 +64,7 @@ public class Settings extends JFrame {
         jLabel7.setForeground(GeneralJFrame.regularFontColor);
         jLabel7.setText("Background Color:");
 
-        jComboBoxBackGround.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Default", "Orange", "LightGray", "Black" }));
+        jComboBoxBackGround.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Default", "Orange", "LightGray", "Black", "Navy" }));
         jComboBoxBackGround.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxBackGroundActionPerformed(evt);
@@ -146,6 +146,8 @@ private void jButtonSaveNCloseActionPerformed(java.awt.event.ActionEvent evt) {/
         case 2: GeneralJFrame.setBackgroundColor(Color.LIGHT_GRAY);
                 break;
         case 3: GeneralJFrame.setBackgroundColor(Color.BLACK);
+                break;
+        case 4: GeneralJFrame.setBackgroundColor(Color.BLUE);
                 break;
     }
     ((MainFrame)_parent).rePaintPanels();
