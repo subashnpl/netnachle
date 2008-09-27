@@ -22,7 +22,6 @@ public class GeneralJFrame extends javax.swing.JFrame {
     
     /** Creates new form generalJFrame */
     public GeneralJFrame() {
-        System.out.println("Remove Heritage");
         initComponents();
     }
     
@@ -117,7 +116,7 @@ public class GeneralJFrame extends javax.swing.JFrame {
 	java.awt.EventQueue.invokeLater(new Runnable() {
 	    public void run() {
                 Controller controller = new Controller(new MatrixHandler());
-                controller.initDataBase();
+                //controller.initDataBase();
                 Entrance entrance = null;
 		try{
                     entrance = new Entrance(controller);
