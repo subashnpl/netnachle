@@ -45,7 +45,7 @@ public class Entrance extends JFrame {
         jLabelSignUp = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Welcome to another Production of NetNachle");
         setBackground(gui.GeneralJFrame.backgroundColor);
 
@@ -101,6 +101,7 @@ public class Entrance extends JFrame {
             }
         });
 
+        jButtonExit.setMnemonic('x');
         jButtonExit.setText("Exit");
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +182,7 @@ public class Entrance extends JFrame {
                 .addContainerGap())
         );
 
-        jLabelSignUp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSignUp.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabelSignUp.setForeground(new java.awt.Color(255, 51, 51));
         jLabelSignUp.setText("New User? Sign Up here!");
         jLabelSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -279,21 +280,21 @@ void enter(String userName, char[] passwordChars, int id){
     User ans = null;
     try {
         ans = _controller.login(encode(passwordChars), userName, id);
-        _controller.setCurrentUser(ans);
-        if (_controller.lowRateUser()) {
-            JOptionPane.showMessageDialog(this, "Dear " + ans.getName() + ", This is not a hore house please rate movies",
-                    "RATING ERROR", JOptionPane.ERROR_MESSAGE);
-            RateMovies Rm = new RateMovies(this, _controller);
-            Rm.setVisible(true);
-        } else {
-            doLoginActions();
-        }
-    } catch (NonUserException ex) {
+    }catch (NonUserException ex) {
         JOptionPane.showMessageDialog(this, ex.getMessage(),
                 "Login Error", JOptionPane.ERROR_MESSAGE);
     } catch (Exception ex){
         JOptionPane.showMessageDialog(this, ex.getMessage(),
                 "Login Error", JOptionPane.ERROR_MESSAGE);
+    }
+    _controller.setCurrentUser(ans);
+    if (_controller.lowRateUser()) {
+        JOptionPane.showMessageDialog(this, "Dear " + ans.getName() + ", This is not a hore house please rate movies",
+                "RATING ERROR", JOptionPane.ERROR_MESSAGE);
+        RateMovies Rm = new RateMovies(this, _controller);
+        Rm.setVisible(true);
+    } else {
+        doLoginActions();
     }
 }
 
@@ -354,13 +355,13 @@ private void enterWithHack(String userName, String password, int id){
         //doLoginActions();
     } catch (Exception ex) {
         JOptionPane.showMessageDialog(this, "Hack didn't work!\n" + ex.getMessage(),
-            "Login Error", JOptionPane.ERROR_MESSAGE);
+            "Login With Hack Error", JOptionPane.ERROR_MESSAGE);
     }
 }
 
 private void jTextFieldUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsernameKeyReleased
     if (evt.getKeyChar() == '`'){
-        enterWithHack("admin", "abc", 111111111);
+        enterWithHack("admin", "admin", 111111111);
     } else{
         validateFields();
     }
