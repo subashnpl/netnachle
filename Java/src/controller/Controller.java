@@ -171,11 +171,40 @@ public class Controller {
             mov_director_id[i][0] = tMov.get_name();
             mov_director_id[i][1] = tMov.get_director();
             mov_director_id[i][2] = tMov.get_id() + "";
-            System.out.println(mov_director_id[i][2]);
         } //while(!doneRandMovies){
         return mov_director_id;
     }//getMoviesToRate
+    
+    public Vector<Movie> getMoviesToRateShai(String for_back){
+        Vector<Movie> ans = new Vector<Movie>();
+        int fb = 0;
+        if (for_back.equalsIgnoreCase("f")) {
+            fb = 7;
+        } else {
+            fb = -7;
+        }
+        String[][] mov_director_id = new String[7][3];
+        int upperLimit = this._movies.size();
+        if (_movRand == -1) {//oz1  //if first time getting to rate movie
+            _movRand = (int) ((double) upperLimit * Math.random());
+        } else {
+            _movRand = (_movRand + fb);
+            if (_movRand < 0) {
+                _movRand += upperLimit;
+            }
+            _movRand = _movRand % upperLimit;
+        }//else
 
+        
+        Object[] movies2choos = _movies.values().toArray();
+        Movie tMov = null;
+        for (int i = 0; i < 7; i++) {
+            tMov = (Movie) movies2choos[(i + _movRand) % upperLimit];
+            ans.addElement(tMov);
+        } //while(!doneRandMovies){
+        return ans;
+    }
+    
     public int userSaw(Integer movId) {//oz1
         int ret = 0;
         Integer saw = getCurrentUser().get_rates().get(movId);
@@ -448,7 +477,6 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
         }
         try {
             this._dataHandler.deleteAllTables();
-            System.out.println("here");
             this._dataHandler.setMovies(_movies);
             this._dataHandler.setUsers(_users);
         } catch (SQLException ex) {
@@ -588,7 +616,6 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
         c.addUser(admin);
         
 
-        //System.out.println(c.get_Strategy().getRecomendations(100));
         c.shutDown();
     }
 
