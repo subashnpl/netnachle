@@ -41,7 +41,6 @@ public class AddMovie extends JFrame {
     
     private void validateFields(){
         int duration = getIdAsInteger();
-        System.out.println("duration: "+duration);
         if ((!this.jTextFieldMovieName.getText().equals("")) &&
                 (!this.jTextFieldDirector.getText().equals("")) &&
                 (!this.jTextFieldCategory.getText().equals("")) &&
@@ -57,7 +56,6 @@ public class AddMovie extends JFrame {
     private int getIdAsInteger(){
         int duration = -1;
         try{
-            System.out.println("jFormattedTextFieldDuration.getText() "+jFormattedTextFieldDuration.getText());
             duration = Integer.parseInt(this.jFormattedTextFieldDuration.getText());
         } catch (NumberFormatException e) {System.out.println("what???");}
         return duration;
@@ -278,18 +276,20 @@ public class AddMovie extends JFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldMovieName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldCategory, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                            .add(jTextFieldDirector, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                                .add(jTextFieldActor1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jTextFieldActor2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jTextFieldActor3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 213, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldID, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                                 .add(org.jdesktop.layout.GroupLayout.LEADING, jComboBoxYear, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .add(org.jdesktop.layout.GroupLayout.LEADING, jComboBoxCountry, 0, 114, Short.MAX_VALUE))))
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jComboBoxCountry, 0, 114, Short.MAX_VALUE))
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldCategory)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .add(jTextFieldActor1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                    .add(jTextFieldActor2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                    .add(jTextFieldActor3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jTextFieldDirector, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE))
+                        .add(12, 12, 12))
                     .add(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jLabel2))

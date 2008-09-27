@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.5" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="0"/>
     <Property name="title" type="java.lang.String" value="Welcome to another Production of NetNachle"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
       <Connection code="gui.GeneralJFrame.backgroundColor" type="code"/>
@@ -210,6 +210,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonExit">
               <Properties>
+                <Property name="mnemonic" type="int" value="120"/>
                 <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
               <Events>
