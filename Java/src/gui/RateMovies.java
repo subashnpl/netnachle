@@ -73,7 +73,7 @@ public class RateMovies extends JFrame {
             final int j = i;
             label.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    Movie movie = movies.elementAt(j);      //fix this!!!
+                    Movie movie = movies.elementAt(j);      
                     MovieDetails movieDetails = new MovieDetails(_this, movie);
                     movieDetails.setVisible(true);
                 }

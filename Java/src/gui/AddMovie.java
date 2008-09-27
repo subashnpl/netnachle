@@ -57,7 +57,7 @@ public class AddMovie extends JFrame {
         int duration = -1;
         try{
             duration = Integer.parseInt(this.jFormattedTextFieldDuration.getText());
-        } catch (NumberFormatException e) {System.out.println("what???");}
+        } catch (NumberFormatException e) {}
         return duration;
     }
 
