@@ -68,15 +68,15 @@ public class MovieDetails extends javax.swing.JFrame {
         this.jLabelCountry1.setToolTipText(_movie.get_country());
         this.jLabelCountry1.setMaximumSize(new Dimension(9, 14));
         
-        this.jLabelYear.setText(""+_movie.get_year());
-        this.jLabelYear.setToolTipText(""+_movie.get_year());
+        this.jLabelYear1.setText(""+_movie.get_year());
+        this.jLabelYear1.setToolTipText(""+_movie.get_year());
         
         this.jLabelDuration1.setText(""+_movie.get_duration());
         this.jLabelDuration1.setToolTipText(""+_movie.get_duration());
         try {
             this.jLabelPicture.setIcon(new ImageIcon(getClass().getResource("/Images/" + _movie.get_name() + "_big.jpg")));
         } catch (Exception e) {
-            this.jLabelPicture.setIcon(new ImageIcon(getClass().getResource("/Images/NetNachle.jpg")));
+            this.jLabelPicture.setIcon(new ImageIcon(getClass().getResource("/Images/NetNachle_narrow.JPG")));
         }
     }
     /** This method is called from within the constructor to

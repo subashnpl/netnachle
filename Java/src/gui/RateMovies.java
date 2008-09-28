@@ -123,7 +123,7 @@ public class RateMovies extends JFrame {
             try {
                 _jLabelsPictures.elementAt(i).setIcon(new ImageIcon(getClass().getResource("/Images/" + movie.get_name() + ".jpg")));
             } catch (Exception e) {
-                System.out.println("bla");
+                _jLabelsPictures.elementAt(i).setIcon(new ImageIcon(getClass().getResource("/Images/NetNachleVerySmall_narrow.jpg")));
             }
             rateASindex = _controller.userSaw(new Integer(movie.get_id()));// will return 0 if haven't seen
             jComboBoxsRates.elementAt(i).setSelectedIndex(rateASindex);
