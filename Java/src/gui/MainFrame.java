@@ -152,7 +152,7 @@ public class MainFrame extends JFrame {
             try {
                  _jLabelsPictures.elementAt(i).setIcon(new ImageIcon(getClass().getResource("/Images/"+ movieName +".jpg")));
             } catch (Exception ex) {
-                _jLabelsPictures.elementAt(i).setIcon(new ImageIcon(getClass().getResource("/Images/NetNachleVerySmall.jpg")));
+                _jLabelsPictures.elementAt(i).setIcon(new ImageIcon(getClass().getResource("/Images/NetNachleVerySmall_narrow.jpg")));
                  // Do nothing. The default picture stays.
             }
         }
@@ -226,6 +226,7 @@ public class MainFrame extends JFrame {
         jLabelBigHeader = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
 
         jPanel2.setBackground(GeneralJFrame.backgroundColor);
         jPanel2.setForeground(new java.awt.Color(212, 208, 200));
@@ -582,9 +583,9 @@ public class MainFrame extends JFrame {
                 .addContainerGap())
             .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jPanel1Layout.createSequentialGroup()
-                    .add(0, 299, Short.MAX_VALUE)
+                    .add(0, 301, Short.MAX_VALUE)
                     .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(0, 215, Short.MAX_VALUE)))
+                    .add(0, 217, Short.MAX_VALUE)))
         );
 
         org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
