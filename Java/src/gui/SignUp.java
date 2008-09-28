@@ -318,9 +318,7 @@ private void jButtonNextStepActionPerformed(java.awt.event.ActionEvent evt) {//G
             String _secret = null;
             try {
                 _secret = new String(GeneralJFrame.encrypt(_password));
-            } catch (Exception ex) {
-                Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } catch (Exception ex) {}
             _sex = this.jComboBoxGender.getSelectedItem().toString();
             sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
             String encoded=encoder.encode(_secret.getBytes());
