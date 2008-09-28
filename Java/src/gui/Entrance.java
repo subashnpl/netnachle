@@ -265,6 +265,7 @@ private void jLabelSignUpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST
 }//GEN-LAST:event_jLabelSignUpMouseExited
 
 private void jLabelSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSignUpMouseClicked
+    this.setVisible(false);
     new SignUp(_controller, this).setVisible(true);
     this.setEnabled(false);
 }//GEN-LAST:event_jLabelSignUpMouseClicked
@@ -280,21 +281,21 @@ void enter(String userName, char[] passwordChars, int id){
     User ans = null;
     try {
         ans = _controller.login(encode(passwordChars), userName, id);
-    }catch (NonUserException ex) {
+        _controller.setCurrentUser(ans);
+        if (ans != null && _controller.lowRateUser()) {
+            JOptionPane.showMessageDialog(this, "Dear " + ans.getName() + ", This is not a hore house please rate movies",
+                "RATING ERROR", JOptionPane.ERROR_MESSAGE);
+            RateMovies Rm = new RateMovies(this, _controller);
+            Rm.setVisible(true);
+        } else {
+            doLoginActions();
+        }
+    } catch (NonUserException ex) {
         JOptionPane.showMessageDialog(this, ex.getMessage(),
                 "Login Error", JOptionPane.ERROR_MESSAGE);
     } catch (Exception ex){
         JOptionPane.showMessageDialog(this, ex.getMessage(),
                 "Login Error", JOptionPane.ERROR_MESSAGE);
-    }
-    _controller.setCurrentUser(ans);
-    if (_controller.lowRateUser()) {
-        JOptionPane.showMessageDialog(this, "Dear " + ans.getName() + ", This is not a hore house please rate movies",
-                "RATING ERROR", JOptionPane.ERROR_MESSAGE);
-        RateMovies Rm = new RateMovies(this, _controller);
-        Rm.setVisible(true);
-    } else {
-        doLoginActions();
     }
 }
 
