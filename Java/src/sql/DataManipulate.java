@@ -28,9 +28,9 @@ public class DataManipulate {
         Class.forName("com.mysql.jdbc.Driver");
         
         /* for use in external DB (not on local computer) */
-        //_url = "jdbc:mysql://webdev/netnachle";
-        //_user = "netnachle";
-        //_password = ";tTl&I47";
+//        _url = "jdbc:mysql://webdev/netnachle";
+//        _user = "netnachle";
+//        _password = ";tTl&I47";
         
         /* for use in internal DB (on this computer using wamp) */
         _url = "jdbc:mysql://localhost/netnachle";
