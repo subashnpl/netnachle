@@ -483,10 +483,10 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
             System.out.println("Exception caught2: "+ex.getMessage());
         }      
     }
-    public static void main(String[] args) {
-        Controller c = new Controller(new MatrixHandler());
-        
-        Vector<String> movieActors1 = new Vector<String>();
+//    public static void main(String[] args) {
+//        Controller c = new Controller(new MatrixHandler());
+//        
+//        Vector<String> movieActors1 = new Vector<String>();
 //        movieActors1.add("Yehuda Barkan");
 //        Movie m1 = new Movie("ima ganuv1", 100, "action", movieActors1, 1980, "Israel", 189, "Yehuda Barkan");
 //        c.addMovie(m1);
@@ -597,7 +597,7 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
 //        u2.rateMovie(113, 4);
 //        u2.rateMovie(114, 7);
 //        c.addUser(u2);
-        User admin = new User("YWJj", "administrator", 111111111, "admin", "male");
+//        User admin = new User("YWJj", "administrator", 111111111, "admin", "male");
 //        admin.rateMovie(100, 4);
 //        admin.rateMovie(101, 5);
 //        admin.rateMovie(102, 6);
@@ -613,11 +613,11 @@ public void setRatesByUser(int[] moviesId, int[] rates, int userID) {
 //        admin.rateMovie(112, 1);
 //        admin.rateMovie(113, 2);
 //        admin.rateMovie(114, 1);
-        c.addUser(admin);
-        
-
-        c.shutDown();
-    }
+//        c.addUser(admin);
+//        
+//
+//        c.shutDown();
+//    }
 
     public int getCycleInMinutes() {
         return _cycleInMinutes;
